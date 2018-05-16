@@ -21,6 +21,7 @@ android {
         externalNativeBuild {
             cmake {
                 arguments "-Dcdep-dependencies_DIR=../../../.cdep/modules"
+                arguments "-DANDROID_STL=c++_shared"
             }
         }
     }
