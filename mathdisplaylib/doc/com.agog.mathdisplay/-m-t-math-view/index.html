@@ -1,0 +1,243 @@
+<HTML>
+<HEAD>
+    <meta charset="UTF-8">
+    <title>MTMathView - </title>
+    <link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">com.agog.mathdisplay</a>&nbsp;/&nbsp;<a href=".">MTMathView</a><br/>
+<br/>
+<h1>MTMathView</h1>
+<code><span class="keyword">class </span><span class="identifier">MTMathView</span>&nbsp;<span
+        class="symbol">:</span>&nbsp;<span class="identifier">View</span></code>
+<p>View subclass for rendering LaTeX Math.</p>
+<p><code>MTMathView</code> accepts either a string in LaTeX or an <code>MTMathList</code> to
+    display. Use
+    <code>MTMathList</code> directly only if you are building it programmatically (e.g. using an
+    editor), otherwise using LaTeX is the preferable method.</p>
+<p>The math display is centered vertically in the label. The default horizontal alignment is
+    is left. This can be changed by setting <code>textAlignment</code>. The math is default
+    displayed in
+    Display* mode. This can be changed using <code>labelMode</code>.</p>
+<p>When created it uses <code>MTFontManager.defaultFont</code> as its font. This can be changed
+    using
+    the <code>font</code> parameter.</p>
+<h3>Types</h3>
+<table>
+    <tbody>
+    <tr>
+        <td>
+            <a href="-m-t-math-view-mode/index.html">MTMathViewMode</a></td>
+        <td>
+            <code><span class="keyword">enum</span> <span class="keyword">class </span><span
+                    class="identifier">MTMathViewMode</span>&nbsp;<span class="symbol">:</span>&nbsp;<span
+                    class="identifier">Enum</span><span class="symbol">&lt;</span><a
+                    href="-m-t-math-view-mode/index.html"><span
+                    class="identifier">MTMathViewMode</span></a><span
+                    class="symbol">&gt;</span></code>
+            <p>Different display styles supported by the <code>MTMathView</code>.</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a href="-m-t-text-alignment/index.html">MTTextAlignment</a></td>
+        <td>
+            <code><span class="keyword">enum</span> <span class="keyword">class </span><span
+                    class="identifier">MTTextAlignment</span>&nbsp;<span class="symbol">:</span>&nbsp;<span
+                    class="identifier">Enum</span><span class="symbol">&lt;</span><a
+                    href="-m-t-text-alignment/index.html"><span
+                    class="identifier">MTTextAlignment</span></a><span
+                    class="symbol">&gt;</span></code>
+            <p>If view width is not measured to fit equation size this will specify placement within
+                the view.
+                See <strong>textAlignment</strong></p>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<h3>Constructors</h3>
+<table>
+    <tbody>
+    <tr>
+        <td>
+            <a href="-init-.html">&lt;init&gt;</a></td>
+        <td>
+            <code><span class="identifier">MTMathView</span><span class="symbol">(</span><span
+                    class="identifier"
+                    id="com.agog.mathdisplay.MTMathView$<init>(android.content.Context, android.util.AttributeSet, kotlin.Int)/context">context</span><span
+                    class="symbol">:</span>&nbsp;<span class="identifier">Context</span><span
+                    class="symbol">, </span><span class="identifier"
+                                                  id="com.agog.mathdisplay.MTMathView$<init>(android.content.Context, android.util.AttributeSet, kotlin.Int)/attrs">attrs</span><span
+                    class="symbol">:</span>&nbsp;<span class="identifier">AttributeSet</span><span
+                    class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
+                    class="symbol">, </span><span class="identifier"
+                                                  id="com.agog.mathdisplay.MTMathView$<init>(android.content.Context, android.util.AttributeSet, kotlin.Int)/defStyle">defStyle</span><span
+                    class="symbol">:</span>&nbsp;<span class="identifier">Int</span>&nbsp;<span
+                    class="symbol">=</span>&nbsp;0<span class="symbol">)</span></code>
+            <p>View subclass for rendering LaTeX Math.</p>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<h3>Properties</h3>
+<table>
+    <tbody>
+    <tr>
+        <td>
+            <a href="display-error-inline.html">displayErrorInline</a></td>
+        <td>
+            <code><span class="keyword">var </span><span
+                    class="identifier">displayErrorInline</span><span class="symbol">: </span><span
+                    class="identifier">Boolean</span></code>
+            <p>If true the default parse errors will be drawn as text instead of math equation.
+                Default value is true</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a href="error-font-size.html">errorFontSize</a></td>
+        <td>
+            <code><span class="keyword">val </span><span
+                    class="identifier">errorFontSize</span><span class="symbol">: </span><span
+                    class="identifier">Float</span></code>
+            <p>When parsing errors are drawn this will control the size of the resulting error text
+                and therefore view measured size.
+                In device pixels</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a href="font.html">font</a></td>
+        <td>
+            <code><span class="keyword">var </span><span class="identifier">font</span><span
+                    class="symbol">: </span><a
+                    href="../../com.agog.mathdisplay.render/-m-t-font/index.html"><span
+                    class="identifier">MTFont</span></a><span class="symbol">?</span></code>
+            <p>Font used to draw the equation. See MTFontManager</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a href="font-size.html">fontSize</a></td>
+        <td>
+            <code><span class="keyword">var </span><span class="identifier">fontSize</span><span
+                    class="symbol">: </span><span class="identifier">Float</span></code>
+            <p>This is in device pixels. Default value is see KDefaultFontSize</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a href="label-mode.html">labelMode</a></td>
+        <td>
+            <code><span class="keyword">var </span><span class="identifier">labelMode</span><span
+                    class="symbol">: </span><a href="-m-t-math-view-mode/index.html"><span
+                    class="identifier">MTMathViewMode</span></a></code>
+            <p>Should display or text mode be used.</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a href="last-error.html">lastError</a></td>
+        <td>
+            <code><span class="keyword">val </span><span class="identifier">lastError</span><span
+                    class="symbol">: </span><a
+                    href="../../com.agog.mathdisplay.parse/-m-t-parse-error/index.html"><span
+                    class="identifier">MTParseError</span></a></code>
+            <p>Holds the error status from the last parse of the LaTeX string.
+                The errorcode of this can be checked to determine if the string was well
+                formatted.</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a href="latex.html">latex</a></td>
+        <td>
+            <code><span class="keyword">var </span><span class="identifier">latex</span><span
+                    class="symbol">: </span><span class="identifier">String</span></code>
+            <p>The LaTeX Math string to display in the view.</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a href="math-list.html">mathList</a></td>
+        <td>
+            <code><span class="keyword">var </span><span class="identifier">mathList</span><span
+                    class="symbol">: </span><a
+                    href="../../com.agog.mathdisplay.parse/-m-t-math-list/index.html"><span
+                    class="identifier">MTMathList</span></a><span class="symbol">?</span></code>
+            <p>Not normally used. Only if you are building a mathlist in code.
+                Standard usage is setting a String in latex property.</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a href="text-alignment.html">textAlignment</a></td>
+        <td>
+            <code><span class="keyword">var </span><span
+                    class="identifier">textAlignment</span><span class="symbol">: </span><a
+                    href="-m-t-text-alignment/index.html"><span
+                    class="identifier">MTTextAlignment</span></a></code>
+            <p>Alignment within the view</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a href="text-color.html">textColor</a></td>
+        <td>
+            <code><span class="keyword">var </span><span class="identifier">textColor</span><span
+                    class="symbol">: </span><span class="identifier">Int</span></code>
+            <p>Color of the equation if not overridden with local color changes by TeX commands</p>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<h3>Functions</h3>
+<table>
+    <tbody>
+    <tr>
+        <td>
+            <a href="on-draw.html">onDraw</a></td>
+        <td>
+            <code><span class="keyword">fun </span><span class="identifier">onDraw</span><span
+                    class="symbol">(</span><span class="identifier"
+                                                 id="com.agog.mathdisplay.MTMathView$onDraw(android.graphics.Canvas)/canvas">canvas</span><span
+                    class="symbol">:</span>&nbsp;<span class="identifier">Canvas</span><span
+                    class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a href="on-measure.html">onMeasure</a></td>
+        <td>
+            <code><span class="keyword">fun </span><span class="identifier">onMeasure</span><span
+                    class="symbol">(</span><span class="identifier"
+                                                 id="com.agog.mathdisplay.MTMathView$onMeasure(kotlin.Int, kotlin.Int)/widthMeasureSpec">widthMeasureSpec</span><span
+                    class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span
+                    class="symbol">, </span><span class="identifier"
+                                                  id="com.agog.mathdisplay.MTMathView$onMeasure(kotlin.Int, kotlin.Int)/heightMeasureSpec">heightMeasureSpec</span><span
+                    class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span
+                    class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<h3>Companion Object Functions</h3>
+<table>
+    <tbody>
+    <tr>
+        <td>
+            <a href="convert-dp-to-pixel.html">convertDpToPixel</a></td>
+        <td>
+            <code><span class="keyword">fun </span><span
+                    class="identifier">convertDpToPixel</span><span class="symbol">(</span><span
+                    class="identifier"
+                    id="com.agog.mathdisplay.MTMathView.Companion$convertDpToPixel(kotlin.Float)/dp">dp</span><span
+                    class="symbol">:</span>&nbsp;<span class="identifier">Float</span><span
+                    class="symbol">)</span><span class="symbol">: </span><span class="identifier">Float</span></code>
+            <p>Utility function to convert device independent pixel values to device pixels</p>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</BODY>
+</HTML>

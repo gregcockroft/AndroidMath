@@ -1,0 +1,39 @@
+<HTML>
+<HEAD>
+    <meta charset="UTF-8">
+    <title>MTMathView.
+        <init> -
+    </title>
+    <link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">com.agog.mathdisplay</a>&nbsp;/&nbsp;<a href="index.html">MTMathView</a>&nbsp;/&nbsp;<a
+        href=".">&lt;init&gt;</a><br/>
+<br/>
+<h1>&lt;init&gt;</h1>
+<code><span class="identifier">MTMathView</span><span class="symbol">(</span><span
+        class="identifier"
+        id="com.agog.mathdisplay.MTMathView$<init>(android.content.Context, android.util.AttributeSet, kotlin.Int)/context">context</span><span
+        class="symbol">:</span>&nbsp;<span class="identifier">Context</span><span
+        class="symbol">, </span><span class="identifier"
+                                      id="com.agog.mathdisplay.MTMathView$<init>(android.content.Context, android.util.AttributeSet, kotlin.Int)/attrs">attrs</span><span
+        class="symbol">:</span>&nbsp;<span class="identifier">AttributeSet</span><span
+        class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
+        class="symbol">, </span><span class="identifier"
+                                      id="com.agog.mathdisplay.MTMathView$<init>(android.content.Context, android.util.AttributeSet, kotlin.Int)/defStyle">defStyle</span><span
+        class="symbol">:</span>&nbsp;<span class="identifier">Int</span>&nbsp;<span
+        class="symbol">=</span>&nbsp;0<span class="symbol">)</span></code>
+<p>View subclass for rendering LaTeX Math.</p>
+<p><code>MTMathView</code> accepts either a string in LaTeX or an <code>MTMathList</code> to
+    display. Use
+    <code>MTMathList</code> directly only if you are building it programmatically (e.g. using an
+    editor), otherwise using LaTeX is the preferable method.</p>
+<p>The math display is centered vertically in the label. The default horizontal alignment is
+    is left. This can be changed by setting <code>textAlignment</code>. The math is default
+    displayed in
+    Display* mode. This can be changed using <code>labelMode</code>.</p>
+<p>When created it uses <code>MTFontManager.defaultFont</code> as its font. This can be changed
+    using
+    the <code>font</code> parameter.</p>
+</BODY>
+</HTML>

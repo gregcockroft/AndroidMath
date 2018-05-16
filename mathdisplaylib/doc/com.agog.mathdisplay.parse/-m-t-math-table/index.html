@@ -1,0 +1,299 @@
+<HTML>
+<HEAD>
+    <meta charset="UTF-8">
+    <title>MTMathTable - </title>
+    <link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">com.agog.mathdisplay.parse</a>&nbsp;/&nbsp;<a href=".">MTMathTable</a><br/>
+<br/>
+<h1>MTMathTable</h1>
+<code><span class="keyword">class </span><span class="identifier">MTMathTable</span>&nbsp;<span
+        class="symbol">:</span>&nbsp;<a href="../-m-t-math-atom/index.html"><span
+        class="identifier">MTMathAtom</span></a></code>
+<h3>Constructors</h3>
+<table>
+    <tbody>
+    <tr>
+        <td>
+            <a href="-init-.html">&lt;init&gt;</a></td>
+        <td>
+            <code><span class="identifier">MTMathTable</span><span class="symbol">(</span><span
+                    class="identifier"
+                    id="com.agog.mathdisplay.parse.MTMathTable$<init>(kotlin.String)/env">env</span><span
+                    class="symbol">:</span>&nbsp;<span class="identifier">String</span><span
+                    class="symbol">?</span><span class="symbol">)</span></code><br/>
+            <code><span class="identifier">MTMathTable</span><span class="symbol">(</span><span
+                    class="symbol">)</span></code></td>
+    </tr>
+    </tbody>
+</table>
+<h3>Properties</h3>
+<table>
+    <tbody>
+    <tr>
+        <td>
+            <a href="cells.html">cells</a></td>
+        <td>
+            <code><span class="keyword">var </span><span class="identifier">cells</span><span
+                    class="symbol">: </span><span class="identifier">MutableList</span><span
+                    class="symbol">&lt;</span><span class="identifier">MutableList</span><span
+                    class="symbol">&lt;</span><a href="../-m-t-math-list/index.html"><span
+                    class="identifier">MTMathList</span></a><span class="symbol">&gt;</span><span
+                    class="symbol">&gt;</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="environment.html">environment</a></td>
+        <td>
+            <code><span class="keyword">var </span><span class="identifier">environment</span><span
+                    class="symbol">: </span><span class="identifier">String</span><span
+                    class="symbol">?</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="inter-column-spacing.html">interColumnSpacing</a></td>
+        <td>
+            <code><span class="keyword">var </span><span
+                    class="identifier">interColumnSpacing</span><span class="symbol">: </span><span
+                    class="identifier">Float</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="inter-row-additional-spacing.html">interRowAdditionalSpacing</a></td>
+        <td>
+            <code><span class="keyword">var </span><span class="identifier">interRowAdditionalSpacing</span><span
+                    class="symbol">: </span><span class="identifier">Float</span></code></td>
+    </tr>
+    </tbody>
+</table>
+<h3>Inherited Properties</h3>
+<table>
+    <tbody>
+    <tr>
+        <td>
+            <a href="../-m-t-math-atom/font-style.html">fontStyle</a></td>
+        <td>
+            <code><span class="keyword">var </span><span class="identifier">fontStyle</span><span
+                    class="symbol">: </span><a href="../-m-t-font-style/index.html"><span
+                    class="identifier">MTFontStyle</span></a></code>
+            <p>The font style to be used for the atom.</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a href="../-m-t-math-atom/fused-atoms.html">fusedAtoms</a></td>
+        <td>
+            <code><span class="keyword">var </span><span class="identifier">fusedAtoms</span><span
+                    class="symbol">: </span><span
+                    class="identifier">&lt;ERROR CLASS&gt;</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="../-m-t-math-atom/index-range.html">indexRange</a></td>
+        <td>
+            <code><span class="keyword">var </span><span class="identifier">indexRange</span><span
+                    class="symbol">: </span><a href="../-n-s-range/index.html"><span
+                    class="identifier">NSRange</span></a></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="../-m-t-math-atom/nucleus.html">nucleus</a></td>
+        <td>
+            <code><span class="keyword">var </span><span class="identifier">nucleus</span><span
+                    class="symbol">: </span><span class="identifier">String</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="../-m-t-math-atom/sub-script.html">subScript</a></td>
+        <td>
+            <code><span class="keyword">var </span><span class="identifier">subScript</span><span
+                    class="symbol">: </span><a href="../-m-t-math-list/index.html"><span
+                    class="identifier">MTMathList</span></a><span class="symbol">?</span></code>
+            <p>An optional subscript.</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a href="../-m-t-math-atom/super-script.html">superScript</a></td>
+        <td>
+            <code><span class="keyword">var </span><span class="identifier">superScript</span><span
+                    class="symbol">: </span><a href="../-m-t-math-list/index.html"><span
+                    class="identifier">MTMathList</span></a><span class="symbol">?</span></code>
+            <p>An optional superscript.</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a href="../-m-t-math-atom/type.html">type</a></td>
+        <td>
+            <code><span class="keyword">var </span><span class="identifier">type</span><span
+                    class="symbol">: </span><a href="../-m-t-math-atom-type/index.html"><span
+                    class="identifier">MTMathAtomType</span></a></code></td>
+    </tr>
+    </tbody>
+</table>
+<h3>Functions</h3>
+<table>
+    <tbody>
+    <tr>
+        <td>
+            <a href="copy-deep.html">copyDeep</a></td>
+        <td>
+            <code><span class="keyword">fun </span><span class="identifier">copyDeep</span><span
+                    class="symbol">(</span><span class="symbol">)</span><span
+                    class="symbol">: </span><span class="identifier">MTMathTable</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="finalized.html">finalized</a></td>
+        <td>
+            <code><span class="keyword">fun </span><span class="identifier">finalized</span><span
+                    class="symbol">(</span><span class="symbol">)</span><span
+                    class="symbol">: </span><span class="identifier">MTMathTable</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="get-alignment-for-column.html">getAlignmentForColumn</a></td>
+        <td>
+            <code><span class="keyword">fun </span><span
+                    class="identifier">getAlignmentForColumn</span><span
+                    class="symbol">(</span><span class="identifier"
+                                                 id="com.agog.mathdisplay.parse.MTMathTable$getAlignmentForColumn(kotlin.Int)/column">column</span><span
+                    class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span
+                    class="symbol">)</span><span class="symbol">: </span><a
+                    href="../-m-t-column-alignment/index.html"><span class="identifier">MTColumnAlignment</span></a></code>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a href="num-columns.html">numColumns</a></td>
+        <td>
+            <code><span class="keyword">fun </span><span class="identifier">numColumns</span><span
+                    class="symbol">(</span><span class="symbol">)</span><span
+                    class="symbol">: </span><span class="identifier">Int</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="num-rows.html">numRows</a></td>
+        <td>
+            <code><span class="keyword">fun </span><span class="identifier">numRows</span><span
+                    class="symbol">(</span><span class="symbol">)</span><span
+                    class="symbol">: </span><span class="identifier">Int</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="set-alignment.html">setAlignment</a></td>
+        <td>
+            <code><span class="keyword">fun </span><span class="identifier">setAlignment</span><span
+                    class="symbol">(</span><span class="identifier"
+                                                 id="com.agog.mathdisplay.parse.MTMathTable$setAlignment(com.agog.mathdisplay.parse.MTColumnAlignment, kotlin.Int)/alignment">alignment</span><span
+                    class="symbol">:</span>&nbsp;<a href="../-m-t-column-alignment/index.html"><span
+                    class="identifier">MTColumnAlignment</span></a><span
+                    class="symbol">, </span><span class="identifier"
+                                                  id="com.agog.mathdisplay.parse.MTMathTable$setAlignment(com.agog.mathdisplay.parse.MTColumnAlignment, kotlin.Int)/column">column</span><span
+                    class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span
+                    class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a href="set-cell.html">setCell</a></td>
+        <td>
+            <code><span class="keyword">fun </span><span class="identifier">setCell</span><span
+                    class="symbol">(</span><span class="identifier"
+                                                 id="com.agog.mathdisplay.parse.MTMathTable$setCell(com.agog.mathdisplay.parse.MTMathList, kotlin.Int, kotlin.Int)/list">list</span><span
+                    class="symbol">:</span>&nbsp;<a href="../-m-t-math-list/index.html"><span
+                    class="identifier">MTMathList</span></a><span class="symbol">, </span><span
+                    class="identifier"
+                    id="com.agog.mathdisplay.parse.MTMathTable$setCell(com.agog.mathdisplay.parse.MTMathList, kotlin.Int, kotlin.Int)/row">row</span><span
+                    class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span
+                    class="symbol">, </span><span class="identifier"
+                                                  id="com.agog.mathdisplay.parse.MTMathTable$setCell(com.agog.mathdisplay.parse.MTMathList, kotlin.Int, kotlin.Int)/column">column</span><span
+                    class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span
+                    class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<h3>Inherited Functions</h3>
+<table>
+    <tbody>
+    <tr>
+        <td>
+            <a href="../-m-t-math-atom/copy-deep-content.html">copyDeepContent</a></td>
+        <td>
+            <code><span class="keyword">fun </span><span
+                    class="identifier">copyDeepContent</span><span class="symbol">(</span><span
+                    class="identifier"
+                    id="com.agog.mathdisplay.parse.MTMathAtom$copyDeepContent(com.agog.mathdisplay.parse.MTMathAtom)/atom">atom</span><span
+                    class="symbol">:</span>&nbsp;<a href="../-m-t-math-atom/index.html"><span
+                    class="identifier">MTMathAtom</span></a><span class="symbol">)</span><span
+                    class="symbol">: </span><a href="../-m-t-math-atom/index.html"><span
+                    class="identifier">MTMathAtom</span></a></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="../-m-t-math-atom/description.html">description</a></td>
+        <td>
+            <code><span class="keyword">fun </span><span class="identifier">description</span><span
+                    class="symbol">(</span><span class="symbol">)</span><span
+                    class="symbol">: </span><span class="identifier">String</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="../-m-t-math-atom/finalized.html">finalized</a></td>
+        <td>
+            <code><span class="keyword">fun </span><span class="identifier">finalized</span><span
+                    class="symbol">(</span><span class="identifier"
+                                                 id="com.agog.mathdisplay.parse.MTMathAtom$finalized(com.agog.mathdisplay.parse.MTMathAtom)/newNode">newNode</span><span
+                    class="symbol">:</span>&nbsp;<a href="../-m-t-math-atom/index.html"><span
+                    class="identifier">MTMathAtom</span></a><span class="symbol">)</span><span
+                    class="symbol">: </span><a href="../-m-t-math-atom/index.html"><span
+                    class="identifier">MTMathAtom</span></a></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="../-m-t-math-atom/fuse.html">fuse</a></td>
+        <td>
+            <code><span class="keyword">fun </span><span class="identifier">fuse</span><span
+                    class="symbol">(</span><span class="identifier"
+                                                 id="com.agog.mathdisplay.parse.MTMathAtom$fuse(com.agog.mathdisplay.parse.MTMathAtom)/atom">atom</span><span
+                    class="symbol">:</span>&nbsp;<a href="../-m-t-math-atom/index.html"><span
+                    class="identifier">MTMathAtom</span></a><span class="symbol">)</span><span
+                    class="symbol">: </span><span class="identifier">Unit</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="../-m-t-math-atom/scripts-allowed.html">scriptsAllowed</a></td>
+        <td>
+            <code><span class="keyword">fun </span><span
+                    class="identifier">scriptsAllowed</span><span class="symbol">(</span><span
+                    class="symbol">)</span><span class="symbol">: </span><span class="identifier">Boolean</span></code>
+            <p>Returns true if this atom allows scripts (sub or super).</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a href="../-m-t-math-atom/to-latex-string.html">toLatexString</a></td>
+        <td>
+            <code><span class="keyword">open</span> <span class="keyword">fun </span><span
+                    class="identifier">toLatexString</span><span class="symbol">(</span><span
+                    class="symbol">)</span><span class="symbol">: </span><span class="identifier">String</span></code>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a href="../-m-t-math-atom/to-string-subs.html">toStringSubs</a></td>
+        <td>
+            <code><span class="keyword">fun </span><span class="identifier">toStringSubs</span><span
+                    class="symbol">(</span><span class="identifier"
+                                                 id="com.agog.mathdisplay.parse.MTMathAtom$toStringSubs(kotlin.String)/s">s</span><span
+                    class="symbol">:</span>&nbsp;<span class="identifier">String</span><span
+                    class="symbol">)</span><span class="symbol">: </span><span class="identifier">String</span></code>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</BODY>
+</HTML>

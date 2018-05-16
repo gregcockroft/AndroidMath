@@ -1,0 +1,248 @@
+<HTML>
+<HEAD>
+    <meta charset="UTF-8">
+    <title>MTMathAtomFactory - </title>
+    <link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">com.agog.mathdisplay.parse</a>&nbsp;/&nbsp;<a href=".">MTMathAtomFactory</a><br/>
+<br/>
+<h1>MTMathAtomFactory</h1>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">MTMathAtomFactory</span>&nbsp;<span
+        class="symbol">:</span>&nbsp;<span class="identifier">Any</span></code>
+<h3>Constructors</h3>
+<table>
+    <tbody>
+    <tr>
+        <td>
+            <a href="-init-.html">&lt;init&gt;</a></td>
+        <td>
+            <code><span class="identifier">MTMathAtomFactory</span><span
+                    class="symbol">(</span><span class="symbol">)</span></code></td>
+    </tr>
+    </tbody>
+</table>
+<h3>Properties</h3>
+<table>
+    <tbody>
+    <tr>
+        <td>
+            <a href="aliases.html">aliases</a></td>
+        <td>
+            <code><span class="keyword">val </span><span class="identifier">aliases</span><span
+                    class="symbol">: </span><span class="identifier">&lt;ERROR CLASS&gt;</span><span
+                    class="symbol">&lt;</span><span class="identifier">String</span><span
+                    class="symbol">,</span>&nbsp;<span class="identifier">String</span><span
+                    class="symbol">&gt;</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="font-style-with-name.html">fontStyleWithName</a></td>
+        <td>
+            <code><span class="keyword">val </span><span class="identifier">fontStyleWithName</span><span
+                    class="symbol">: </span><span class="identifier">&lt;ERROR CLASS&gt;</span><span
+                    class="symbol">&lt;</span><span class="identifier">String</span><span
+                    class="symbol">,</span>&nbsp;<a href="../-m-t-font-style/index.html"><span
+                    class="identifier">MTFontStyle</span></a><span class="symbol">&gt;</span></code>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<h3>Functions</h3>
+<table>
+    <tbody>
+    <tr>
+        <td>
+            <a href="accent-name.html">accentName</a></td>
+        <td>
+            <code><span class="keyword">fun </span><span class="identifier">accentName</span><span
+                    class="symbol">(</span><span class="identifier"
+                                                 id="com.agog.mathdisplay.parse.MTMathAtomFactory$accentName(com.agog.mathdisplay.parse.MTAccent)/accent">accent</span><span
+                    class="symbol">:</span>&nbsp;<a href="../-m-t-accent/index.html"><span
+                    class="identifier">MTAccent</span></a><span class="symbol">)</span><span
+                    class="symbol">: </span><span class="identifier">String</span><span
+                    class="symbol">?</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="accent-with-name.html">accentWithName</a></td>
+        <td>
+            <code><span class="keyword">fun </span><span
+                    class="identifier">accentWithName</span><span class="symbol">(</span><span
+                    class="identifier"
+                    id="com.agog.mathdisplay.parse.MTMathAtomFactory$accentWithName(kotlin.String)/accentName">accentName</span><span
+                    class="symbol">:</span>&nbsp;<span class="identifier">String</span><span
+                    class="symbol">)</span><span class="symbol">: </span><a
+                    href="../-m-t-accent/index.html"><span
+                    class="identifier">MTAccent</span></a><span class="symbol">?</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="add-latex-symbol.html">addLatexSymbol</a></td>
+        <td>
+            <code><span class="keyword">fun </span><span
+                    class="identifier">addLatexSymbol</span><span class="symbol">(</span><span
+                    class="identifier"
+                    id="com.agog.mathdisplay.parse.MTMathAtomFactory$addLatexSymbol(kotlin.String, com.agog.mathdisplay.parse.MTMathAtom)/name">name</span><span
+                    class="symbol">:</span>&nbsp;<span class="identifier">String</span><span
+                    class="symbol">, </span><span class="identifier"
+                                                  id="com.agog.mathdisplay.parse.MTMathAtomFactory$addLatexSymbol(kotlin.String, com.agog.mathdisplay.parse.MTMathAtom)/atom">atom</span><span
+                    class="symbol">:</span>&nbsp;<a href="../-m-t-math-atom/index.html"><span
+                    class="identifier">MTMathAtom</span></a><span class="symbol">)</span><span
+                    class="symbol">: </span><span class="identifier">Unit</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="atom-for-latex-symbol-name.html">atomForLatexSymbolName</a></td>
+        <td>
+            <code><span class="keyword">fun </span><span
+                    class="identifier">atomForLatexSymbolName</span><span
+                    class="symbol">(</span><span class="identifier"
+                                                 id="com.agog.mathdisplay.parse.MTMathAtomFactory$atomForLatexSymbolName(kotlin.String)/symbolName">symbolName</span><span
+                    class="symbol">:</span>&nbsp;<span class="identifier">String</span><span
+                    class="symbol">)</span><span class="symbol">: </span><a
+                    href="../-m-t-math-atom/index.html"><span
+                    class="identifier">MTMathAtom</span></a><span class="symbol">?</span></code>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a href="boundary-atom-for-delimiter-name.html">boundaryAtomForDelimiterName</a></td>
+        <td>
+            <code><span class="keyword">fun </span><span class="identifier">boundaryAtomForDelimiterName</span><span
+                    class="symbol">(</span><span class="identifier"
+                                                 id="com.agog.mathdisplay.parse.MTMathAtomFactory$boundaryAtomForDelimiterName(kotlin.String)/delimName">delimName</span><span
+                    class="symbol">:</span>&nbsp;<span class="identifier">String</span><span
+                    class="symbol">)</span><span class="symbol">: </span><a
+                    href="../-m-t-math-atom/index.html"><span
+                    class="identifier">MTMathAtom</span></a><span class="symbol">?</span></code>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a href="delimiter-name-for-boundary-atom.html">delimiterNameForBoundaryAtom</a></td>
+        <td>
+            <code><span class="keyword">fun </span><span class="identifier">delimiterNameForBoundaryAtom</span><span
+                    class="symbol">(</span><span class="identifier"
+                                                 id="com.agog.mathdisplay.parse.MTMathAtomFactory$delimiterNameForBoundaryAtom(com.agog.mathdisplay.parse.MTMathAtom)/boundary">boundary</span><span
+                    class="symbol">:</span>&nbsp;<a href="../-m-t-math-atom/index.html"><span
+                    class="identifier">MTMathAtom</span></a><span class="symbol">)</span><span
+                    class="symbol">: </span><span class="identifier">String</span><span
+                    class="symbol">?</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="font-name-for-style.html">fontNameForStyle</a></td>
+        <td>
+            <code><span class="keyword">fun </span><span
+                    class="identifier">fontNameForStyle</span><span class="symbol">(</span><span
+                    class="identifier"
+                    id="com.agog.mathdisplay.parse.MTMathAtomFactory$fontNameForStyle(com.agog.mathdisplay.parse.MTFontStyle)/fontStyle">fontStyle</span><span
+                    class="symbol">:</span>&nbsp;<a href="../-m-t-font-style/index.html"><span
+                    class="identifier">MTFontStyle</span></a><span class="symbol">)</span><span
+                    class="symbol">: </span><span class="identifier">String</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="fraction-with-numerator.html">fractionWithNumerator</a></td>
+        <td>
+            <code><span class="keyword">fun </span><span
+                    class="identifier">fractionWithNumerator</span><span
+                    class="symbol">(</span><span class="identifier"
+                                                 id="com.agog.mathdisplay.parse.MTMathAtomFactory$fractionWithNumerator(kotlin.String, kotlin.String)/numStr">numStr</span><span
+                    class="symbol">:</span>&nbsp;<span class="identifier">String</span><span
+                    class="symbol">, </span><span class="identifier"
+                                                  id="com.agog.mathdisplay.parse.MTMathAtomFactory$fractionWithNumerator(kotlin.String, kotlin.String)/denominatorStr">denominatorStr</span><span
+                    class="symbol">:</span>&nbsp;<span class="identifier">String</span><span
+                    class="symbol">)</span><span class="symbol">: </span><a
+                    href="../-m-t-fraction/index.html"><span
+                    class="identifier">MTFraction</span></a></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="latex-symbol-name-for-atom.html">latexSymbolNameForAtom</a></td>
+        <td>
+            <code><span class="keyword">fun </span><span
+                    class="identifier">latexSymbolNameForAtom</span><span
+                    class="symbol">(</span><span class="identifier"
+                                                 id="com.agog.mathdisplay.parse.MTMathAtomFactory$latexSymbolNameForAtom(com.agog.mathdisplay.parse.MTMathAtom)/atom">atom</span><span
+                    class="symbol">:</span>&nbsp;<a href="../-m-t-math-atom/index.html"><span
+                    class="identifier">MTMathAtom</span></a><span class="symbol">)</span><span
+                    class="symbol">: </span><span class="identifier">String</span><span
+                    class="symbol">?</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="math-list-for-characters.html">mathListForCharacters</a></td>
+        <td>
+            <code><span class="keyword">fun </span><span
+                    class="identifier">mathListForCharacters</span><span
+                    class="symbol">(</span><span class="identifier"
+                                                 id="com.agog.mathdisplay.parse.MTMathAtomFactory$mathListForCharacters(kotlin.String)/chars">chars</span><span
+                    class="symbol">:</span>&nbsp;<span class="identifier">String</span><span
+                    class="symbol">)</span><span class="symbol">: </span><a
+                    href="../-m-t-math-list/index.html"><span
+                    class="identifier">MTMathList</span></a></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="operator-with-name.html">operatorWithName</a></td>
+        <td>
+            <code><span class="keyword">fun </span><span
+                    class="identifier">operatorWithName</span><span class="symbol">(</span><span
+                    class="identifier"
+                    id="com.agog.mathdisplay.parse.MTMathAtomFactory$operatorWithName(kotlin.String, kotlin.Boolean)/name">name</span><span
+                    class="symbol">:</span>&nbsp;<span class="identifier">String</span><span
+                    class="symbol">, </span><span class="identifier"
+                                                  id="com.agog.mathdisplay.parse.MTMathAtomFactory$operatorWithName(kotlin.String, kotlin.Boolean)/limits">limits</span><span
+                    class="symbol">:</span>&nbsp;<span class="identifier">Boolean</span><span
+                    class="symbol">)</span><span class="symbol">: </span><a
+                    href="../-m-t-large-operator/index.html"><span class="identifier">MTLargeOperator</span></a></code>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a href="supported-latex-symbol-names.html">supportedLatexSymbolNames</a></td>
+        <td>
+            <code><span class="keyword">fun </span><span class="identifier">supportedLatexSymbolNames</span><span
+                    class="symbol">(</span><span class="symbol">)</span><span
+                    class="symbol">: </span><span class="identifier">List</span><span
+                    class="symbol">&lt;</span><span class="identifier">String</span><span
+                    class="symbol">&gt;</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="table-with-environment.html">tableWithEnvironment</a></td>
+        <td>
+            <code><span class="keyword">fun </span><span
+                    class="identifier">tableWithEnvironment</span><span class="symbol">(</span><span
+                    class="identifier"
+                    id="com.agog.mathdisplay.parse.MTMathAtomFactory$tableWithEnvironment(kotlin.String, kotlin.collections.MutableList((kotlin.collections.MutableList((com.agog.mathdisplay.parse.MTMathList)))), com.agog.mathdisplay.parse.MTParseError)/env">env</span><span
+                    class="symbol">:</span>&nbsp;<span class="identifier">String</span><span
+                    class="symbol">?</span><span class="symbol">, </span><span class="identifier"
+                                                                               id="com.agog.mathdisplay.parse.MTMathAtomFactory$tableWithEnvironment(kotlin.String, kotlin.collections.MutableList((kotlin.collections.MutableList((com.agog.mathdisplay.parse.MTMathList)))), com.agog.mathdisplay.parse.MTParseError)/cells">cells</span><span
+                    class="symbol">:</span>&nbsp;<span class="identifier">MutableList</span><span
+                    class="symbol">&lt;</span><span class="identifier">MutableList</span><span
+                    class="symbol">&lt;</span><a href="../-m-t-math-list/index.html"><span
+                    class="identifier">MTMathList</span></a><span class="symbol">&gt;</span><span
+                    class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier"
+                                                                                  id="com.agog.mathdisplay.parse.MTMathAtomFactory$tableWithEnvironment(kotlin.String, kotlin.collections.MutableList((kotlin.collections.MutableList((com.agog.mathdisplay.parse.MTMathList)))), com.agog.mathdisplay.parse.MTParseError)/error">error</span><span
+                    class="symbol">:</span>&nbsp;<a href="../-m-t-parse-error/index.html"><span
+                    class="identifier">MTParseError</span></a><span class="symbol">)</span><span
+                    class="symbol">: </span><a href="../-m-t-math-atom/index.html"><span
+                    class="identifier">MTMathAtom</span></a><span class="symbol">?</span></code>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a href="times.html">times</a></td>
+        <td>
+            <code><span class="keyword">fun </span><span class="identifier">times</span><span
+                    class="symbol">(</span><span class="symbol">)</span><span
+                    class="symbol">: </span><a href="../-m-t-math-atom/index.html"><span
+                    class="identifier">MTMathAtom</span></a></code></td>
+    </tr>
+    </tbody>
+</table>
+</BODY>
+</HTML>

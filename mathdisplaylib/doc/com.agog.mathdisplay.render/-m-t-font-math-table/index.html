@@ -1,0 +1,790 @@
+<HTML>
+<HEAD>
+    <meta charset="UTF-8">
+    <title>MTFontMathTable - </title>
+    <link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">com.agog.mathdisplay.render</a>&nbsp;/&nbsp;<a
+        href=".">MTFontMathTable</a><br/>
+<br/>
+<h1>MTFontMathTable</h1>
+<code><span class="keyword">class </span><span class="identifier">MTFontMathTable</span>&nbsp;<span
+        class="symbol">:</span>&nbsp;<span class="identifier">Any</span></code>
+<h3>Constructors</h3>
+<table>
+    <tbody>
+    <tr>
+        <td>
+            <a href="-init-.html">&lt;init&gt;</a></td>
+        <td>
+            <code><span class="identifier">MTFontMathTable</span><span class="symbol">(</span><span
+                    class="identifier"
+                    id="com.agog.mathdisplay.render.MTFontMathTable$<init>(com.agog.mathdisplay.render.MTFont, java.io.InputStream)/font">font</span><span
+                    class="symbol">:</span>&nbsp;<a href="../-m-t-font/index.html"><span
+                    class="identifier">MTFont</span></a><span class="symbol">, </span><span
+                    class="identifier"
+                    id="com.agog.mathdisplay.render.MTFontMathTable$<init>(com.agog.mathdisplay.render.MTFont, java.io.InputStream)/istreamotf">istreamotf</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="http://docs.oracle.com/javase/6/docs/api/java/io/InputStream.html"><span
+                    class="identifier">InputStream</span></a><span class="symbol">?</span><span
+                    class="symbol">)</span></code></td>
+    </tr>
+    </tbody>
+</table>
+<h3>Properties</h3>
+<table>
+    <tbody>
+    <tr>
+        <td>
+            <a href="accent-base-height.html">accentBaseHeight</a></td>
+        <td>
+            <code><span class="keyword">val </span><span
+                    class="identifier">accentBaseHeight</span><span class="symbol">: </span><span
+                    class="identifier">Float</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="axis-height.html">axisHeight</a></td>
+        <td>
+            <code><span class="keyword">val </span><span class="identifier">axisHeight</span><span
+                    class="symbol">: </span><span class="identifier">Float</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="delimited-sub-formula-min-height.html">delimitedSubFormulaMinHeight</a></td>
+        <td>
+            <code><span class="keyword">val </span><span class="identifier">delimitedSubFormulaMinHeight</span><span
+                    class="symbol">: </span><span class="identifier">Float</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="display-operator-min-height.html">displayOperatorMinHeight</a></td>
+        <td>
+            <code><span class="keyword">val </span><span
+                    class="identifier">displayOperatorMinHeight</span><span class="symbol">: </span><span
+                    class="identifier">Float</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="flattened-accent-base-height.html">flattenedAccentBaseHeight</a></td>
+        <td>
+            <code><span class="keyword">val </span><span class="identifier">flattenedAccentBaseHeight</span><span
+                    class="symbol">: </span><span class="identifier">Float</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="font.html">font</a></td>
+        <td>
+            <code><span class="keyword">val </span><span class="identifier">font</span><span
+                    class="symbol">: </span><a href="../-m-t-font/index.html"><span
+                    class="identifier">MTFont</span></a></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="font-size.html">fontSize</a></td>
+        <td>
+            <code><span class="keyword">var </span><span class="identifier">fontSize</span><span
+                    class="symbol">: </span><span class="identifier">Float</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="fraction-delimiter-display-style-size.html">fractionDelimiterDisplayStyleSize</a>
+        </td>
+        <td>
+            <code><span class="keyword">val </span><span class="identifier">fractionDelimiterDisplayStyleSize</span><span
+                    class="symbol">: </span><span class="identifier">Float</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="fraction-delimiter-size.html">fractionDelimiterSize</a></td>
+        <td>
+            <code><span class="keyword">val </span><span
+                    class="identifier">fractionDelimiterSize</span><span
+                    class="symbol">: </span><span class="identifier">Float</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="fraction-denominator-display-style-gap-min.html">fractionDenominatorDisplayStyleGapMin</a>
+        </td>
+        <td>
+            <code><span class="keyword">val </span><span class="identifier">fractionDenominatorDisplayStyleGapMin</span><span
+                    class="symbol">: </span><span class="identifier">Float</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="fraction-denominator-display-style-shift-down.html">fractionDenominatorDisplayStyleShiftDown</a>
+        </td>
+        <td>
+            <code><span class="keyword">val </span><span class="identifier">fractionDenominatorDisplayStyleShiftDown</span><span
+                    class="symbol">: </span><span class="identifier">Float</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="fraction-denominator-gap-min.html">fractionDenominatorGapMin</a></td>
+        <td>
+            <code><span class="keyword">val </span><span class="identifier">fractionDenominatorGapMin</span><span
+                    class="symbol">: </span><span class="identifier">Float</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="fraction-denominator-shift-down.html">fractionDenominatorShiftDown</a></td>
+        <td>
+            <code><span class="keyword">val </span><span class="identifier">fractionDenominatorShiftDown</span><span
+                    class="symbol">: </span><span class="identifier">Float</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="fraction-numerator-display-style-gap-min.html">fractionNumeratorDisplayStyleGapMin</a>
+        </td>
+        <td>
+            <code><span class="keyword">val </span><span class="identifier">fractionNumeratorDisplayStyleGapMin</span><span
+                    class="symbol">: </span><span class="identifier">Float</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="fraction-numerator-display-style-shift-up.html">fractionNumeratorDisplayStyleShiftUp</a>
+        </td>
+        <td>
+            <code><span class="keyword">val </span><span class="identifier">fractionNumeratorDisplayStyleShiftUp</span><span
+                    class="symbol">: </span><span class="identifier">Float</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="fraction-numerator-gap-min.html">fractionNumeratorGapMin</a></td>
+        <td>
+            <code><span class="keyword">val </span><span
+                    class="identifier">fractionNumeratorGapMin</span><span
+                    class="symbol">: </span><span class="identifier">Float</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="fraction-numerator-shift-up.html">fractionNumeratorShiftUp</a></td>
+        <td>
+            <code><span class="keyword">val </span><span
+                    class="identifier">fractionNumeratorShiftUp</span><span class="symbol">: </span><span
+                    class="identifier">Float</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="fraction-rule-thickness.html">fractionRuleThickness</a></td>
+        <td>
+            <code><span class="keyword">val </span><span
+                    class="identifier">fractionRuleThickness</span><span
+                    class="symbol">: </span><span class="identifier">Float</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="free-type-math-table.html">freeTypeMathTable</a></td>
+        <td>
+            <code><span class="keyword">lateinit</span> <span class="keyword">var </span><span
+                    class="identifier">freeTypeMathTable</span><span class="symbol">: </span><span
+                    class="identifier">&lt;ERROR CLASS&gt;</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="freeface.html">freeface</a></td>
+        <td>
+            <code><span class="keyword">lateinit</span> <span class="keyword">var </span><span
+                    class="identifier">freeface</span><span class="symbol">: </span><span
+                    class="identifier">&lt;ERROR CLASS&gt;</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="istreamotf.html">istreamotf</a></td>
+        <td>
+            <code><span class="keyword">var </span><span class="identifier">istreamotf</span><span
+                    class="symbol">: </span><a
+                    href="http://docs.oracle.com/javase/6/docs/api/java/io/InputStream.html"><span
+                    class="identifier">InputStream</span></a><span class="symbol">?</span></code>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a href="limit-extra-ascender-descender.html">limitExtraAscenderDescender</a></td>
+        <td>
+            <code><span class="keyword">val </span><span class="identifier">limitExtraAscenderDescender</span><span
+                    class="symbol">: </span><span class="identifier">Float</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="lower-limit-baseline-drop-min.html">lowerLimitBaselineDropMin</a></td>
+        <td>
+            <code><span class="keyword">val </span><span class="identifier">lowerLimitBaselineDropMin</span><span
+                    class="symbol">: </span><span class="identifier">Float</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="lower-limit-gap-min.html">lowerLimitGapMin</a></td>
+        <td>
+            <code><span class="keyword">val </span><span
+                    class="identifier">lowerLimitGapMin</span><span class="symbol">: </span><span
+                    class="identifier">Float</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="math-leading.html">mathLeading</a></td>
+        <td>
+            <code><span class="keyword">val </span><span class="identifier">mathLeading</span><span
+                    class="symbol">: </span><span class="identifier">Float</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="min-connector-overlap.html">minConnectorOverlap</a></td>
+        <td>
+            <code><span class="keyword">val </span><span
+                    class="identifier">minConnectorOverlap</span><span class="symbol">: </span><span
+                    class="identifier">Float</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="overbar-extra-ascender.html">overbarExtraAscender</a></td>
+        <td>
+            <code><span class="keyword">val </span><span
+                    class="identifier">overbarExtraAscender</span><span
+                    class="symbol">: </span><span class="identifier">Float</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="overbar-rule-thickness.html">overbarRuleThickness</a></td>
+        <td>
+            <code><span class="keyword">val </span><span
+                    class="identifier">overbarRuleThickness</span><span
+                    class="symbol">: </span><span class="identifier">Float</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="overbar-vertical-gap.html">overbarVerticalGap</a></td>
+        <td>
+            <code><span class="keyword">val </span><span
+                    class="identifier">overbarVerticalGap</span><span class="symbol">: </span><span
+                    class="identifier">Float</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="radical-degree-bottom-raise-percent.html">radicalDegreeBottomRaisePercent</a>
+        </td>
+        <td>
+            <code><span class="keyword">val </span><span class="identifier">radicalDegreeBottomRaisePercent</span><span
+                    class="symbol">: </span><span class="identifier">Float</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="radical-display-style-vertical-gap.html">radicalDisplayStyleVerticalGap</a>
+        </td>
+        <td>
+            <code><span class="keyword">val </span><span class="identifier">radicalDisplayStyleVerticalGap</span><span
+                    class="symbol">: </span><span class="identifier">Float</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="radical-extra-ascender.html">radicalExtraAscender</a></td>
+        <td>
+            <code><span class="keyword">val </span><span
+                    class="identifier">radicalExtraAscender</span><span
+                    class="symbol">: </span><span class="identifier">Float</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="radical-kern-after-degree.html">radicalKernAfterDegree</a></td>
+        <td>
+            <code><span class="keyword">val </span><span
+                    class="identifier">radicalKernAfterDegree</span><span
+                    class="symbol">: </span><span class="identifier">Float</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="radical-kern-before-degree.html">radicalKernBeforeDegree</a></td>
+        <td>
+            <code><span class="keyword">val </span><span
+                    class="identifier">radicalKernBeforeDegree</span><span
+                    class="symbol">: </span><span class="identifier">Float</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="radical-rule-thickness.html">radicalRuleThickness</a></td>
+        <td>
+            <code><span class="keyword">val </span><span
+                    class="identifier">radicalRuleThickness</span><span
+                    class="symbol">: </span><span class="identifier">Float</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="radical-vertical-gap.html">radicalVerticalGap</a></td>
+        <td>
+            <code><span class="keyword">val </span><span
+                    class="identifier">radicalVerticalGap</span><span class="symbol">: </span><span
+                    class="identifier">Float</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="script-scale-down.html">scriptScaleDown</a></td>
+        <td>
+            <code><span class="keyword">val </span><span
+                    class="identifier">scriptScaleDown</span><span class="symbol">: </span><span
+                    class="identifier">Float</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="script-script-scale-down.html">scriptScriptScaleDown</a></td>
+        <td>
+            <code><span class="keyword">val </span><span
+                    class="identifier">scriptScriptScaleDown</span><span
+                    class="symbol">: </span><span class="identifier">Float</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="skewed-fraction-horizontal-gap.html">skewedFractionHorizontalGap</a></td>
+        <td>
+            <code><span class="keyword">val </span><span class="identifier">skewedFractionHorizontalGap</span><span
+                    class="symbol">: </span><span class="identifier">Float</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="skewed-fraction-vertical-gap.html">skewedFractionVerticalGap</a></td>
+        <td>
+            <code><span class="keyword">val </span><span class="identifier">skewedFractionVerticalGap</span><span
+                    class="symbol">: </span><span class="identifier">Float</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="space-after-script.html">spaceAfterScript</a></td>
+        <td>
+            <code><span class="keyword">val </span><span
+                    class="identifier">spaceAfterScript</span><span class="symbol">: </span><span
+                    class="identifier">Float</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="stack-bottom-display-style-shift-down.html">stackBottomDisplayStyleShiftDown</a>
+        </td>
+        <td>
+            <code><span class="keyword">val </span><span class="identifier">stackBottomDisplayStyleShiftDown</span><span
+                    class="symbol">: </span><span class="identifier">Float</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="stack-bottom-shift-down.html">stackBottomShiftDown</a></td>
+        <td>
+            <code><span class="keyword">val </span><span
+                    class="identifier">stackBottomShiftDown</span><span
+                    class="symbol">: </span><span class="identifier">Float</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="stack-display-style-gap-min.html">stackDisplayStyleGapMin</a></td>
+        <td>
+            <code><span class="keyword">val </span><span
+                    class="identifier">stackDisplayStyleGapMin</span><span
+                    class="symbol">: </span><span class="identifier">Float</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="stack-gap-min.html">stackGapMin</a></td>
+        <td>
+            <code><span class="keyword">val </span><span class="identifier">stackGapMin</span><span
+                    class="symbol">: </span><span class="identifier">Float</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="stack-top-display-style-shift-up.html">stackTopDisplayStyleShiftUp</a></td>
+        <td>
+            <code><span class="keyword">val </span><span class="identifier">stackTopDisplayStyleShiftUp</span><span
+                    class="symbol">: </span><span class="identifier">Float</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="stack-top-shift-up.html">stackTopShiftUp</a></td>
+        <td>
+            <code><span class="keyword">val </span><span
+                    class="identifier">stackTopShiftUp</span><span class="symbol">: </span><span
+                    class="identifier">Float</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="stretch-stack-bottom-shift-down.html">stretchStackBottomShiftDown</a></td>
+        <td>
+            <code><span class="keyword">val </span><span class="identifier">stretchStackBottomShiftDown</span><span
+                    class="symbol">: </span><span class="identifier">Float</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="stretch-stack-gap-above-min.html">stretchStackGapAboveMin</a></td>
+        <td>
+            <code><span class="keyword">val </span><span
+                    class="identifier">stretchStackGapAboveMin</span><span
+                    class="symbol">: </span><span class="identifier">Float</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="stretch-stack-gap-below-min.html">stretchStackGapBelowMin</a></td>
+        <td>
+            <code><span class="keyword">val </span><span
+                    class="identifier">stretchStackGapBelowMin</span><span
+                    class="symbol">: </span><span class="identifier">Float</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="stretch-stack-top-shift-up.html">stretchStackTopShiftUp</a></td>
+        <td>
+            <code><span class="keyword">val </span><span
+                    class="identifier">stretchStackTopShiftUp</span><span
+                    class="symbol">: </span><span class="identifier">Float</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="sub-superscript-gap-min.html">subSuperscriptGapMin</a></td>
+        <td>
+            <code><span class="keyword">val </span><span
+                    class="identifier">subSuperscriptGapMin</span><span
+                    class="symbol">: </span><span class="identifier">Float</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="subscript-baseline-drop-min.html">subscriptBaselineDropMin</a></td>
+        <td>
+            <code><span class="keyword">val </span><span
+                    class="identifier">subscriptBaselineDropMin</span><span class="symbol">: </span><span
+                    class="identifier">Float</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="subscript-shift-down.html">subscriptShiftDown</a></td>
+        <td>
+            <code><span class="keyword">val </span><span
+                    class="identifier">subscriptShiftDown</span><span class="symbol">: </span><span
+                    class="identifier">Float</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="subscript-top-max.html">subscriptTopMax</a></td>
+        <td>
+            <code><span class="keyword">val </span><span
+                    class="identifier">subscriptTopMax</span><span class="symbol">: </span><span
+                    class="identifier">Float</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="superscript-baseline-drop-max.html">superscriptBaselineDropMax</a></td>
+        <td>
+            <code><span class="keyword">val </span><span class="identifier">superscriptBaselineDropMax</span><span
+                    class="symbol">: </span><span class="identifier">Float</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="superscript-bottom-max-with-subscript.html">superscriptBottomMaxWithSubscript</a>
+        </td>
+        <td>
+            <code><span class="keyword">val </span><span class="identifier">superscriptBottomMaxWithSubscript</span><span
+                    class="symbol">: </span><span class="identifier">Float</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="superscript-bottom-min.html">superscriptBottomMin</a></td>
+        <td>
+            <code><span class="keyword">val </span><span
+                    class="identifier">superscriptBottomMin</span><span
+                    class="symbol">: </span><span class="identifier">Float</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="superscript-shift-up.html">superscriptShiftUp</a></td>
+        <td>
+            <code><span class="keyword">val </span><span
+                    class="identifier">superscriptShiftUp</span><span class="symbol">: </span><span
+                    class="identifier">Float</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="superscript-shift-up-cramped.html">superscriptShiftUpCramped</a></td>
+        <td>
+            <code><span class="keyword">val </span><span class="identifier">superscriptShiftUpCramped</span><span
+                    class="symbol">: </span><span class="identifier">Float</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="underbar-extra-descender.html">underbarExtraDescender</a></td>
+        <td>
+            <code><span class="keyword">val </span><span
+                    class="identifier">underbarExtraDescender</span><span
+                    class="symbol">: </span><span class="identifier">Float</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="underbar-rule-thickness.html">underbarRuleThickness</a></td>
+        <td>
+            <code><span class="keyword">val </span><span
+                    class="identifier">underbarRuleThickness</span><span
+                    class="symbol">: </span><span class="identifier">Float</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="underbar-vertical-gap.html">underbarVerticalGap</a></td>
+        <td>
+            <code><span class="keyword">val </span><span
+                    class="identifier">underbarVerticalGap</span><span class="symbol">: </span><span
+                    class="identifier">Float</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="units-per-em.html">unitsPerEm</a></td>
+        <td>
+            <code><span class="keyword">var </span><span class="identifier">unitsPerEm</span><span
+                    class="symbol">: </span><span class="identifier">Int</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="upper-limit-baseline-rise-min.html">upperLimitBaselineRiseMin</a></td>
+        <td>
+            <code><span class="keyword">val </span><span class="identifier">upperLimitBaselineRiseMin</span><span
+                    class="symbol">: </span><span class="identifier">Float</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="upper-limit-gap-min.html">upperLimitGapMin</a></td>
+        <td>
+            <code><span class="keyword">val </span><span
+                    class="identifier">upperLimitGapMin</span><span class="symbol">: </span><span
+                    class="identifier">Float</span></code></td>
+    </tr>
+    </tbody>
+</table>
+<h3>Functions</h3>
+<table>
+    <tbody>
+    <tr>
+        <td>
+            <a href="check-font-size.html">checkFontSize</a></td>
+        <td>
+            <code><span class="keyword">fun </span><span
+                    class="identifier">checkFontSize</span><span class="symbol">(</span><span
+                    class="symbol">)</span><span class="symbol">: </span><span class="identifier">&lt;ERROR CLASS&gt;</span></code>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a href="constant-from-table.html">constantFromTable</a></td>
+        <td>
+            <code><span class="keyword">fun </span><span class="identifier">constantFromTable</span><span
+                    class="symbol">(</span><span class="identifier"
+                                                 id="com.agog.mathdisplay.render.MTFontMathTable$constantFromTable(kotlin.String)/constName">constName</span><span
+                    class="symbol">:</span>&nbsp;<span class="identifier">String</span><span
+                    class="symbol">)</span><span class="symbol">: </span><span class="identifier">Float</span></code>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a href="copy-font-table-with-size.html">copyFontTableWithSize</a></td>
+        <td>
+            <code><span class="keyword">fun </span><span
+                    class="identifier">copyFontTableWithSize</span><span
+                    class="symbol">(</span><span class="identifier"
+                                                 id="com.agog.mathdisplay.render.MTFontMathTable$copyFontTableWithSize(kotlin.Float)/size">size</span><span
+                    class="symbol">:</span>&nbsp;<span class="identifier">Float</span><span
+                    class="symbol">)</span><span class="symbol">: </span><span class="identifier">MTFontMathTable</span></code>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a href="font-units-box.html">fontUnitsBox</a></td>
+        <td>
+            <code><span class="keyword">fun </span><span class="identifier">fontUnitsBox</span><span
+                    class="symbol">(</span><span class="identifier"
+                                                 id="com.agog.mathdisplay.render.MTFontMathTable$fontUnitsBox(com.agog.mathdisplay.render.BoundingBox)/b">b</span><span
+                    class="symbol">:</span>&nbsp;<a href="../-bounding-box/index.html"><span
+                    class="identifier">BoundingBox</span></a><span class="symbol">)</span><span
+                    class="symbol">: </span><a href="../-bounding-box/index.html"><span
+                    class="identifier">BoundingBox</span></a></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="get-advances-for-glyphs.html">getAdvancesForGlyphs</a></td>
+        <td>
+            <code><span class="keyword">fun </span><span
+                    class="identifier">getAdvancesForGlyphs</span><span class="symbol">(</span><span
+                    class="identifier"
+                    id="com.agog.mathdisplay.render.MTFontMathTable$getAdvancesForGlyphs(kotlin.collections.List((kotlin.Int)), kotlin.Array((kotlin.Float)), kotlin.Int)/glyphs">glyphs</span><span
+                    class="symbol">:</span>&nbsp;<span class="identifier">List</span><span
+                    class="symbol">&lt;</span><span class="identifier">Int</span><span
+                    class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier"
+                                                                                  id="com.agog.mathdisplay.render.MTFontMathTable$getAdvancesForGlyphs(kotlin.collections.List((kotlin.Int)), kotlin.Array((kotlin.Float)), kotlin.Int)/advances">advances</span><span
+                    class="symbol">:</span>&nbsp;<span class="identifier">Array</span><span
+                    class="symbol">&lt;</span><span class="identifier">Float</span><span
+                    class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier"
+                                                                                  id="com.agog.mathdisplay.render.MTFontMathTable$getAdvancesForGlyphs(kotlin.collections.List((kotlin.Int)), kotlin.Array((kotlin.Float)), kotlin.Int)/count">count</span><span
+                    class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span
+                    class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a href="get-bounding-rects-for-glyphs.html">getBoundingRectsForGlyphs</a></td>
+        <td>
+            <code><span class="keyword">fun </span><span class="identifier">getBoundingRectsForGlyphs</span><span
+                    class="symbol">(</span><span class="identifier"
+                                                 id="com.agog.mathdisplay.render.MTFontMathTable$getBoundingRectsForGlyphs(kotlin.collections.List((kotlin.Int)), kotlin.Array((com.agog.mathdisplay.render.BoundingBox)), kotlin.Int)/glyphs">glyphs</span><span
+                    class="symbol">:</span>&nbsp;<span class="identifier">List</span><span
+                    class="symbol">&lt;</span><span class="identifier">Int</span><span
+                    class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier"
+                                                                                  id="com.agog.mathdisplay.render.MTFontMathTable$getBoundingRectsForGlyphs(kotlin.collections.List((kotlin.Int)), kotlin.Array((com.agog.mathdisplay.render.BoundingBox)), kotlin.Int)/boundingRects">boundingRects</span><span
+                    class="symbol">:</span>&nbsp;<span class="identifier">Array</span><span
+                    class="symbol">&lt;</span><a href="../-bounding-box/index.html"><span
+                    class="identifier">BoundingBox</span></a><span class="symbol">?</span><span
+                    class="symbol">&gt;</span><span class="symbol">?</span><span
+                    class="symbol">, </span><span class="identifier"
+                                                  id="com.agog.mathdisplay.render.MTFontMathTable$getBoundingRectsForGlyphs(kotlin.collections.List((kotlin.Int)), kotlin.Array((com.agog.mathdisplay.render.BoundingBox)), kotlin.Int)/count">count</span><span
+                    class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span
+                    class="symbol">)</span><span class="symbol">: </span><a
+                    href="../-bounding-box/index.html"><span
+                    class="identifier">BoundingBox</span></a></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="get-glyph-for-codepoint.html">getGlyphForCodepoint</a></td>
+        <td>
+            <code><span class="keyword">fun </span><span
+                    class="identifier">getGlyphForCodepoint</span><span class="symbol">(</span><span
+                    class="identifier"
+                    id="com.agog.mathdisplay.render.MTFontMathTable$getGlyphForCodepoint(kotlin.Int)/codepoint">codepoint</span><span
+                    class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span
+                    class="symbol">)</span><span class="symbol">: </span><span class="identifier">Int</span></code>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a href="get-glyph-name.html">getGlyphName</a></td>
+        <td>
+            <code><span class="keyword">fun </span><span class="identifier">getGlyphName</span><span
+                    class="symbol">(</span><span class="identifier"
+                                                 id="com.agog.mathdisplay.render.MTFontMathTable$getGlyphName(kotlin.Int)/gid">gid</span><span
+                    class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span
+                    class="symbol">)</span><span class="symbol">: </span><span class="identifier">String</span></code>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a href="get-glyph-with-name.html">getGlyphWithName</a></td>
+        <td>
+            <code><span class="keyword">fun </span><span
+                    class="identifier">getGlyphWithName</span><span class="symbol">(</span><span
+                    class="identifier"
+                    id="com.agog.mathdisplay.render.MTFontMathTable$getGlyphWithName(kotlin.String)/glyphName">glyphName</span><span
+                    class="symbol">:</span>&nbsp;<span class="identifier">String</span><span
+                    class="symbol">)</span><span class="symbol">: </span><span class="identifier">Int</span></code>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a href="get-horizontal-variants-for-glyph.html">getHorizontalVariantsForGlyph</a></td>
+        <td>
+            <code><span class="keyword">fun </span><span class="identifier">getHorizontalVariantsForGlyph</span><span
+                    class="symbol">(</span><span class="identifier"
+                                                 id="com.agog.mathdisplay.render.MTFontMathTable$getHorizontalVariantsForGlyph(com.agog.mathdisplay.render.CGGlyph)/glyph">glyph</span><span
+                    class="symbol">:</span>&nbsp;<a href="../-c-g-glyph/index.html"><span
+                    class="identifier">CGGlyph</span></a><span class="symbol">)</span><span
+                    class="symbol">: </span><span class="identifier">List</span><span
+                    class="symbol">&lt;</span><span class="identifier">Int</span><span
+                    class="symbol">&gt;</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="get-italic-correction.html">getItalicCorrection</a></td>
+        <td>
+            <code><span class="keyword">fun </span><span
+                    class="identifier">getItalicCorrection</span><span class="symbol">(</span><span
+                    class="identifier"
+                    id="com.agog.mathdisplay.render.MTFontMathTable$getItalicCorrection(kotlin.Int)/gid">gid</span><span
+                    class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span
+                    class="symbol">)</span><span class="symbol">: </span><span class="identifier">Float</span></code>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a href="get-larger-glyph.html">getLargerGlyph</a></td>
+        <td>
+            <code><span class="keyword">fun </span><span
+                    class="identifier">getLargerGlyph</span><span class="symbol">(</span><span
+                    class="identifier"
+                    id="com.agog.mathdisplay.render.MTFontMathTable$getLargerGlyph(kotlin.Int)/glyph">glyph</span><span
+                    class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span
+                    class="symbol">)</span><span class="symbol">: </span><span class="identifier">Int</span></code>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a href="get-top-accent-adjustment.html">getTopAccentAdjustment</a></td>
+        <td>
+            <code><span class="keyword">fun </span><span
+                    class="identifier">getTopAccentAdjustment</span><span
+                    class="symbol">(</span><span class="identifier"
+                                                 id="com.agog.mathdisplay.render.MTFontMathTable$getTopAccentAdjustment(kotlin.Int)/glyph">glyph</span><span
+                    class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span
+                    class="symbol">)</span><span class="symbol">: </span><span class="identifier">Float</span></code>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a href="get-vertical-glyph-assembly-for-glyph.html">getVerticalGlyphAssemblyForGlyph</a>
+        </td>
+        <td>
+            <code><span class="keyword">fun </span><span class="identifier">getVerticalGlyphAssemblyForGlyph</span><span
+                    class="symbol">(</span><span class="identifier"
+                                                 id="com.agog.mathdisplay.render.MTFontMathTable$getVerticalGlyphAssemblyForGlyph(kotlin.Int)/glyph">glyph</span><span
+                    class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span
+                    class="symbol">)</span><span class="symbol">: </span><span class="identifier">List</span><span
+                    class="symbol">&lt;</span><a href="../-m-t-glyph-part/index.html"><span
+                    class="identifier">MTGlyphPart</span></a><span class="symbol">&gt;</span><span
+                    class="symbol">?</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="get-vertical-variants-for-glyph.html">getVerticalVariantsForGlyph</a></td>
+        <td>
+            <code><span class="keyword">fun </span><span class="identifier">getVerticalVariantsForGlyph</span><span
+                    class="symbol">(</span><span class="identifier"
+                                                 id="com.agog.mathdisplay.render.MTFontMathTable$getVerticalVariantsForGlyph(com.agog.mathdisplay.render.CGGlyph)/glyph">glyph</span><span
+                    class="symbol">:</span>&nbsp;<a href="../-c-g-glyph/index.html"><span
+                    class="identifier">CGGlyph</span></a><span class="symbol">)</span><span
+                    class="symbol">: </span><span class="identifier">List</span><span
+                    class="symbol">&lt;</span><span class="identifier">Int</span><span
+                    class="symbol">&gt;</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="mu-unit.html">muUnit</a></td>
+        <td>
+            <code><span class="keyword">fun </span><span class="identifier">muUnit</span><span
+                    class="symbol">(</span><span class="symbol">)</span><span
+                    class="symbol">: </span><span class="identifier">Float</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="percent-from-table.html">percentFromTable</a></td>
+        <td>
+            <code><span class="keyword">fun </span><span
+                    class="identifier">percentFromTable</span><span class="symbol">(</span><span
+                    class="identifier"
+                    id="com.agog.mathdisplay.render.MTFontMathTable$percentFromTable(kotlin.String)/percentName">percentName</span><span
+                    class="symbol">:</span>&nbsp;<span class="identifier">String</span><span
+                    class="symbol">)</span><span class="symbol">: </span><span class="identifier">Float</span></code>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a href="union-bounds.html">unionBounds</a></td>
+        <td>
+            <code><span class="keyword">fun </span><span class="identifier">unionBounds</span><span
+                    class="symbol">(</span><span class="identifier"
+                                                 id="com.agog.mathdisplay.render.MTFontMathTable$unionBounds(com.agog.mathdisplay.render.BoundingBox, com.agog.mathdisplay.render.BoundingBox)/u">u</span><span
+                    class="symbol">:</span>&nbsp;<a href="../-bounding-box/index.html"><span
+                    class="identifier">BoundingBox</span></a><span class="symbol">, </span><span
+                    class="identifier"
+                    id="com.agog.mathdisplay.render.MTFontMathTable$unionBounds(com.agog.mathdisplay.render.BoundingBox, com.agog.mathdisplay.render.BoundingBox)/b">b</span><span
+                    class="symbol">:</span>&nbsp;<a href="../-bounding-box/index.html"><span
+                    class="identifier">BoundingBox</span></a><span class="symbol">)</span><span
+                    class="symbol">: </span><span class="identifier">Unit</span></code></td>
+    </tr>
+    </tbody>
+</table>
+</BODY>
+</HTML>

@@ -1,0 +1,826 @@
+<HTML>
+<HEAD>
+    <meta charset="UTF-8">
+    <title>com.agog.mathdisplay.render - </title>
+    <link rel="stylesheet" href="../style.css">
+</HEAD>
+<BODY>
+<a href=".">com.agog.mathdisplay.render</a><br/>
+<br/>
+<h2>Package com.agog.mathdisplay.render</h2>
+<h3>Types</h3>
+<table>
+    <tbody>
+    <tr>
+        <td>
+            <a href="-bounding-box/index.html">BoundingBox</a></td>
+        <td>
+            <code><span class="keyword">class </span><span class="identifier">BoundingBox</span>&nbsp;<span
+                    class="symbol">:</span>&nbsp;<span class="identifier">Any</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="-c-g-glyph/index.html">CGGlyph</a></td>
+        <td>
+            <code><span class="keyword">data</span> <span class="keyword">class </span><span
+                    class="identifier">CGGlyph</span>&nbsp;<span class="symbol">:</span>&nbsp;<span
+                    class="identifier">Any</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="-c-g-point/index.html">CGPoint</a></td>
+        <td>
+            <code><span class="keyword">data</span> <span class="keyword">class </span><span
+                    class="identifier">CGPoint</span>&nbsp;<span class="symbol">:</span>&nbsp;<span
+                    class="identifier">Any</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="-c-g-rect/index.html">CGRect</a></td>
+        <td>
+            <code><span class="keyword">data</span> <span class="keyword">class </span><span
+                    class="identifier">CGRect</span>&nbsp;<span class="symbol">:</span>&nbsp;<span
+                    class="identifier">Any</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="-m-t-accent-display/index.html">MTAccentDisplay</a></td>
+        <td>
+            <code><span class="keyword">class </span><span class="identifier">MTAccentDisplay</span>&nbsp;<span
+                    class="symbol">:</span>&nbsp;<a href="-m-t-display/index.html"><span
+                    class="identifier">MTDisplay</span></a></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="-m-t-c-t-line-display/index.html">MTCTLineDisplay</a></td>
+        <td>
+            <code><span class="keyword">class </span><span class="identifier">MTCTLineDisplay</span>&nbsp;<span
+                    class="symbol">:</span>&nbsp;<a href="-m-t-display/index.html"><span
+                    class="identifier">MTDisplay</span></a></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="-m-t-codepoint-char/index.html">MTCodepointChar</a></td>
+        <td>
+            <code><span class="keyword">class </span><span class="identifier">MTCodepointChar</span>&nbsp;<span
+                    class="symbol">:</span>&nbsp;<span class="identifier">Any</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="-m-t-display/index.html">MTDisplay</a></td>
+        <td>
+            <code><span class="keyword">open</span> <span class="keyword">class </span><span
+                    class="identifier">MTDisplay</span>&nbsp;<span
+                    class="symbol">:</span>&nbsp;<span class="identifier">Any</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="-m-t-draw-free-type/index.html">MTDrawFreeType</a></td>
+        <td>
+            <code><span class="keyword">class </span><span class="identifier">MTDrawFreeType</span>&nbsp;<span
+                    class="symbol">:</span>&nbsp;<span class="identifier">Any</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="-m-t-font/index.html">MTFont</a></td>
+        <td>
+            <code><span class="keyword">class </span><span
+                    class="identifier">MTFont</span>&nbsp;<span class="symbol">:</span>&nbsp;<span
+                    class="identifier">Any</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="-m-t-font-math-table/index.html">MTFontMathTable</a></td>
+        <td>
+            <code><span class="keyword">class </span><span class="identifier">MTFontMathTable</span>&nbsp;<span
+                    class="symbol">:</span>&nbsp;<span class="identifier">Any</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="-m-t-fraction-display/index.html">MTFractionDisplay</a></td>
+        <td>
+            <code><span class="keyword">class </span><span
+                    class="identifier">MTFractionDisplay</span>&nbsp;<span class="symbol">:</span>&nbsp;<a
+                    href="-m-t-display/index.html"><span
+                    class="identifier">MTDisplay</span></a></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="-m-t-glyph-construction-display/index.html">MTGlyphConstructionDisplay</a></td>
+        <td>
+            <code><span class="keyword">class </span><span class="identifier">MTGlyphConstructionDisplay</span>&nbsp;<span
+                    class="symbol">:</span>&nbsp;<a href="-m-t-display/index.html"><span
+                    class="identifier">MTDisplay</span></a></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="-m-t-glyph-display/index.html">MTGlyphDisplay</a></td>
+        <td>
+            <code><span class="keyword">class </span><span class="identifier">MTGlyphDisplay</span>&nbsp;<span
+                    class="symbol">:</span>&nbsp;<a href="-m-t-display/index.html"><span
+                    class="identifier">MTDisplay</span></a></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="-m-t-glyph-part/index.html">MTGlyphPart</a></td>
+        <td>
+            <code><span class="keyword">data</span> <span class="keyword">class </span><span
+                    class="identifier">MTGlyphPart</span>&nbsp;<span
+                    class="symbol">:</span>&nbsp;<span class="identifier">Any</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="-m-t-inter-element-space-type/index.html">MTInterElementSpaceType</a></td>
+        <td>
+            <code><span class="keyword">enum</span> <span class="keyword">class </span><span
+                    class="identifier">MTInterElementSpaceType</span>&nbsp;<span
+                    class="symbol">:</span>&nbsp;<span class="identifier">Enum</span><span
+                    class="symbol">&lt;</span><a
+                    href="-m-t-inter-element-space-type/index.html"><span class="identifier">MTInterElementSpaceType</span></a><span
+                    class="symbol">&gt;</span></code>
+            <p>Created by greg on 3/13/18.</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a href="-m-t-large-op-limits-display/index.html">MTLargeOpLimitsDisplay</a></td>
+        <td>
+            <code><span class="keyword">class </span><span
+                    class="identifier">MTLargeOpLimitsDisplay</span>&nbsp;<span
+                    class="symbol">:</span>&nbsp;<a href="-m-t-display/index.html"><span
+                    class="identifier">MTDisplay</span></a></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="-m-t-line-display/index.html">MTLineDisplay</a></td>
+        <td>
+            <code><span class="keyword">class </span><span class="identifier">MTLineDisplay</span>&nbsp;<span
+                    class="symbol">:</span>&nbsp;<a href="-m-t-display/index.html"><span
+                    class="identifier">MTDisplay</span></a></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="-m-t-line-position/index.html">MTLinePosition</a></td>
+        <td>
+            <code><span class="keyword">enum</span> <span class="keyword">class </span><span
+                    class="identifier">MTLinePosition</span>&nbsp;<span class="symbol">:</span>&nbsp;<span
+                    class="identifier">Enum</span><span class="symbol">&lt;</span><a
+                    href="-m-t-line-position/index.html"><span
+                    class="identifier">MTLinePosition</span></a><span
+                    class="symbol">&gt;</span></code>
+            <p>@typedef MTLinePosition
+                @brief The type of position for a line, i.e. subscript/superscript or regular.</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a href="-m-t-math-list-display/index.html">MTMathListDisplay</a></td>
+        <td>
+            <code><span class="keyword">class </span><span
+                    class="identifier">MTMathListDisplay</span>&nbsp;<span class="symbol">:</span>&nbsp;<a
+                    href="-m-t-display/index.html"><span
+                    class="identifier">MTDisplay</span></a></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="-m-t-radical-display/index.html">MTRadicalDisplay</a></td>
+        <td>
+            <code><span class="keyword">class </span><span
+                    class="identifier">MTRadicalDisplay</span>&nbsp;<span class="symbol">:</span>&nbsp;<a
+                    href="-m-t-display/index.html"><span
+                    class="identifier">MTDisplay</span></a></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="-m-t-typesetter/index.html">MTTypesetter</a></td>
+        <td>
+            <code><span class="keyword">class </span><span class="identifier">MTTypesetter</span>&nbsp;<span
+                    class="symbol">:</span>&nbsp;<span class="identifier">Any</span></code></td>
+    </tr>
+    </tbody>
+</table>
+<h3>Properties</h3>
+<table>
+    <tbody>
+    <tr>
+        <td>
+            <a href="-d-e-b-u-g.html">DEBUG</a></td>
+        <td>
+            <code><span class="keyword">const</span> <span class="keyword">val </span><span
+                    class="identifier">DEBUG</span><span class="symbol">: </span><span
+                    class="identifier">Boolean</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="inter-element-space-array.html">interElementSpaceArray</a></td>
+        <td>
+            <code><span class="keyword">val </span><span
+                    class="identifier">interElementSpaceArray</span><span
+                    class="symbol">: </span><span class="identifier">Array</span><span
+                    class="symbol">&lt;</span><span class="identifier">Array</span><span
+                    class="symbol">&lt;</span><a
+                    href="-m-t-inter-element-space-type/index.html"><span class="identifier">MTInterElementSpaceType</span></a><span
+                    class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="k-base-line-skip-multiplier.html">kBaseLineSkipMultiplier</a></td>
+        <td>
+            <code><span class="keyword">const</span> <span class="keyword">val </span><span
+                    class="identifier">kBaseLineSkipMultiplier</span><span
+                    class="symbol">: </span><span class="identifier">Float</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="k-delimiter-factor.html">kDelimiterFactor</a></td>
+        <td>
+            <code><span class="keyword">const</span> <span class="keyword">val </span><span
+                    class="identifier">kDelimiterFactor</span><span class="symbol">: </span><span
+                    class="identifier">Int</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="k-delimiter-shortfall-points.html">kDelimiterShortfallPoints</a></td>
+        <td>
+            <code><span class="keyword">const</span> <span class="keyword">val </span><span
+                    class="identifier">kDelimiterShortfallPoints</span><span
+                    class="symbol">: </span><span class="identifier">Int</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="k-jot-multiplier.html">kJotMultiplier</a></td>
+        <td>
+            <code><span class="keyword">const</span> <span class="keyword">val </span><span
+                    class="identifier">kJotMultiplier</span><span class="symbol">: </span><span
+                    class="identifier">Float</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="k-line-skip-limit-multiplier.html">kLineSkipLimitMultiplier</a></td>
+        <td>
+            <code><span class="keyword">const</span> <span class="keyword">val </span><span
+                    class="identifier">kLineSkipLimitMultiplier</span><span class="symbol">: </span><span
+                    class="identifier">Float</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="k-line-skip-multiplier.html">kLineSkipMultiplier</a></td>
+        <td>
+            <code><span class="keyword">const</span> <span class="keyword">val </span><span
+                    class="identifier">kLineSkipMultiplier</span><span class="symbol">: </span><span
+                    class="identifier">Float</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="k-m-t-unicode-greek-capital-bold-italic-start.html">kMTUnicodeGreekCapitalBoldItalicStart</a>
+        </td>
+        <td>
+            <code><span class="keyword">const</span> <span class="keyword">val </span><span
+                    class="identifier">kMTUnicodeGreekCapitalBoldItalicStart</span><span
+                    class="symbol">: </span><span class="identifier">Int</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="k-m-t-unicode-greek-capital-bold-start.html">kMTUnicodeGreekCapitalBoldStart</a>
+        </td>
+        <td>
+            <code><span class="keyword">const</span> <span class="keyword">val </span><span
+                    class="identifier">kMTUnicodeGreekCapitalBoldStart</span><span
+                    class="symbol">: </span><span class="identifier">Int</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="k-m-t-unicode-greek-capital-end.html">kMTUnicodeGreekCapitalEnd</a></td>
+        <td>
+            <code><span class="keyword">const</span> <span class="keyword">val </span><span
+                    class="identifier">kMTUnicodeGreekCapitalEnd</span><span
+                    class="symbol">: </span><span class="identifier">Char</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="k-m-t-unicode-greek-capital-italic-start.html">kMTUnicodeGreekCapitalItalicStart</a>
+        </td>
+        <td>
+            <code><span class="keyword">const</span> <span class="keyword">val </span><span
+                    class="identifier">kMTUnicodeGreekCapitalItalicStart</span><span class="symbol">: </span><span
+                    class="identifier">Int</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="k-m-t-unicode-greek-capital-start.html">kMTUnicodeGreekCapitalStart</a></td>
+        <td>
+            <code><span class="keyword">const</span> <span class="keyword">val </span><span
+                    class="identifier">kMTUnicodeGreekCapitalStart</span><span
+                    class="symbol">: </span><span class="identifier">Char</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="k-m-t-unicode-greek-lower-bold-italic-start.html">kMTUnicodeGreekLowerBoldItalicStart</a>
+        </td>
+        <td>
+            <code><span class="keyword">const</span> <span class="keyword">val </span><span
+                    class="identifier">kMTUnicodeGreekLowerBoldItalicStart</span><span
+                    class="symbol">: </span><span class="identifier">Int</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="k-m-t-unicode-greek-lower-bold-start.html">kMTUnicodeGreekLowerBoldStart</a>
+        </td>
+        <td>
+            <code><span class="keyword">const</span> <span class="keyword">val </span><span
+                    class="identifier">kMTUnicodeGreekLowerBoldStart</span><span
+                    class="symbol">: </span><span class="identifier">Int</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="k-m-t-unicode-greek-lower-end.html">kMTUnicodeGreekLowerEnd</a></td>
+        <td>
+            <code><span class="keyword">const</span> <span class="keyword">val </span><span
+                    class="identifier">kMTUnicodeGreekLowerEnd</span><span
+                    class="symbol">: </span><span class="identifier">Char</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="k-m-t-unicode-greek-lower-italic-start.html">kMTUnicodeGreekLowerItalicStart</a>
+        </td>
+        <td>
+            <code><span class="keyword">const</span> <span class="keyword">val </span><span
+                    class="identifier">kMTUnicodeGreekLowerItalicStart</span><span
+                    class="symbol">: </span><span class="identifier">Int</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="k-m-t-unicode-greek-lower-start.html">kMTUnicodeGreekLowerStart</a></td>
+        <td>
+            <code><span class="keyword">const</span> <span class="keyword">val </span><span
+                    class="identifier">kMTUnicodeGreekLowerStart</span><span
+                    class="symbol">: </span><span class="identifier">Char</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="k-m-t-unicode-greek-symbol-bold-italic-start.html">kMTUnicodeGreekSymbolBoldItalicStart</a>
+        </td>
+        <td>
+            <code><span class="keyword">const</span> <span class="keyword">val </span><span
+                    class="identifier">kMTUnicodeGreekSymbolBoldItalicStart</span><span
+                    class="symbol">: </span><span class="identifier">Int</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="k-m-t-unicode-greek-symbol-bold-start.html">kMTUnicodeGreekSymbolBoldStart</a>
+        </td>
+        <td>
+            <code><span class="keyword">const</span> <span class="keyword">val </span><span
+                    class="identifier">kMTUnicodeGreekSymbolBoldStart</span><span
+                    class="symbol">: </span><span class="identifier">Int</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="k-m-t-unicode-greek-symbol-italic-start.html">kMTUnicodeGreekSymbolItalicStart</a>
+        </td>
+        <td>
+            <code><span class="keyword">const</span> <span class="keyword">val </span><span
+                    class="identifier">kMTUnicodeGreekSymbolItalicStart</span><span
+                    class="symbol">: </span><span class="identifier">Int</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="k-m-t-unicode-math-capital-blackboard-start.html">kMTUnicodeMathCapitalBlackboardStart</a>
+        </td>
+        <td>
+            <code><span class="keyword">const</span> <span class="keyword">val </span><span
+                    class="identifier">kMTUnicodeMathCapitalBlackboardStart</span><span
+                    class="symbol">: </span><span class="identifier">Int</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="k-m-t-unicode-math-capital-bold-italic-start.html">kMTUnicodeMathCapitalBoldItalicStart</a>
+        </td>
+        <td>
+            <code><span class="keyword">const</span> <span class="keyword">val </span><span
+                    class="identifier">kMTUnicodeMathCapitalBoldItalicStart</span><span
+                    class="symbol">: </span><span class="identifier">Int</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="k-m-t-unicode-math-capital-bold-start.html">kMTUnicodeMathCapitalBoldStart</a>
+        </td>
+        <td>
+            <code><span class="keyword">const</span> <span class="keyword">val </span><span
+                    class="identifier">kMTUnicodeMathCapitalBoldStart</span><span
+                    class="symbol">: </span><span class="identifier">Int</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="k-m-t-unicode-math-capital-fraktur-start.html">kMTUnicodeMathCapitalFrakturStart</a>
+        </td>
+        <td>
+            <code><span class="keyword">const</span> <span class="keyword">val </span><span
+                    class="identifier">kMTUnicodeMathCapitalFrakturStart</span><span class="symbol">: </span><span
+                    class="identifier">Int</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="k-m-t-unicode-math-capital-italic-start.html">kMTUnicodeMathCapitalItalicStart</a>
+        </td>
+        <td>
+            <code><span class="keyword">const</span> <span class="keyword">val </span><span
+                    class="identifier">kMTUnicodeMathCapitalItalicStart</span><span
+                    class="symbol">: </span><span class="identifier">Int</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="k-m-t-unicode-math-capital-sans-serif-start.html">kMTUnicodeMathCapitalSansSerifStart</a>
+        </td>
+        <td>
+            <code><span class="keyword">const</span> <span class="keyword">val </span><span
+                    class="identifier">kMTUnicodeMathCapitalSansSerifStart</span><span
+                    class="symbol">: </span><span class="identifier">Int</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="k-m-t-unicode-math-capital-script-start.html">kMTUnicodeMathCapitalScriptStart</a>
+        </td>
+        <td>
+            <code><span class="keyword">const</span> <span class="keyword">val </span><span
+                    class="identifier">kMTUnicodeMathCapitalScriptStart</span><span
+                    class="symbol">: </span><span class="identifier">Int</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="k-m-t-unicode-math-capital-t-t-start.html">kMTUnicodeMathCapitalTTStart</a>
+        </td>
+        <td>
+            <code><span class="keyword">const</span> <span class="keyword">val </span><span
+                    class="identifier">kMTUnicodeMathCapitalTTStart</span><span
+                    class="symbol">: </span><span class="identifier">Int</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="k-m-t-unicode-math-lower-blackboard-start.html">kMTUnicodeMathLowerBlackboardStart</a>
+        </td>
+        <td>
+            <code><span class="keyword">const</span> <span class="keyword">val </span><span
+                    class="identifier">kMTUnicodeMathLowerBlackboardStart</span><span
+                    class="symbol">: </span><span class="identifier">Int</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="k-m-t-unicode-math-lower-bold-italic-start.html">kMTUnicodeMathLowerBoldItalicStart</a>
+        </td>
+        <td>
+            <code><span class="keyword">const</span> <span class="keyword">val </span><span
+                    class="identifier">kMTUnicodeMathLowerBoldItalicStart</span><span
+                    class="symbol">: </span><span class="identifier">Int</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="k-m-t-unicode-math-lower-bold-start.html">kMTUnicodeMathLowerBoldStart</a></td>
+        <td>
+            <code><span class="keyword">const</span> <span class="keyword">val </span><span
+                    class="identifier">kMTUnicodeMathLowerBoldStart</span><span
+                    class="symbol">: </span><span class="identifier">Int</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="k-m-t-unicode-math-lower-fraktur-start.html">kMTUnicodeMathLowerFrakturStart</a>
+        </td>
+        <td>
+            <code><span class="keyword">const</span> <span class="keyword">val </span><span
+                    class="identifier">kMTUnicodeMathLowerFrakturStart</span><span
+                    class="symbol">: </span><span class="identifier">Int</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="k-m-t-unicode-math-lower-italic-start.html">kMTUnicodeMathLowerItalicStart</a>
+        </td>
+        <td>
+            <code><span class="keyword">const</span> <span class="keyword">val </span><span
+                    class="identifier">kMTUnicodeMathLowerItalicStart</span><span
+                    class="symbol">: </span><span class="identifier">Int</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="k-m-t-unicode-math-lower-sans-serif-start.html">kMTUnicodeMathLowerSansSerifStart</a>
+        </td>
+        <td>
+            <code><span class="keyword">const</span> <span class="keyword">val </span><span
+                    class="identifier">kMTUnicodeMathLowerSansSerifStart</span><span class="symbol">: </span><span
+                    class="identifier">Int</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="k-m-t-unicode-math-lower-t-t-start.html">kMTUnicodeMathLowerTTStart</a></td>
+        <td>
+            <code><span class="keyword">const</span> <span class="keyword">val </span><span
+                    class="identifier">kMTUnicodeMathLowerTTStart</span><span
+                    class="symbol">: </span><span class="identifier">Int</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="k-m-t-unicode-number-blackboard-start.html">kMTUnicodeNumberBlackboardStart</a>
+        </td>
+        <td>
+            <code><span class="keyword">const</span> <span class="keyword">val </span><span
+                    class="identifier">kMTUnicodeNumberBlackboardStart</span><span
+                    class="symbol">: </span><span class="identifier">Int</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="k-m-t-unicode-number-bold-start.html">kMTUnicodeNumberBoldStart</a></td>
+        <td>
+            <code><span class="keyword">const</span> <span class="keyword">val </span><span
+                    class="identifier">kMTUnicodeNumberBoldStart</span><span
+                    class="symbol">: </span><span class="identifier">Int</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="k-m-t-unicode-number-sans-serif-start.html">kMTUnicodeNumberSansSerifStart</a>
+        </td>
+        <td>
+            <code><span class="keyword">const</span> <span class="keyword">val </span><span
+                    class="identifier">kMTUnicodeNumberSansSerifStart</span><span
+                    class="symbol">: </span><span class="identifier">Int</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="k-m-t-unicode-number-t-t-start.html">kMTUnicodeNumberTTStart</a></td>
+        <td>
+            <code><span class="keyword">const</span> <span class="keyword">val </span><span
+                    class="identifier">kMTUnicodeNumberTTStart</span><span
+                    class="symbol">: </span><span class="identifier">Int</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="k-m-t-unicode-planks-constant.html">kMTUnicodePlanksConstant</a></td>
+        <td>
+            <code><span class="keyword">const</span> <span class="keyword">val </span><span
+                    class="identifier">kMTUnicodePlanksConstant</span><span class="symbol">: </span><span
+                    class="identifier">Int</span></code></td>
+    </tr>
+    </tbody>
+</table>
+<h3>Functions</h3>
+<table>
+    <tbody>
+    <tr>
+        <td>
+            <a href="change-font.html">changeFont</a></td>
+        <td>
+            <code><span class="keyword">fun </span><span class="identifier">changeFont</span><span
+                    class="symbol">(</span><span class="identifier"
+                                                 id="com.agog.mathdisplay.render$changeFont(kotlin.String, com.agog.mathdisplay.parse.MTFontStyle)/str">str</span><span
+                    class="symbol">:</span>&nbsp;<span class="identifier">String</span><span
+                    class="symbol">, </span><span class="identifier"
+                                                  id="com.agog.mathdisplay.render$changeFont(kotlin.String, com.agog.mathdisplay.parse.MTFontStyle)/fontStyle">fontStyle</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="../com.agog.mathdisplay.parse/-m-t-font-style/index.html"><span
+                    class="identifier">MTFontStyle</span></a><span class="symbol">)</span><span
+                    class="symbol">: </span><span class="identifier">String</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="get-blackboard.html">getBlackboard</a></td>
+        <td>
+            <code><span class="keyword">fun </span><span
+                    class="identifier">getBlackboard</span><span class="symbol">(</span><span
+                    class="identifier"
+                    id="com.agog.mathdisplay.render$getBlackboard(kotlin.Char)/ch">ch</span><span
+                    class="symbol">:</span>&nbsp;<span class="identifier">Char</span><span
+                    class="symbol">)</span><span class="symbol">: </span><a
+                    href="-m-t-codepoint-char/index.html"><span
+                    class="identifier">MTCodepointChar</span></a></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="get-bold.html">getBold</a></td>
+        <td>
+            <code><span class="keyword">fun </span><span class="identifier">getBold</span><span
+                    class="symbol">(</span><span class="identifier"
+                                                 id="com.agog.mathdisplay.render$getBold(kotlin.Char)/ch">ch</span><span
+                    class="symbol">:</span>&nbsp;<span class="identifier">Char</span><span
+                    class="symbol">)</span><span class="symbol">: </span><a
+                    href="-m-t-codepoint-char/index.html"><span
+                    class="identifier">MTCodepointChar</span></a></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="get-bold-italic.html">getBoldItalic</a></td>
+        <td>
+            <code><span class="keyword">fun </span><span
+                    class="identifier">getBoldItalic</span><span class="symbol">(</span><span
+                    class="identifier"
+                    id="com.agog.mathdisplay.render$getBoldItalic(kotlin.Char)/ch">ch</span><span
+                    class="symbol">:</span>&nbsp;<span class="identifier">Char</span><span
+                    class="symbol">)</span><span class="symbol">: </span><a
+                    href="-m-t-codepoint-char/index.html"><span
+                    class="identifier">MTCodepointChar</span></a></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="get-caligraphic.html">getCaligraphic</a></td>
+        <td>
+            <code><span class="keyword">fun </span><span
+                    class="identifier">getCaligraphic</span><span class="symbol">(</span><span
+                    class="identifier"
+                    id="com.agog.mathdisplay.render$getCaligraphic(kotlin.Char)/ch">ch</span><span
+                    class="symbol">:</span>&nbsp;<span class="identifier">Char</span><span
+                    class="symbol">)</span><span class="symbol">: </span><a
+                    href="-m-t-codepoint-char/index.html"><span
+                    class="identifier">MTCodepointChar</span></a></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="get-default-style.html">getDefaultStyle</a></td>
+        <td>
+            <code><span class="keyword">fun </span><span
+                    class="identifier">getDefaultStyle</span><span class="symbol">(</span><span
+                    class="identifier"
+                    id="com.agog.mathdisplay.render$getDefaultStyle(kotlin.Char)/ch">ch</span><span
+                    class="symbol">:</span>&nbsp;<span class="identifier">Char</span><span
+                    class="symbol">)</span><span class="symbol">: </span><a
+                    href="-m-t-codepoint-char/index.html"><span
+                    class="identifier">MTCodepointChar</span></a></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="get-fraktur.html">getFraktur</a></td>
+        <td>
+            <code><span class="keyword">fun </span><span class="identifier">getFraktur</span><span
+                    class="symbol">(</span><span class="identifier"
+                                                 id="com.agog.mathdisplay.render$getFraktur(kotlin.Char)/ch">ch</span><span
+                    class="symbol">:</span>&nbsp;<span class="identifier">Char</span><span
+                    class="symbol">)</span><span class="symbol">: </span><a
+                    href="-m-t-codepoint-char/index.html"><span
+                    class="identifier">MTCodepointChar</span></a></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="get-inter-element-space-array-index-for-type.html">getInterElementSpaceArrayIndexForType</a>
+        </td>
+        <td>
+            <code><span class="keyword">fun </span><span class="identifier">getInterElementSpaceArrayIndexForType</span><span
+                    class="symbol">(</span><span class="identifier"
+                                                 id="com.agog.mathdisplay.render$getInterElementSpaceArrayIndexForType(com.agog.mathdisplay.parse.MTMathAtomType, kotlin.Boolean)/type">type</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="../com.agog.mathdisplay.parse/-m-t-math-atom-type/index.html"><span
+                    class="identifier">MTMathAtomType</span></a><span class="symbol">, </span><span
+                    class="identifier"
+                    id="com.agog.mathdisplay.render$getInterElementSpaceArrayIndexForType(com.agog.mathdisplay.parse.MTMathAtomType, kotlin.Boolean)/row">row</span><span
+                    class="symbol">:</span>&nbsp;<span class="identifier">Boolean</span><span
+                    class="symbol">)</span><span class="symbol">: </span><span class="identifier">Int</span></code>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a href="get-italicized.html">getItalicized</a></td>
+        <td>
+            <code><span class="keyword">fun </span><span
+                    class="identifier">getItalicized</span><span class="symbol">(</span><span
+                    class="identifier"
+                    id="com.agog.mathdisplay.render$getItalicized(kotlin.Char)/ch">ch</span><span
+                    class="symbol">:</span>&nbsp;<span class="identifier">Char</span><span
+                    class="symbol">)</span><span class="symbol">: </span><a
+                    href="-m-t-codepoint-char/index.html"><span
+                    class="identifier">MTCodepointChar</span></a></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="get-sans-serif.html">getSansSerif</a></td>
+        <td>
+            <code><span class="keyword">fun </span><span class="identifier">getSansSerif</span><span
+                    class="symbol">(</span><span class="identifier"
+                                                 id="com.agog.mathdisplay.render$getSansSerif(kotlin.Char)/ch">ch</span><span
+                    class="symbol">:</span>&nbsp;<span class="identifier">Char</span><span
+                    class="symbol">)</span><span class="symbol">: </span><a
+                    href="-m-t-codepoint-char/index.html"><span
+                    class="identifier">MTCodepointChar</span></a></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="get-typewriter.html">getTypewriter</a></td>
+        <td>
+            <code><span class="keyword">fun </span><span
+                    class="identifier">getTypewriter</span><span class="symbol">(</span><span
+                    class="identifier"
+                    id="com.agog.mathdisplay.render$getTypewriter(kotlin.Char)/ch">ch</span><span
+                    class="symbol">:</span>&nbsp;<span class="identifier">Char</span><span
+                    class="symbol">)</span><span class="symbol">: </span><a
+                    href="-m-t-codepoint-char/index.html"><span
+                    class="identifier">MTCodepointChar</span></a></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="greek-symbol-order.html">greekSymbolOrder</a></td>
+        <td>
+            <code><span class="keyword">fun </span><span
+                    class="identifier">greekSymbolOrder</span><span class="symbol">(</span><span
+                    class="identifier"
+                    id="com.agog.mathdisplay.render$greekSymbolOrder(kotlin.Char)/ch">ch</span><span
+                    class="symbol">:</span>&nbsp;<span class="identifier">Char</span><span
+                    class="symbol">)</span><span class="symbol">: </span><span class="identifier">Int</span></code>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a href="is_-c-a-p-i-t-a-l_-g-r-e-e-k.html">is_CAPITAL_GREEK</a></td>
+        <td>
+            <code><span class="keyword">fun </span><span
+                    class="identifier">is_CAPITAL_GREEK</span><span class="symbol">(</span><span
+                    class="identifier"
+                    id="com.agog.mathdisplay.render$is_CAPITAL_GREEK(kotlin.Char)/ch">ch</span><span
+                    class="symbol">:</span>&nbsp;<span class="identifier">Char</span><span
+                    class="symbol">)</span><span class="symbol">: </span><span class="identifier">Boolean</span></code>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a href="is_-g-r-e-e-k_-s-y-m-b-o-l.html">is_GREEK_SYMBOL</a></td>
+        <td>
+            <code><span class="keyword">fun </span><span
+                    class="identifier">is_GREEK_SYMBOL</span><span class="symbol">(</span><span
+                    class="identifier"
+                    id="com.agog.mathdisplay.render$is_GREEK_SYMBOL(kotlin.Char)/ch">ch</span><span
+                    class="symbol">:</span>&nbsp;<span class="identifier">Char</span><span
+                    class="symbol">)</span><span class="symbol">: </span><span class="identifier">Boolean</span></code>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a href="is_-l-o-w-e-r_-e-n.html">is_LOWER_EN</a></td>
+        <td>
+            <code><span class="keyword">fun </span><span class="identifier">is_LOWER_EN</span><span
+                    class="symbol">(</span><span class="identifier"
+                                                 id="com.agog.mathdisplay.render$is_LOWER_EN(kotlin.Char)/ch">ch</span><span
+                    class="symbol">:</span>&nbsp;<span class="identifier">Char</span><span
+                    class="symbol">)</span><span class="symbol">: </span><span class="identifier">Boolean</span></code>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a href="is_-l-o-w-e-r_-g-r-e-e-k.html">is_LOWER_GREEK</a></td>
+        <td>
+            <code><span class="keyword">fun </span><span
+                    class="identifier">is_LOWER_GREEK</span><span class="symbol">(</span><span
+                    class="identifier"
+                    id="com.agog.mathdisplay.render$is_LOWER_GREEK(kotlin.Char)/ch">ch</span><span
+                    class="symbol">:</span>&nbsp;<span class="identifier">Char</span><span
+                    class="symbol">)</span><span class="symbol">: </span><span class="identifier">Boolean</span></code>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a href="is_-n-u-m-b-e-r.html">is_NUMBER</a></td>
+        <td>
+            <code><span class="keyword">fun </span><span class="identifier">is_NUMBER</span><span
+                    class="symbol">(</span><span class="identifier"
+                                                 id="com.agog.mathdisplay.render$is_NUMBER(kotlin.Char)/ch">ch</span><span
+                    class="symbol">:</span>&nbsp;<span class="identifier">Char</span><span
+                    class="symbol">)</span><span class="symbol">: </span><span class="identifier">Boolean</span></code>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a href="is_-u-p-p-e-r_-e-n.html">is_UPPER_EN</a></td>
+        <td>
+            <code><span class="keyword">fun </span><span class="identifier">is_UPPER_EN</span><span
+                    class="symbol">(</span><span class="identifier"
+                                                 id="com.agog.mathdisplay.render$is_UPPER_EN(kotlin.Char)/ch">ch</span><span
+                    class="symbol">:</span>&nbsp;<span class="identifier">Char</span><span
+                    class="symbol">)</span><span class="symbol">: </span><span class="identifier">Boolean</span></code>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a href="number-of-glyphs.html">numberOfGlyphs</a></td>
+        <td>
+            <code><span class="keyword">fun </span><span
+                    class="identifier">numberOfGlyphs</span><span class="symbol">(</span><span
+                    class="identifier"
+                    id="com.agog.mathdisplay.render$numberOfGlyphs(kotlin.String)/s">s</span><span
+                    class="symbol">:</span>&nbsp;<span class="identifier">String</span><span
+                    class="symbol">)</span><span class="symbol">: </span><span class="identifier">Int</span></code>
+            <p>Created by greg on 3/13/18.</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a href="style-character.html">styleCharacter</a></td>
+        <td>
+            <code><span class="keyword">fun </span><span
+                    class="identifier">styleCharacter</span><span class="symbol">(</span><span
+                    class="identifier"
+                    id="com.agog.mathdisplay.render$styleCharacter(kotlin.Char, com.agog.mathdisplay.parse.MTFontStyle)/ch">ch</span><span
+                    class="symbol">:</span>&nbsp;<span class="identifier">Char</span><span
+                    class="symbol">, </span><span class="identifier"
+                                                  id="com.agog.mathdisplay.render$styleCharacter(kotlin.Char, com.agog.mathdisplay.parse.MTFontStyle)/fontStyle">fontStyle</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="../com.agog.mathdisplay.parse/-m-t-font-style/index.html"><span
+                    class="identifier">MTFontStyle</span></a><span class="symbol">)</span><span
+                    class="symbol">: </span><a href="-m-t-codepoint-char/index.html"><span
+                    class="identifier">MTCodepointChar</span></a></code></td>
+    </tr>
+    </tbody>
+</table>
+</BODY>
+</HTML>

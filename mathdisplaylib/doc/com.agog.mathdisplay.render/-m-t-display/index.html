@@ -1,0 +1,245 @@
+<HTML>
+<HEAD>
+    <meta charset="UTF-8">
+    <title>MTDisplay - </title>
+    <link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">com.agog.mathdisplay.render</a>&nbsp;/&nbsp;<a href=".">MTDisplay</a><br/>
+<br/>
+<h1>MTDisplay</h1>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">MTDisplay</span>&nbsp;<span
+        class="symbol">:</span>&nbsp;<span class="identifier">Any</span></code>
+<h3>Constructors</h3>
+<table>
+    <tbody>
+    <tr>
+        <td>
+            <a href="-init-.html">&lt;init&gt;</a></td>
+        <td>
+            <code><span class="identifier">MTDisplay</span><span class="symbol">(</span><span
+                    class="identifier"
+                    id="com.agog.mathdisplay.render.MTDisplay$<init>(kotlin.Float, kotlin.Float, kotlin.Float, com.agog.mathdisplay.parse.NSRange, kotlin.Boolean)/ascent">ascent</span><span
+                    class="symbol">:</span>&nbsp;<span class="identifier">Float</span>&nbsp;<span
+                    class="symbol">=</span>&nbsp;0.0f<span class="symbol">, </span><span
+                    class="identifier"
+                    id="com.agog.mathdisplay.render.MTDisplay$<init>(kotlin.Float, kotlin.Float, kotlin.Float, com.agog.mathdisplay.parse.NSRange, kotlin.Boolean)/descent">descent</span><span
+                    class="symbol">:</span>&nbsp;<span class="identifier">Float</span>&nbsp;<span
+                    class="symbol">=</span>&nbsp;0.0f<span class="symbol">, </span><span
+                    class="identifier"
+                    id="com.agog.mathdisplay.render.MTDisplay$<init>(kotlin.Float, kotlin.Float, kotlin.Float, com.agog.mathdisplay.parse.NSRange, kotlin.Boolean)/width">width</span><span
+                    class="symbol">:</span>&nbsp;<span class="identifier">Float</span>&nbsp;<span
+                    class="symbol">=</span>&nbsp;0.0f<span class="symbol">, </span><span
+                    class="identifier"
+                    id="com.agog.mathdisplay.render.MTDisplay$<init>(kotlin.Float, kotlin.Float, kotlin.Float, com.agog.mathdisplay.parse.NSRange, kotlin.Boolean)/range">range</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="../../com.agog.mathdisplay.parse/-n-s-range/index.html"><span
+                    class="identifier">NSRange</span></a>&nbsp;<span class="symbol">=</span>&nbsp;NSRange()<span
+                    class="symbol">, </span><span class="identifier"
+                                                  id="com.agog.mathdisplay.render.MTDisplay$<init>(kotlin.Float, kotlin.Float, kotlin.Float, com.agog.mathdisplay.parse.NSRange, kotlin.Boolean)/hasScript">hasScript</span><span
+                    class="symbol">:</span>&nbsp;<span class="identifier">Boolean</span>&nbsp;<span
+                    class="symbol">=</span>&nbsp;false<span class="symbol">)</span></code></td>
+    </tr>
+    </tbody>
+</table>
+<h3>Properties</h3>
+<table>
+    <tbody>
+    <tr>
+        <td>
+            <a href="ascent.html">ascent</a></td>
+        <td>
+            <code><span class="keyword">open</span> <span class="keyword">var </span><span
+                    class="identifier">ascent</span><span class="symbol">: </span><span
+                    class="identifier">Float</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="descent.html">descent</a></td>
+        <td>
+            <code><span class="keyword">open</span> <span class="keyword">var </span><span
+                    class="identifier">descent</span><span class="symbol">: </span><span
+                    class="identifier">Float</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="has-script.html">hasScript</a></td>
+        <td>
+            <code><span class="keyword">var </span><span class="identifier">hasScript</span><span
+                    class="symbol">: </span><span class="identifier">Boolean</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="local-text-color.html">localTextColor</a></td>
+        <td>
+            <code><span class="keyword">var </span><span
+                    class="identifier">localTextColor</span><span class="symbol">: </span><span
+                    class="identifier">Int</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="position.html">position</a></td>
+        <td>
+            <code><span class="keyword">var </span><span class="identifier">position</span><span
+                    class="symbol">: </span><a href="../-c-g-point/index.html"><span
+                    class="identifier">CGPoint</span></a></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="range.html">range</a></td>
+        <td>
+            <code><span class="keyword">var </span><span class="identifier">range</span><span
+                    class="symbol">: </span><a
+                    href="../../com.agog.mathdisplay.parse/-n-s-range/index.html"><span
+                    class="identifier">NSRange</span></a></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="shift-down.html">shiftDown</a></td>
+        <td>
+            <code><span class="keyword">var </span><span class="identifier">shiftDown</span><span
+                    class="symbol">: </span><span class="identifier">Float</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="text-color.html">textColor</a></td>
+        <td>
+            <code><span class="keyword">var </span><span class="identifier">textColor</span><span
+                    class="symbol">: </span><span class="identifier">Int</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="width.html">width</a></td>
+        <td>
+            <code><span class="keyword">open</span> <span class="keyword">var </span><span
+                    class="identifier">width</span><span class="symbol">: </span><span
+                    class="identifier">Float</span></code></td>
+    </tr>
+    </tbody>
+</table>
+<h3>Functions</h3>
+<table>
+    <tbody>
+    <tr>
+        <td>
+            <a href="color-changed.html">colorChanged</a></td>
+        <td>
+            <code><span class="keyword">open</span> <span class="keyword">fun </span><span
+                    class="identifier">colorChanged</span><span class="symbol">(</span><span
+                    class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a href="display-bounds.html">displayBounds</a></td>
+        <td>
+            <code><span class="keyword">fun </span><span
+                    class="identifier">displayBounds</span><span class="symbol">(</span><span
+                    class="symbol">)</span><span class="symbol">: </span><a
+                    href="../-c-g-rect/index.html"><span class="identifier">CGRect</span></a></code>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a href="draw.html">draw</a></td>
+        <td>
+            <code><span class="keyword">open</span> <span class="keyword">fun </span><span
+                    class="identifier">draw</span><span class="symbol">(</span><span
+                    class="identifier"
+                    id="com.agog.mathdisplay.render.MTDisplay$draw(android.graphics.Canvas)/canvas">canvas</span><span
+                    class="symbol">:</span>&nbsp;<span class="identifier">Canvas</span><span
+                    class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a href="position-changed.html">positionChanged</a></td>
+        <td>
+            <code><span class="keyword">open</span> <span class="keyword">fun </span><span
+                    class="identifier">positionChanged</span><span class="symbol">(</span><span
+                    class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<h3>Inheritors</h3>
+<table>
+    <tbody>
+    <tr>
+        <td>
+            <a href="../-m-t-accent-display/index.html">MTAccentDisplay</a></td>
+        <td>
+            <code><span class="keyword">class </span><span class="identifier">MTAccentDisplay</span>&nbsp;<span
+                    class="symbol">:</span>&nbsp;<span class="identifier">MTDisplay</span></code>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a href="../-m-t-c-t-line-display/index.html">MTCTLineDisplay</a></td>
+        <td>
+            <code><span class="keyword">class </span><span class="identifier">MTCTLineDisplay</span>&nbsp;<span
+                    class="symbol">:</span>&nbsp;<span class="identifier">MTDisplay</span></code>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a href="../-m-t-fraction-display/index.html">MTFractionDisplay</a></td>
+        <td>
+            <code><span class="keyword">class </span><span
+                    class="identifier">MTFractionDisplay</span>&nbsp;<span class="symbol">:</span>&nbsp;<span
+                    class="identifier">MTDisplay</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="../-m-t-glyph-construction-display/index.html">MTGlyphConstructionDisplay</a>
+        </td>
+        <td>
+            <code><span class="keyword">class </span><span class="identifier">MTGlyphConstructionDisplay</span>&nbsp;<span
+                    class="symbol">:</span>&nbsp;<span class="identifier">MTDisplay</span></code>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a href="../-m-t-glyph-display/index.html">MTGlyphDisplay</a></td>
+        <td>
+            <code><span class="keyword">class </span><span class="identifier">MTGlyphDisplay</span>&nbsp;<span
+                    class="symbol">:</span>&nbsp;<span class="identifier">MTDisplay</span></code>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a href="../-m-t-large-op-limits-display/index.html">MTLargeOpLimitsDisplay</a></td>
+        <td>
+            <code><span class="keyword">class </span><span
+                    class="identifier">MTLargeOpLimitsDisplay</span>&nbsp;<span
+                    class="symbol">:</span>&nbsp;<span class="identifier">MTDisplay</span></code>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a href="../-m-t-line-display/index.html">MTLineDisplay</a></td>
+        <td>
+            <code><span class="keyword">class </span><span class="identifier">MTLineDisplay</span>&nbsp;<span
+                    class="symbol">:</span>&nbsp;<span class="identifier">MTDisplay</span></code>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a href="../-m-t-math-list-display/index.html">MTMathListDisplay</a></td>
+        <td>
+            <code><span class="keyword">class </span><span
+                    class="identifier">MTMathListDisplay</span>&nbsp;<span class="symbol">:</span>&nbsp;<span
+                    class="identifier">MTDisplay</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="../-m-t-radical-display/index.html">MTRadicalDisplay</a></td>
+        <td>
+            <code><span class="keyword">class </span><span
+                    class="identifier">MTRadicalDisplay</span>&nbsp;<span class="symbol">:</span>&nbsp;<span
+                    class="identifier">MTDisplay</span></code></td>
+    </tr>
+    </tbody>
+</table>
+</BODY>
+</HTML>

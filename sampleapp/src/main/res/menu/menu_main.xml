@@ -1,0 +1,101 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.agog.latexmathsample.com.agog.latexmath.MainActivity">
+
+    <item
+        android:title="Font"
+        android:id="@+id/menufont"
+        app:showAsAction="always">
+        <menu>
+            <group
+                android:id="@+id/group1"
+                android:checkableBehavior="all">
+                <item
+                    android:id="@+id/fontdefault"
+                    android:checkable="true"
+                    android:checked="true"
+                    android:title="Latin Modern Math" />
+                <item
+                    android:id="@+id/fonttermes"
+                    android:checkable="true"
+                    android:title="TeX Gyre Termes" />
+                <item
+                    android:id="@+id/fontxits"
+                    android:checkable="true"
+                    android:title="XITS Math" />
+            </group>
+        </menu>
+    </item>
+    <item
+        android:title="Size"
+        android:id="@+id/menusize"
+        app:showAsAction="always">
+        <menu>
+            <group
+                android:id="@+id/group2"
+                android:checkableBehavior="single">
+                <item
+                    android:id="@+id/f12"
+                    android:checkable="true"
+                    android:title="12dp" />
+                <item
+                    android:id="@+id/f16"
+                    android:checkable="true"
+                    android:title="16dp" />
+                <item
+                    android:id="@+id/f20"
+                    android:checkable="true"
+                    android:checked="true"
+                    android:title="20dp" />
+                <item
+                    android:id="@+id/f40"
+                    android:checkable="true"
+                    android:title="40dp" />
+            </group>
+        </menu>
+    </item>
+    <item
+        android:title="Mode"
+        android:id="@+id/menumode"
+        app:showAsAction="always">
+        <menu>
+            <group
+                android:id="@+id/group3"
+                android:checkableBehavior="single"
+                android:menuCategory="container">
+                <item
+                    android:id="@+id/modedisplay"
+                    android:checked="true"
+                    android:checkable="true"
+                    android:title="Display" />
+                <item
+                    android:id="@+id/modetext"
+                    android:checkable="true"
+                    android:title="Text" />
+            </group>
+            <item
+                android:id="@+id/modereload"
+                android:checkable="false"
+                android:title="Reload" />
+        </menu>
+    </item>
+    <item
+        android:title="Color"
+        app:showAsAction="always">
+        <menu>
+            <group
+                android:id="@+id/group4"
+                android:checkableBehavior="none">
+                <item
+                    android:id="@+id/colorblack"
+                    android:title="Black" />
+                <item
+                    android:id="@+id/colorpurple"
+                    android:title="Purple" />
+            </group>
+        </menu>
+    </item>
+
+
+</menu>

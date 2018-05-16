@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">AndroidMath</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_settings2">Settings 2</string>
+</resources>

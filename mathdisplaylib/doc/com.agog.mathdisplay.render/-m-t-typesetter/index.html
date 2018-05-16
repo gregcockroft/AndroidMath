@@ -1,0 +1,263 @@
+<HTML>
+<HEAD>
+    <meta charset="UTF-8">
+    <title>MTTypesetter - </title>
+    <link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">com.agog.mathdisplay.render</a>&nbsp;/&nbsp;<a
+        href=".">MTTypesetter</a><br/>
+<br/>
+<h1>MTTypesetter</h1>
+<code><span class="keyword">class </span><span class="identifier">MTTypesetter</span>&nbsp;<span
+        class="symbol">:</span>&nbsp;<span class="identifier">Any</span></code>
+<h3>Constructors</h3>
+<table>
+    <tbody>
+    <tr>
+        <td>
+            <a href="-init-.html">&lt;init&gt;</a></td>
+        <td>
+            <code><span class="identifier">MTTypesetter</span><span class="symbol">(</span><span
+                    class="identifier"
+                    id="com.agog.mathdisplay.render.MTTypesetter$<init>(com.agog.mathdisplay.render.MTFont, com.agog.mathdisplay.parse.MTLineStyle, kotlin.Boolean, kotlin.Boolean)/font">font</span><span
+                    class="symbol">:</span>&nbsp;<a href="../-m-t-font/index.html"><span
+                    class="identifier">MTFont</span></a><span class="symbol">, </span><span
+                    class="identifier"
+                    id="com.agog.mathdisplay.render.MTTypesetter$<init>(com.agog.mathdisplay.render.MTFont, com.agog.mathdisplay.parse.MTLineStyle, kotlin.Boolean, kotlin.Boolean)/linestyle">linestyle</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="../../com.agog.mathdisplay.parse/-m-t-line-style/index.html"><span
+                    class="identifier">MTLineStyle</span></a><span class="symbol">, </span><span
+                    class="identifier"
+                    id="com.agog.mathdisplay.render.MTTypesetter$<init>(com.agog.mathdisplay.render.MTFont, com.agog.mathdisplay.parse.MTLineStyle, kotlin.Boolean, kotlin.Boolean)/cramped">cramped</span><span
+                    class="symbol">:</span>&nbsp;<span class="identifier">Boolean</span>&nbsp;<span
+                    class="symbol">=</span>&nbsp;false<span class="symbol">, </span><span
+                    class="identifier"
+                    id="com.agog.mathdisplay.render.MTTypesetter$<init>(com.agog.mathdisplay.render.MTFont, com.agog.mathdisplay.parse.MTLineStyle, kotlin.Boolean, kotlin.Boolean)/spaced">spaced</span><span
+                    class="symbol">:</span>&nbsp;<span class="identifier">Boolean</span>&nbsp;<span
+                    class="symbol">=</span>&nbsp;false<span class="symbol">)</span></code></td>
+    </tr>
+    </tbody>
+</table>
+<h3>Properties</h3>
+<table>
+    <tbody>
+    <tr>
+        <td>
+            <a href="cramped.html">cramped</a></td>
+        <td>
+            <code><span class="keyword">var </span><span class="identifier">cramped</span><span
+                    class="symbol">: </span><span class="identifier">Boolean</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="current-atoms.html">currentAtoms</a></td>
+        <td>
+            <code><span class="keyword">var </span><span class="identifier">currentAtoms</span><span
+                    class="symbol">: </span><span class="identifier">MutableList</span><span
+                    class="symbol">&lt;</span><a
+                    href="../../com.agog.mathdisplay.parse/-m-t-math-atom/index.html"><span
+                    class="identifier">MTMathAtom</span></a><span class="symbol">&gt;</span></code>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a href="current-line.html">currentLine</a></td>
+        <td>
+            <code><span class="keyword">var </span><span class="identifier">currentLine</span><span
+                    class="symbol">: </span><span class="identifier">String</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="current-line-index-range.html">currentLineIndexRange</a></td>
+        <td>
+            <code><span class="keyword">var </span><span
+                    class="identifier">currentLineIndexRange</span><span class="symbol">: </span><a
+                    href="../../com.agog.mathdisplay.parse/-n-s-range/index.html"><span
+                    class="identifier">NSRange</span></a></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="current-position.html">currentPosition</a></td>
+        <td>
+            <code><span class="keyword">val </span><span
+                    class="identifier">currentPosition</span><span class="symbol">: </span><a
+                    href="../-c-g-point/index.html"><span
+                    class="identifier">CGPoint</span></a></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="display-atoms.html">displayAtoms</a></td>
+        <td>
+            <code><span class="keyword">var </span><span class="identifier">displayAtoms</span><span
+                    class="symbol">: </span><span class="identifier">MutableList</span><span
+                    class="symbol">&lt;</span><a href="../-m-t-display/index.html"><span
+                    class="identifier">MTDisplay</span></a><span class="symbol">&gt;</span></code>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a href="font.html">font</a></td>
+        <td>
+            <code><span class="keyword">val </span><span class="identifier">font</span><span
+                    class="symbol">: </span><a href="../-m-t-font/index.html"><span
+                    class="identifier">MTFont</span></a></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="spaced.html">spaced</a></td>
+        <td>
+            <code><span class="keyword">var </span><span class="identifier">spaced</span><span
+                    class="symbol">: </span><span class="identifier">Boolean</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="style.html">style</a></td>
+        <td>
+            <code><span class="keyword">var </span><span class="identifier">style</span><span
+                    class="symbol">: </span><a
+                    href="../../com.agog.mathdisplay.parse/-m-t-line-style/index.html"><span
+                    class="identifier">MTLineStyle</span></a></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="style-font.html">styleFont</a></td>
+        <td>
+            <code><span class="keyword">var </span><span class="identifier">styleFont</span><span
+                    class="symbol">: </span><a href="../-m-t-font/index.html"><span
+                    class="identifier">MTFont</span></a></code></td>
+    </tr>
+    </tbody>
+</table>
+<h3>Functions</h3>
+<table>
+    <tbody>
+    <tr>
+        <td>
+            <a href="denominator-gap-min.html">denominatorGapMin</a></td>
+        <td>
+            <code><span class="keyword">fun </span><span class="identifier">denominatorGapMin</span><span
+                    class="symbol">(</span><span class="symbol">)</span><span
+                    class="symbol">: </span><span class="identifier">Float</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="denominator-shift-down.html">denominatorShiftDown</a></td>
+        <td>
+            <code><span class="keyword">fun </span><span
+                    class="identifier">denominatorShiftDown</span><span class="symbol">(</span><span
+                    class="identifier"
+                    id="com.agog.mathdisplay.render.MTTypesetter$denominatorShiftDown(kotlin.Boolean)/hasRule">hasRule</span><span
+                    class="symbol">:</span>&nbsp;<span class="identifier">Boolean</span><span
+                    class="symbol">)</span><span class="symbol">: </span><span class="identifier">Float</span></code>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a href="fraction-delimiter-height.html">fractionDelimiterHeight</a></td>
+        <td>
+            <code><span class="keyword">fun </span><span
+                    class="identifier">fractionDelimiterHeight</span><span
+                    class="symbol">(</span><span class="symbol">)</span><span
+                    class="symbol">: </span><span class="identifier">Float</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="numerator-gap-min.html">numeratorGapMin</a></td>
+        <td>
+            <code><span class="keyword">fun </span><span
+                    class="identifier">numeratorGapMin</span><span class="symbol">(</span><span
+                    class="symbol">)</span><span class="symbol">: </span><span class="identifier">Float</span></code>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a href="numerator-shift-up.html">numeratorShiftUp</a></td>
+        <td>
+            <code><span class="keyword">fun </span><span
+                    class="identifier">numeratorShiftUp</span><span class="symbol">(</span><span
+                    class="identifier"
+                    id="com.agog.mathdisplay.render.MTTypesetter$numeratorShiftUp(kotlin.Boolean)/hasRule">hasRule</span><span
+                    class="symbol">:</span>&nbsp;<span class="identifier">Boolean</span><span
+                    class="symbol">)</span><span class="symbol">: </span><span class="identifier">Float</span></code>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a href="stack-gap-min.html">stackGapMin</a></td>
+        <td>
+            <code><span class="keyword">fun </span><span class="identifier">stackGapMin</span><span
+                    class="symbol">(</span><span class="symbol">)</span><span
+                    class="symbol">: </span><span class="identifier">Float</span></code></td>
+    </tr>
+    </tbody>
+</table>
+<h3>Companion Object Functions</h3>
+<table>
+    <tbody>
+    <tr>
+        <td>
+            <a href="create-line-for-math-list.html">createLineForMathList</a></td>
+        <td>
+            <code><span class="keyword">fun </span><span
+                    class="identifier">createLineForMathList</span><span
+                    class="symbol">(</span><span class="identifier"
+                                                 id="com.agog.mathdisplay.render.MTTypesetter.Companion$createLineForMathList(com.agog.mathdisplay.parse.MTMathList, com.agog.mathdisplay.render.MTFont, com.agog.mathdisplay.parse.MTLineStyle)/mathList">mathList</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="../../com.agog.mathdisplay.parse/-m-t-math-list/index.html"><span
+                    class="identifier">MTMathList</span></a><span class="symbol">, </span><span
+                    class="identifier"
+                    id="com.agog.mathdisplay.render.MTTypesetter.Companion$createLineForMathList(com.agog.mathdisplay.parse.MTMathList, com.agog.mathdisplay.render.MTFont, com.agog.mathdisplay.parse.MTLineStyle)/font">font</span><span
+                    class="symbol">:</span>&nbsp;<a href="../-m-t-font/index.html"><span
+                    class="identifier">MTFont</span></a><span class="symbol">, </span><span
+                    class="identifier"
+                    id="com.agog.mathdisplay.render.MTTypesetter.Companion$createLineForMathList(com.agog.mathdisplay.parse.MTMathList, com.agog.mathdisplay.render.MTFont, com.agog.mathdisplay.parse.MTLineStyle)/style">style</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="../../com.agog.mathdisplay.parse/-m-t-line-style/index.html"><span
+                    class="identifier">MTLineStyle</span></a><span class="symbol">)</span><span
+                    class="symbol">: </span><a href="../-m-t-math-list-display/index.html"><span
+                    class="identifier">MTMathListDisplay</span></a></code><br/>
+            <code><span class="keyword">fun </span><span
+                    class="identifier">createLineForMathList</span><span
+                    class="symbol">(</span><span class="identifier"
+                                                 id="com.agog.mathdisplay.render.MTTypesetter.Companion$createLineForMathList(com.agog.mathdisplay.parse.MTMathList, com.agog.mathdisplay.render.MTFont, com.agog.mathdisplay.parse.MTLineStyle, kotlin.Boolean)/mathList">mathList</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="../../com.agog.mathdisplay.parse/-m-t-math-list/index.html"><span
+                    class="identifier">MTMathList</span></a><span class="symbol">, </span><span
+                    class="identifier"
+                    id="com.agog.mathdisplay.render.MTTypesetter.Companion$createLineForMathList(com.agog.mathdisplay.parse.MTMathList, com.agog.mathdisplay.render.MTFont, com.agog.mathdisplay.parse.MTLineStyle, kotlin.Boolean)/font">font</span><span
+                    class="symbol">:</span>&nbsp;<a href="../-m-t-font/index.html"><span
+                    class="identifier">MTFont</span></a><span class="symbol">, </span><span
+                    class="identifier"
+                    id="com.agog.mathdisplay.render.MTTypesetter.Companion$createLineForMathList(com.agog.mathdisplay.parse.MTMathList, com.agog.mathdisplay.render.MTFont, com.agog.mathdisplay.parse.MTLineStyle, kotlin.Boolean)/style">style</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="../../com.agog.mathdisplay.parse/-m-t-line-style/index.html"><span
+                    class="identifier">MTLineStyle</span></a><span class="symbol">, </span><span
+                    class="identifier"
+                    id="com.agog.mathdisplay.render.MTTypesetter.Companion$createLineForMathList(com.agog.mathdisplay.parse.MTMathList, com.agog.mathdisplay.render.MTFont, com.agog.mathdisplay.parse.MTLineStyle, kotlin.Boolean)/cramped">cramped</span><span
+                    class="symbol">:</span>&nbsp;<span class="identifier">Boolean</span><span
+                    class="symbol">)</span><span class="symbol">: </span><a
+                    href="../-m-t-math-list-display/index.html"><span class="identifier">MTMathListDisplay</span></a></code>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a href="preprocess-math-list.html">preprocessMathList</a></td>
+        <td>
+            <code><span class="keyword">fun </span><span
+                    class="identifier">preprocessMathList</span><span class="symbol">(</span><span
+                    class="identifier"
+                    id="com.agog.mathdisplay.render.MTTypesetter.Companion$preprocessMathList(com.agog.mathdisplay.parse.MTMathList)/ml">ml</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="../../com.agog.mathdisplay.parse/-m-t-math-list/index.html"><span
+                    class="identifier">MTMathList</span></a><span class="symbol">)</span><span
+                    class="symbol">: </span><span class="identifier">MutableList</span><span
+                    class="symbol">&lt;</span><a
+                    href="../../com.agog.mathdisplay.parse/-m-t-math-atom/index.html"><span
+                    class="identifier">MTMathAtom</span></a><span class="symbol">&gt;</span></code>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</BODY>
+</HTML>

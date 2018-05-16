@@ -1,0 +1,266 @@
+<HTML>
+<HEAD>
+    <meta charset="UTF-8">
+    <title>com.agog.mathdisplay.parse - </title>
+    <link rel="stylesheet" href="../style.css">
+</HEAD>
+<BODY>
+<a href=".">com.agog.mathdisplay.parse</a><br/>
+<br/>
+<h2>Package com.agog.mathdisplay.parse</h2>
+<h3>Types</h3>
+<table>
+    <tbody>
+    <tr>
+        <td>
+            <a href="-m-t-accent/index.html">MTAccent</a></td>
+        <td>
+            <code><span class="keyword">class </span><span
+                    class="identifier">MTAccent</span>&nbsp;<span class="symbol">:</span>&nbsp;<a
+                    href="-m-t-math-atom/index.html"><span class="identifier">MTMathAtom</span></a></code>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a href="-m-t-column-alignment/index.html">MTColumnAlignment</a></td>
+        <td>
+            <code><span class="keyword">enum</span> <span class="keyword">class </span><span
+                    class="identifier">MTColumnAlignment</span>&nbsp;<span class="symbol">:</span>&nbsp;<span
+                    class="identifier">Enum</span><span class="symbol">&lt;</span><a
+                    href="-m-t-column-alignment/index.html"><span class="identifier">MTColumnAlignment</span></a><span
+                    class="symbol">&gt;</span></code>
+            <p>@typedef MTColumnAlignment
+                @brief Alignment for a column of MTMathTable</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a href="-m-t-env-properties/index.html">MTEnvProperties</a></td>
+        <td>
+            <code><span class="keyword">data</span> <span class="keyword">class </span><span
+                    class="identifier">MTEnvProperties</span>&nbsp;<span class="symbol">:</span>&nbsp;<span
+                    class="identifier">Any</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="-m-t-font-style/index.html">MTFontStyle</a></td>
+        <td>
+            <code><span class="keyword">enum</span> <span class="keyword">class </span><span
+                    class="identifier">MTFontStyle</span>&nbsp;<span
+                    class="symbol">:</span>&nbsp;<span class="identifier">Enum</span><span
+                    class="symbol">&lt;</span><a href="-m-t-font-style/index.html"><span
+                    class="identifier">MTFontStyle</span></a><span class="symbol">&gt;</span></code>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a href="-m-t-fraction/index.html">MTFraction</a></td>
+        <td>
+            <code><span class="keyword">class </span><span class="identifier">MTFraction</span>&nbsp;<span
+                    class="symbol">:</span>&nbsp;<a href="-m-t-math-atom/index.html"><span
+                    class="identifier">MTMathAtom</span></a></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="-m-t-inner/index.html">MTInner</a></td>
+        <td>
+            <code><span class="keyword">class </span><span
+                    class="identifier">MTInner</span>&nbsp;<span class="symbol">:</span>&nbsp;<a
+                    href="-m-t-math-atom/index.html"><span class="identifier">MTMathAtom</span></a></code>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a href="-m-t-large-operator/index.html">MTLargeOperator</a></td>
+        <td>
+            <code><span class="keyword">class </span><span class="identifier">MTLargeOperator</span>&nbsp;<span
+                    class="symbol">:</span>&nbsp;<a href="-m-t-math-atom/index.html"><span
+                    class="identifier">MTMathAtom</span></a></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="-m-t-line-style/index.html">MTLineStyle</a></td>
+        <td>
+            <code><span class="keyword">enum</span> <span class="keyword">class </span><span
+                    class="identifier">MTLineStyle</span>&nbsp;<span
+                    class="symbol">:</span>&nbsp;<span class="identifier">Enum</span><span
+                    class="symbol">&lt;</span><a href="-m-t-line-style/index.html"><span
+                    class="identifier">MTLineStyle</span></a><span class="symbol">&gt;</span></code>
+            <p>@typedef MTLineStyle
+                @brief Styling of a line of math</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a href="-m-t-math-atom/index.html">MTMathAtom</a></td>
+        <td>
+            <code><span class="keyword">open</span> <span class="keyword">class </span><span
+                    class="identifier">MTMathAtom</span>&nbsp;<span
+                    class="symbol">:</span>&nbsp;<span class="identifier">Any</span></code>
+            <p>A <code>MTMathAtom</code> is the basic unit of a math list. Each atom represents a
+                single character
+                or mathematical operator in a list. However certain atoms can represent more complex
+                structures
+                such as fractions and radicals. Each atom has a type which determines how the atom
+                is rendered and
+                a nucleus. The nucleus contains the character(s) that need to be rendered. However
+                the nucleus may
+                be empty for certain types of atoms. An atom has an optional subscript or
+                superscript which represents
+                the subscript or superscript that is to be rendered.</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a href="-m-t-math-atom-factory/index.html">MTMathAtomFactory</a></td>
+        <td>
+            <code><span class="keyword">open</span> <span class="keyword">class </span><span
+                    class="identifier">MTMathAtomFactory</span>&nbsp;<span class="symbol">:</span>&nbsp;<span
+                    class="identifier">Any</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="-m-t-math-atom-type/index.html">MTMathAtomType</a></td>
+        <td>
+            <code><span class="keyword">enum</span> <span class="keyword">class </span><span
+                    class="identifier">MTMathAtomType</span>&nbsp;<span class="symbol">:</span>&nbsp;<span
+                    class="identifier">Enum</span><span class="symbol">&lt;</span><a
+                    href="-m-t-math-atom-type/index.html"><span
+                    class="identifier">MTMathAtomType</span></a><span
+                    class="symbol">&gt;</span></code>
+            <p>@typedef MTMathAtomType
+                @brief The type of atom in a <code>MTMathList</code>.</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a href="-m-t-math-color/index.html">MTMathColor</a></td>
+        <td>
+            <code><span class="keyword">class </span><span class="identifier">MTMathColor</span>&nbsp;<span
+                    class="symbol">:</span>&nbsp;<a href="-m-t-math-atom/index.html"><span
+                    class="identifier">MTMathAtom</span></a></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="-m-t-math-list/index.html">MTMathList</a></td>
+        <td>
+            <code><span class="keyword">class </span><span class="identifier">MTMathList</span>&nbsp;<span
+                    class="symbol">:</span>&nbsp;<span class="identifier">Any</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="-m-t-math-list-builder/index.html">MTMathListBuilder</a></td>
+        <td>
+            <code><span class="keyword">class </span><span
+                    class="identifier">MTMathListBuilder</span>&nbsp;<span class="symbol">:</span>&nbsp;<span
+                    class="identifier">Any</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="-m-t-math-space/index.html">MTMathSpace</a></td>
+        <td>
+            <code><span class="keyword">class </span><span class="identifier">MTMathSpace</span>&nbsp;<span
+                    class="symbol">:</span>&nbsp;<a href="-m-t-math-atom/index.html"><span
+                    class="identifier">MTMathAtom</span></a></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="-m-t-math-style/index.html">MTMathStyle</a></td>
+        <td>
+            <code><span class="keyword">class </span><span class="identifier">MTMathStyle</span>&nbsp;<span
+                    class="symbol">:</span>&nbsp;<a href="-m-t-math-atom/index.html"><span
+                    class="identifier">MTMathAtom</span></a></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="-m-t-math-table/index.html">MTMathTable</a></td>
+        <td>
+            <code><span class="keyword">class </span><span class="identifier">MTMathTable</span>&nbsp;<span
+                    class="symbol">:</span>&nbsp;<a href="-m-t-math-atom/index.html"><span
+                    class="identifier">MTMathAtom</span></a></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="-m-t-over-line/index.html">MTOverLine</a></td>
+        <td>
+            <code><span class="keyword">class </span><span class="identifier">MTOverLine</span>&nbsp;<span
+                    class="symbol">:</span>&nbsp;<a href="-m-t-math-atom/index.html"><span
+                    class="identifier">MTMathAtom</span></a></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="-m-t-parse-error/index.html">MTParseError</a></td>
+        <td>
+            <code><span class="keyword">data</span> <span class="keyword">class </span><span
+                    class="identifier">MTParseError</span>&nbsp;<span
+                    class="symbol">:</span>&nbsp;<span class="identifier">Any</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="-m-t-parse-errors/index.html">MTParseErrors</a></td>
+        <td>
+            <code><span class="keyword">enum</span> <span class="keyword">class </span><span
+                    class="identifier">MTParseErrors</span>&nbsp;<span class="symbol">:</span>&nbsp;<span
+                    class="identifier">Enum</span><span class="symbol">&lt;</span><a
+                    href="-m-t-parse-errors/index.html"><span
+                    class="identifier">MTParseErrors</span></a><span
+                    class="symbol">&gt;</span></code>
+            <p>Created by greg on 2/12/18.</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a href="-m-t-radical/index.html">MTRadical</a></td>
+        <td>
+            <code><span class="keyword">class </span><span class="identifier">MTRadical</span>&nbsp;<span
+                    class="symbol">:</span>&nbsp;<a href="-m-t-math-atom/index.html"><span
+                    class="identifier">MTMathAtom</span></a></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="-m-t-under-line/index.html">MTUnderLine</a></td>
+        <td>
+            <code><span class="keyword">class </span><span class="identifier">MTUnderLine</span>&nbsp;<span
+                    class="symbol">:</span>&nbsp;<a href="-m-t-math-atom/index.html"><span
+                    class="identifier">MTMathAtom</span></a></code></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="-n-s-range/index.html">NSRange</a></td>
+        <td>
+            <code><span class="keyword">data</span> <span class="keyword">class </span><span
+                    class="identifier">NSRange</span>&nbsp;<span class="symbol">:</span>&nbsp;<span
+                    class="identifier">Any</span></code></td>
+    </tr>
+    </tbody>
+</table>
+<h3>Exceptions</h3>
+<table>
+    <tbody>
+    <tr>
+        <td>
+            <a href="-math-display-exception/index.html">MathDisplayException</a></td>
+        <td>
+            <code><span class="keyword">class </span><span
+                    class="identifier">MathDisplayException</span>&nbsp;<span
+                    class="symbol">:</span>&nbsp;<a
+                    href="http://docs.oracle.com/javase/6/docs/api/java/lang/Exception.html"><span
+                    class="identifier">Exception</span></a></code></td>
+    </tr>
+    </tbody>
+</table>
+<h3>Properties</h3>
+<table>
+    <tbody>
+    <tr>
+        <td>
+            <a href="-n-s-not-found.html">NSNotFound</a></td>
+        <td>
+            <code><span class="keyword">const</span> <span class="keyword">val </span><span
+                    class="identifier">NSNotFound</span><span class="symbol">: </span><span
+                    class="identifier">Int</span></code></td>
+    </tr>
+    </tbody>
+</table>
+</BODY>
+</HTML>

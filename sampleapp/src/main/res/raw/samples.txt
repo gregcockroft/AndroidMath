@@ -1,0 +1,146 @@
+#
+# Sample lines of Latex from raw/samples.txt
+# Empty lines are ignored lines
+# Lines starting with # displayed in TextViews
+#
+x = \frac{-b \pm \sqrt{b^2-4ac}}{2a}
+
+\color{#ff3399}{(a_1+a_2)^2}=a_1^2+2a_1a_2+a_2^2
+
+\cos(\theta + \varphi) = \cos(\theta)\cos(\varphi) - \sin(\theta)\sin(\varphi)
+
+\frac{1}{\left(\sqrt{\phi \sqrt{5}}-\phi\right) e^{\frac25 \pi}} = 1+\frac{e^{-2\pi}} {1 +\frac{e^{-4\pi}} {1+\frac{e^{-6\pi}} {1+\frac{e^{-8\pi}} {1+\cdots} } } }
+
+\sigma = \sqrt{\frac{1}{N}\sum_{i=1}^N (x_i - \mu)^2}
+
+\neg(P\land Q) \iff (\neg P)\lor(\neg Q)
+
+\log_b(x) = \frac{\log_a(x)}{\log_a(b)}
+
+\lim_{x\to\infty}\left(1 + \frac{k}{x}\right)^x = e^k
+
+\int_{-\infty}^\infty \! e^{-x^2} dx = \sqrt{\pi}
+
+\frac 1 n \sum_{i=1}^{n}x_i \geq \sqrt[n]{\prod_{i=1}^{n}x_i}
+
+f^{(n)}(z_0) = \frac{n!}{2\pi i}\oint_\gamma\frac{f(z)}{(z-z_0)^{n+1}}\,dz
+
+i\hbar\frac{\partial}{\partial t}\mathbf\Psi(\mathbf{x},t) = -\frac{\hbar}{2m}\nabla^2\mathbf\Psi(\mathbf{x},t) + V(\mathbf{x})\mathbf\Psi(\mathbf{x},t)
+    
+\left(\sum_{k=1}^n a_k b_k \right)^2 \le \left(\sum_{k=1}^n a_k^2\right)\left(\sum_{k=1}^n b_k^2\right)
+    
+{n \brace k} = \frac{1}{k!}\sum_{j=0}^k (-1)^{k-j}\binom{k}{j}(k-j)^n
+
+f(x) = \int\limits_{-\infty}^\infty\!\hat f(\xi)\,e^{2 \pi i \xi x}\,\mathrm{d}\xi
+
+\begin{gather} \dot{x} = \sigma(y-x) \\ \dot{y} = \rho x - y - xz \\ \dot{z} = -\beta z + xy \end{gather}
+
+\vec \bf V_1 \times \vec \bf V_2 =  \begin{vmatrix} \hat \imath &\hat \jmath &\hat k \\ \frac{\partial X}{\partial u} &  \frac{\partial Y}{\partial u} & 0 \\ \frac{\partial X}{\partial v} &  \frac{\partial Y}{\partial v} & 0 \end{vmatrix}
+
+\begin{eqalign} \nabla \cdot \vec{\bf{E}} & = \frac {\rho} {\varepsilon_0} \\ \nabla \cdot \vec{\bf{B}} & = 0 \\ \nabla \times \vec{\bf{E}} &= - \frac{\partial\vec{\bf{B}}}{\partial t} \\ \nabla \times \vec{\bf{B}} & = \mu_0\vec{\bf{J}} + \mu_0\varepsilon_0 \frac{\partial\vec{\bf{E}}}{\partial t} \end{eqalign}
+
+\begin{pmatrix} a & b\\ c & d \end{pmatrix} \begin{pmatrix} \alpha & \beta \\ \gamma & \delta \end{pmatrix} =  \begin{pmatrix} a\alpha + b\gamma & a\beta + b \delta \\ c\alpha + d\gamma & c\beta + d \delta  \end{pmatrix}
+
+\frak Q(\lambda,\hat{\lambda}) =  -\frac{1}{2} \mathbb P(O \mid \lambda ) \sum_s \sum_m \sum_t \gamma_m^{(s)} (t) +\\  \quad \left( \log(2 \pi ) + \log \left| \cal C_m^{(s)} \right| +  \left( o_t - \hat{\mu}_m^{(s)} \right) ^T \cal C_m^{(s)-1} \right)
+
+f(x) = \begin{cases} \frac{e^x}{2} & x \geq 0 \\ 1 & x < 0 \end{cases}
+    
+\color{#ff3333}{c}\color{#9933ff}{o}\color{#ff0080}{l}+\color{#99ff33}{\frac{\color{#ff99ff}{o}}{\color{#990099}{r}}}-\color{#33ffff}{\sqrt[\color{#3399ff}{e}]{\color{#3333ff}{d}}}
+
+
+# Test formula
+3+2-5 = 0
+
+# Infix and prefix Operators
+12+-3 > +14
+
+# Punct, parens
+(-3-5=-8, -6-7=-13)
+
+# Latex commands
+5\times(-2 \div 1) = -10
+-h - (5xy+2) = z
+
+# Text mode fraction
+\frac12x + \frac{3\div4}2y = 25
+
+# Fractions. Compare difference of change display/text in Mode menu
+\frac{x+\frac{12}{5}}{y}+\frac1z = \frac{xz+y+\frac{12}{5}z}{yz}
+
+# Exponents and subscripts
+\frac{x^{2+3y}}{x^{2+4y}} = x^y \times \frac{z_1^{y+1}}{z_1^{y+1}}
+
+# Square root
+5+\sqrt{2}+3
+
+# Square root inside square roots and with fractions
+\sqrt{\frac{\sqrt{\frac{1}{2}} + 3}{\sqrt5^x}}+\sqrt{3x}+x^{\sqrt2}
+
+# General root
+\sqrt[3]{24} + 3\sqrt{2}24
+
+# Fractions and formulae in root
+\sqrt[x+\frac{3}{4}]{\frac{2}{4}+1}
+
+# Non-symbol operators with no limits
+\sin^2(\theta)=\log_3^2(\pi)
+
+# Non-symbol operators with limits
+\lim_{x\to\infty}\frac{e^2}{1-x}=\limsup_{\sigma}5
+
+# Symbol operators with limits
+\sum_{n=1}^{\infty}\frac{1+n}{1-n}=\bigcup_{A\in\Im}C\cup B
+
+# Symbol operators with limits text style
+\sum_{n=1}^{\infty}\frac{1+n}{1-n}=\bigcup_{A\in\Im}C\cup B
+
+# Non-symbol operators with limits text style
+\lim_{x\to\infty}\frac{e^2}{1-x}=\limsup_{\sigma}5
+
+# Symbol operators with no limits
+\int_{0}^{\infty}e^x \,dx=\oint_0^{\Delta}5\Gamma
+
+# Test italic correction for large ops
+\int\int\int^{\infty}\int_0\int^{\infty}_0\int
+
+# Test italic correction for superscript/subscript
+U_3^2UY_3^2U_3Y^2f_1f^2ff
+
+#   Inline error display below
+\notacommand
+\sqrt{1}
+\sqrt[|]{1}
+{n \choose k}
+{n \choose k}
+\left({n \atop k}\right)
+\left({n \atop k}\right)
+\underline{xyz}+\overline{abc}
+\underline{\frac12}+\overline{\frac34}
+\underline{x^\overline{y}_\overline{z}+5}
+    
+# spacing examples from the TeX book
+\int\!\!\!\int_D dx\,dy
+
+# no spacing
+\int\int_D dxdy
+y\,dx-x\,dy
+y dx - x dy
+    
+# large spaces
+hello\ from \quad the \qquad other\ side
+
+# Accents
+\vec x \; \hat y \; \breve {x^2} \; \tilde x \tilde x^2 x^2 
+\hat{xyz} \; \widehat{xyz}\; \vec{2ab}
+\hat{\frac12} \; \hat{\sqrt 3}
+
+# large roots
+\sqrt{1+\sqrt{1+\sqrt{1+\sqrt{1+\sqrt{1+\cdots}}}}}
+    
+\begin{bmatrix} a & b\\ c & d \\ e & f \\ g &  h \\ i & j \end{bmatrix}
+x{\scriptstyle y}z
+x \mathrm x \mathbf x \mathcal X \mathfrak x \mathsf x \bm x \mathtt x \mathit \Lambda \cal g
+\mathrm{using\ mathrm}
+\text{using text}
+\text{Mary has }\$500 + \$200.
+

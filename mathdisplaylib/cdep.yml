@@ -1,0 +1,4 @@
+builders: [cmake]
+
+dependencies:
+- compile: com.github.jomof:freetype:2.6.2-rev14
