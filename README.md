@@ -6,6 +6,8 @@
 
 <img src="./img/phonescreen.png" width="320">
 
+[![](https://jitpack.io/v/gregcockroft/AndroidMath.svg)](https://jitpack.io/#gregcockroft/AndroidMath)
+
 Installation from the command line
 ----------------------------------
 
@@ -94,8 +96,6 @@ dependencies {
 ```
 
 
-#### In Activity:
-Look at [MainActivty.kt](./sampleapp/src/main/java/com/agog/latexmathsample/MainActivity.kt)
 
 #### API
 Look at [MTMathView](https://rawgit.com/gregcockroft/AndroidMath/master/mathdisplaylib/doc/com.agog.mathdisplay/-m-t-math-view/index.html)

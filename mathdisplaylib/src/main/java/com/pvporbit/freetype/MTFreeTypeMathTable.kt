@@ -5,9 +5,12 @@ import java.nio.ByteBuffer
 /*
   greg@agog.com
 
-  Read the math table from a opentype font and create tables ready for typesetting math
+  Read the math table from a opentype font and create tables ready for typesetting math.
+  freetype doesn't supply a library call to parse this table.
+  The whole table is retrieved as a bytearray and then parsed in kotlin
 
 
+  Best reference I've found for math table format
   https://docs.microsoft.com/en-us/typography/opentype/spec/math
 
 
@@ -85,8 +88,7 @@ class MTFreeTypeMathTable(val pointer: Long, val data: ByteBuffer) {
         val success = FreeType.FT_Load_Math_Table(pointer, data, data.remaining())
 
         if (success) {
-            val version = data.getInt()
-            println("version is $version")
+            val version = data.int
             if (version == 0x00010000) {
                 val mathConstantsOffset = getDataSInt()
                 val mathGlyphInfoOffset = getDataSInt()
@@ -114,7 +116,7 @@ class MTFreeTypeMathTable(val pointer: Long, val data: ByteBuffer) {
     }
 
     private fun getDataSInt(): Int {
-        val v = data.getShort()
+        val v = data.short
         return v.toInt()
     }
 
@@ -132,7 +134,7 @@ class MTFreeTypeMathTable(val pointer: Long, val data: ByteBuffer) {
 
     private fun getVariantsForGlyph(construction: HashMap<Int, MathGlyphConstruction>, gid: Int): List<Int> {
         val v = construction[gid]
-        if (v == null || v.variants.size == 0) return (listOf(gid))
+        if (v == null || v.variants.isEmpty()) return (listOf(gid))
         val vl = mutableListOf<Int>()
         for (variant in v.variants) {
             vl.add(variant.variantGlyph)
@@ -158,6 +160,7 @@ class MTFreeTypeMathTable(val pointer: Long, val data: ByteBuffer) {
 
     private fun getDataRecord(): Int {
         val value = getDataSInt()
+        @Suppress("UNUSED_VARIABLE")
         val deviceTable = getDataSInt()
         return value
     }
@@ -165,7 +168,7 @@ class MTFreeTypeMathTable(val pointer: Long, val data: ByteBuffer) {
 
     // Read either a correction or offset table that has a table of glyphs covered that correspond
     // to an array of MathRecords of the values
-    fun readmatchedtable(foffset: Int, table: HashMap<Int, Int>) {
+    private fun readmatchedtable(foffset: Int, table: HashMap<Int, Int>) {
         data.position(foffset)
         val coverageoffset = getDataSInt()
 
@@ -180,7 +183,7 @@ class MTFreeTypeMathTable(val pointer: Long, val data: ByteBuffer) {
     }
 
 
-    fun readConstants(foffset: Int) {
+    private fun readConstants(foffset: Int) {
         data.position(foffset)
 
         var i = 0
@@ -194,6 +197,7 @@ class MTFreeTypeMathTable(val pointer: Long, val data: ByteBuffer) {
                 }
                 else -> {
                     val value: Int = getDataSInt()
+                    @Suppress("UNUSED_VARIABLE")
                     val offset: Int = getDataSInt()
                     constants[recordname] = value
                 }
@@ -206,16 +210,16 @@ class MTFreeTypeMathTable(val pointer: Long, val data: ByteBuffer) {
     /*
         Read an array of glyph ids
      */
-    fun readCoverageTable(foffset: Int): Array<Int> {
+    private fun readCoverageTable(foffset: Int): Array<Int> {
         val currentposition = data.position()
         data.position(foffset)
         val format: Int = getDataSInt()
-        var ra: Array<Int>?
+        val ra: Array<Int>?
 
         when (format) {
             1 -> {
                 val glyphCount: Int = getDataSInt()
-                ra = Array<Int>(glyphCount, { 0 })
+                ra = Array(glyphCount, { 0 })
                 for (i in 0 until glyphCount) {
                     ra[i] = getDataSInt()
                 }
@@ -243,11 +247,11 @@ class MTFreeTypeMathTable(val pointer: Long, val data: ByteBuffer) {
     }
 
     class MathGlyphConstruction(val assembly: GlyphAssembly?, val variants: Array<MathGlyphVariantRecord>)
-    class MathGlyphVariantRecord(val variantGlyph: Int, val advanceMeasurement: Int)
+    class MathGlyphVariantRecord(val variantGlyph: Int, @Suppress("unused") val advanceMeasurement: Int)
     class GlyphPartRecord(val glyph: Int, val startConnectorLength: Int, val endConnectorLength: Int, val fullAdvance: Int, val partFlags: Int)
-    class GlyphAssembly(val italicsCorrection: Int, val partRecords: Array<GlyphPartRecord>)
+    class GlyphAssembly(@Suppress("unused") val italicsCorrection: Int, val partRecords: Array<GlyphPartRecord>)
 
-    fun readconstruction(foffset: Int): MathGlyphConstruction {
+    private fun readconstruction(foffset: Int): MathGlyphConstruction {
         val currentposition = data.position()
         data.position(foffset)
 
@@ -255,9 +259,9 @@ class MTFreeTypeMathTable(val pointer: Long, val data: ByteBuffer) {
         val variantCount = getDataSInt()
         val variants = mutableListOf<MathGlyphVariantRecord>()
         for (v in 0 until variantCount) {
-            val VariantGlyph = getDataSInt()
-            val AdvanceMeasurement = getDataSInt()
-            variants.add(v, MathGlyphVariantRecord(VariantGlyph, AdvanceMeasurement))
+            val variantGlyph = getDataSInt()
+            val advanceMeasurement = getDataSInt()
+            variants.add(v, MathGlyphVariantRecord(variantGlyph, advanceMeasurement))
         }
         val assembly = if (glyphAssemblyOff == 0) null else readassembly(foffset + glyphAssemblyOff)
         val construction = MathGlyphConstruction(assembly, variants.toTypedArray())
@@ -265,7 +269,7 @@ class MTFreeTypeMathTable(val pointer: Long, val data: ByteBuffer) {
         return construction
     }
 
-    fun readassembly(foffset: Int): GlyphAssembly {
+    private fun readassembly(foffset: Int): GlyphAssembly {
         val currentposition = data.position()
         data.position(foffset)
 
@@ -287,7 +291,7 @@ class MTFreeTypeMathTable(val pointer: Long, val data: ByteBuffer) {
     }
 
 
-    fun readvariants(foffset: Int) {
+    private fun readvariants(foffset: Int) {
         data.position(foffset)
 
         this.minConnectorOverlap = getDataSInt()
