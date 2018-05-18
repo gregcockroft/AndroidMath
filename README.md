@@ -1,3 +1,5 @@
+[![](https://jitpack.io/v/gregcockroft/AndroidMath.svg)](https://jitpack.io/#gregcockroft/AndroidMath)
+
 # AndroidMath
 
 - [x] Rendering of LaTeX Math inside of an Android View
@@ -6,7 +8,6 @@
 
 <img src="./img/phonescreen.png" width="320">
 
-[![](https://jitpack.io/v/gregcockroft/AndroidMath.svg)](https://jitpack.io/#gregcockroft/AndroidMath)
 
 Installation from the command line
 ----------------------------------
@@ -39,6 +40,7 @@ Using library in your app
 
 * [HelloAndroidMath](https://github.com/gregcockroft/HelloAndroidMath) For a complete simple project
 
+This is using jitpack.io
 Add below lines to root's build.gradle
 
 ```groovy
@@ -54,7 +56,7 @@ Add below lines to apps's build.gradle
 
 ```groovy
 dependencies {
-	        implementation 'com.github.gregcockroft:AndroidMath:-TESTA'
+	        implementation 'com.github.gregcockroft:AndroidMath:ALPHA'
 	}
 	
 ```
