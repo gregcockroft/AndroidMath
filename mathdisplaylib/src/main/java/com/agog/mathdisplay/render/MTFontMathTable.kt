@@ -78,9 +78,7 @@ class MTFontMathTable(val font: MTFont, var istreamotf: InputStream?) {
                     e.printStackTrace()
                 } finally {
                     try {
-                        if (it != null) {
-                            it.close()
-                        }
+                        it?.close()
                     } catch (e: IOException) {
                         e.printStackTrace()
                     }
@@ -90,8 +88,7 @@ class MTFontMathTable(val font: MTFont, var istreamotf: InputStream?) {
             /* --- Init FreeType --- */
             /* get singleton */
             val library = FreeType.newLibrary()
-            if (library == null)
-                throw  MathDisplayException("Error initializing FreeType.")
+                    ?: throw  MathDisplayException("Error initializing FreeType.")
 
             freeface = library.newFace(barray, 0)
             checkFontSize()
@@ -476,17 +473,17 @@ class MTFontMathTable(val font: MTFont, var istreamotf: InputStream?) {
     // Top Accent Adjustment
     fun getTopAccentAdjustment(glyph: Int): Float {
         val value = freeTypeMathTable.gettopAccentAttachment(glyph)
-        if (value != null) {
-            return fontUnitsToPt(value)
+        return if (value != null) {
+            fontUnitsToPt(value)
         } else {
-            // XXX make sure there is a unit test for this case
+            // testWideAccent test case covers this
 
             // If no top accent is defined then it is the center of the advance width.
             val glyphs = arrayOf(glyph)
             val advances = arrayOf(0.0f)
 
             this.getAdvancesForGlyphs(glyphs.toList(), advances, 1)
-            return advances[0] / 2
+            advances[0] / 2
         }
     }
 

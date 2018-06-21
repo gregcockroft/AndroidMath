@@ -1,3 +1,5 @@
+@file:Suppress("ConstantConditionIf")
+
 package com.agog.mathdisplay.render
 
 import android.graphics.Canvas
@@ -159,16 +161,16 @@ class MTCTLineDisplay(val str: String, range: NSRange, val font: MTFont, val ato
 
 enum class MTLinePosition {
     /// Regular
-    kMTLinePositionRegular,
+    KMTLinePositionRegular,
     /// Positioned at a subscript
-    kMTLinePositionSubscript,
+    KMTLinePositionSubscript,
     /// Positioned at a superscript
-    kMTLinePositionSuperscript
+    KMTLinePositionSuperscript
 }
 
 class MTMathListDisplay(displays: List<MTDisplay>, range: NSRange) : MTDisplay(range = range) {
     /// Where the line is positioned
-    var type: MTLinePosition = kMTLinePositionRegular
+    var type: MTLinePosition = KMTLinePositionRegular
     /// An array of MTDisplays which are positioned relative to the position of the
 /// the current display.
     var subDisplays: List<MTDisplay>? = null
@@ -395,10 +397,7 @@ class MTRadicalDisplay(val radicand: MTMathListDisplay, val radicalGlyph: MTDisp
 
     override fun draw(canvas: Canvas) {
         this.radicand.draw(canvas)
-        val deg = this.degree
-        if (deg != null) {
-            deg.draw(canvas)
-        }
+        degree?.draw(canvas)
 
 
         canvas.save()
@@ -613,14 +612,8 @@ class MTLargeOpLimitsDisplay(val nucleus: MTDisplay, var upperLimit: MTMathListD
 
     override fun draw(canvas: Canvas) {
         // Draw the elements.
-        val ul = this.upperLimit
-        if (ul != null) {
-            ul.draw(canvas)
-        }
-        val ll = this.lowerLimit
-        if (ll != null) {
-            ll.draw(canvas)
-        }
+        upperLimit?.draw(canvas)
+        lowerLimit?.draw(canvas)
         nucleus.draw(canvas)
 
     }

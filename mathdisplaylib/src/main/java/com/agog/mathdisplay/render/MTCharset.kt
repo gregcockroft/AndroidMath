@@ -27,23 +27,23 @@ const val kMTUnicodeGreekCapitalStart = '\u0391'
 const val kMTUnicodeGreekCapitalEnd = '\u03A9'
 
 // Note this is not equivalent to ch.isLowerCase() delta is a test case
-fun is_LOWER_EN(ch: Char): Boolean {
+fun isLowerEn(ch: Char): Boolean {
     return (ch) >= 'a' && (ch) <= 'z'
 }
 
-fun is_UPPER_EN(ch: Char): Boolean {
+fun isUpperEn(ch: Char): Boolean {
     return (ch) >= 'A' && (ch) <= 'Z'
 }
 
-fun is_NUMBER(ch: Char): Boolean {
+fun isNumber(ch: Char): Boolean {
     return (ch) >= '0' && (ch) <= '9'
 }
 
-fun is_LOWER_GREEK(ch: Char): Boolean {
+fun isLowerGreek(ch: Char): Boolean {
     return (ch) >= kMTUnicodeGreekLowerStart && (ch) <= kMTUnicodeGreekLowerEnd
 }
 
-fun is_CAPITAL_GREEK(ch: Char): Boolean {
+fun isCapitalGreek(ch: Char): Boolean {
     return (ch) >= kMTUnicodeGreekCapitalStart && (ch) <= kMTUnicodeGreekCapitalEnd
 }
 
@@ -55,7 +55,7 @@ fun greekSymbolOrder(ch: Char): Int {
     return greekSymbols.indexOf(ch.toInt())
 }
 
-fun is_GREEK_SYMBOL(ch: Char): Boolean {
+fun isGREEKSYMBOL(ch: Char): Boolean {
     return (greekSymbolOrder(ch) != -1)
 }
 
@@ -86,21 +86,21 @@ fun getItalicized(ch: Char): MTCodepointChar {
         ch == 'h' -> {  // italic h (plank's constant)
             return MTCodepointChar(kMTUnicodePlanksConstant)
         }
-        is_UPPER_EN(ch) -> {
+        isUpperEn(ch) -> {
             return MTCodepointChar(kMTUnicodeMathCapitalItalicStart + (ch - 'A'))
         }
-        is_LOWER_EN(ch) -> {
+        isLowerEn(ch) -> {
             return MTCodepointChar(kMTUnicodeMathLowerItalicStart + (ch - 'a'))
         }
-        is_CAPITAL_GREEK(ch) -> {
+        isCapitalGreek(ch) -> {
             // Capital Greek characters
             return MTCodepointChar(kMTUnicodeGreekCapitalItalicStart + (ch - kMTUnicodeGreekCapitalStart))
         }
-        is_LOWER_GREEK(ch) -> {
+        isLowerGreek(ch) -> {
             // Greek characters
             return MTCodepointChar(kMTUnicodeGreekLowerItalicStart + (ch - kMTUnicodeGreekLowerStart))
         }
-        is_GREEK_SYMBOL(ch) -> {
+        isGREEKSYMBOL(ch) -> {
             return MTCodepointChar(kMTUnicodeGreekSymbolItalicStart + greekSymbolOrder(ch))
         }
     }
@@ -118,24 +118,24 @@ const val kMTUnicodeNumberBoldStart = 0x1D7CE
 
 fun getBold(ch: Char): MTCodepointChar {
     when {
-        is_UPPER_EN(ch) -> {
+        isUpperEn(ch) -> {
             return MTCodepointChar(kMTUnicodeMathCapitalBoldStart + (ch - 'A'))
         }
-        is_LOWER_EN(ch) -> {
+        isLowerEn(ch) -> {
             return MTCodepointChar(kMTUnicodeMathLowerBoldStart + (ch - 'a'))
         }
-        is_CAPITAL_GREEK(ch) -> {
+        isCapitalGreek(ch) -> {
             // Capital Greek characters
             return MTCodepointChar(kMTUnicodeGreekCapitalBoldStart + (ch - kMTUnicodeGreekCapitalStart))
         }
-        is_LOWER_GREEK(ch) -> {
+        isLowerGreek(ch) -> {
             // Greek characters
             return MTCodepointChar(kMTUnicodeGreekLowerBoldStart + (ch - kMTUnicodeGreekLowerStart))
         }
-        is_GREEK_SYMBOL(ch) -> {
+        isGREEKSYMBOL(ch) -> {
             return MTCodepointChar(kMTUnicodeGreekSymbolBoldStart + greekSymbolOrder(ch))
         }
-        is_NUMBER(ch) -> {
+        isNumber(ch) -> {
             return MTCodepointChar(kMTUnicodeNumberBoldStart + (ch - '0'))
         }
     }
@@ -151,24 +151,24 @@ const val kMTUnicodeGreekSymbolBoldItalicStart = 0x1D750
 
 fun getBoldItalic(ch: Char): MTCodepointChar {
     when {
-        is_UPPER_EN(ch) -> {
+        isUpperEn(ch) -> {
             return MTCodepointChar(kMTUnicodeMathCapitalBoldItalicStart + (ch - 'A'))
         }
-        is_LOWER_EN(ch) -> {
+        isLowerEn(ch) -> {
             return MTCodepointChar(kMTUnicodeMathLowerBoldItalicStart + (ch - 'a'))
         }
-        is_CAPITAL_GREEK(ch) -> {
+        isCapitalGreek(ch) -> {
             // Capital Greek characters
             return MTCodepointChar(kMTUnicodeGreekCapitalBoldItalicStart + (ch - kMTUnicodeGreekCapitalStart))
         }
-        is_LOWER_GREEK(ch) -> {
+        isLowerGreek(ch) -> {
             // Greek characters
             return MTCodepointChar(kMTUnicodeGreekLowerBoldItalicStart + (ch - kMTUnicodeGreekLowerStart))
         }
-        is_GREEK_SYMBOL(ch) -> {
+        isGREEKSYMBOL(ch) -> {
             return MTCodepointChar(kMTUnicodeGreekSymbolBoldItalicStart + greekSymbolOrder(ch))
         }
-        is_NUMBER(ch) -> {
+        isNumber(ch) -> {
             // No bold italic for numbers so we just bold them.
             return getBold(ch)
         }
@@ -179,10 +179,10 @@ fun getBoldItalic(ch: Char): MTCodepointChar {
 // LaTeX default
 fun getDefaultStyle(ch: Char): MTCodepointChar {
     when {
-        is_LOWER_EN(ch) || is_UPPER_EN(ch) || is_LOWER_GREEK(ch) || is_GREEK_SYMBOL(ch) -> {
+        isLowerEn(ch) || isUpperEn(ch) || isLowerGreek(ch) || isGREEKSYMBOL(ch) -> {
             return getItalicized(ch)
         }
-        is_NUMBER(ch) || is_CAPITAL_GREEK(ch) -> {
+        isNumber(ch) || isCapitalGreek(ch) -> {
             return MTCodepointChar(ch.toInt())
         }
         ch == '.' -> {
@@ -226,10 +226,10 @@ fun getCaligraphic(ch: Char): MTCodepointChar {
             return MTCodepointChar(0x2134)   // Script o (order)
     }
     when {
-        is_UPPER_EN(ch) -> {
+        isUpperEn(ch) -> {
             return MTCodepointChar(kMTUnicodeMathCapitalScriptStart + (ch - 'A'))
         }
-        is_LOWER_EN(ch) -> {
+        isLowerEn(ch) -> {
             // Latin Modern Math does not have lower case caligraphic characters, so we use
             // the default style instead of showing a ?
             return getDefaultStyle(ch)
@@ -247,13 +247,13 @@ const val kMTUnicodeNumberTTStart = 0x1D7F6
 // mathtt (monospace)
 fun getTypewriter(ch: Char): MTCodepointChar {
     when {
-        is_UPPER_EN(ch) -> {
+        isUpperEn(ch) -> {
             return MTCodepointChar(kMTUnicodeMathCapitalTTStart + (ch - 'A'))
         }
-        is_LOWER_EN(ch) -> {
+        isLowerEn(ch) -> {
             return MTCodepointChar(kMTUnicodeMathLowerTTStart + (ch - 'a'))
         }
-        is_NUMBER(ch) -> {
+        isNumber(ch) -> {
             return MTCodepointChar(kMTUnicodeNumberTTStart + (ch - '0'))
         }
         else -> {
@@ -271,13 +271,13 @@ const val kMTUnicodeNumberSansSerifStart = 0x1D7E2
 // mathsf
 fun getSansSerif(ch: Char): MTCodepointChar {
     when {
-        is_UPPER_EN(ch) -> {
+        isUpperEn(ch) -> {
             return MTCodepointChar(kMTUnicodeMathCapitalSansSerifStart + (ch - 'A'))
         }
-        is_LOWER_EN(ch) -> {
+        isLowerEn(ch) -> {
             return MTCodepointChar(kMTUnicodeMathLowerSansSerifStart + (ch - 'a'))
         }
-        is_NUMBER(ch) -> {
+        isNumber(ch) -> {
             return MTCodepointChar(kMTUnicodeNumberSansSerifStart + (ch - '0'))
         }
         else -> {
@@ -306,9 +306,9 @@ fun getFraktur(ch: Char): MTCodepointChar {
         'Z' ->
             return MTCodepointChar(0x2128)   // Z Fraktur
     }
-    if (is_UPPER_EN(ch)) {
+    if (isUpperEn(ch)) {
         return MTCodepointChar(kMTUnicodeMathCapitalFrakturStart + (ch - 'A'))
-    } else if (is_LOWER_EN(ch)) {
+    } else if (isLowerEn(ch)) {
         return MTCodepointChar(kMTUnicodeMathLowerFrakturStart + (ch - 'a'))
     }
     // Fraktur characters don't exist for greek & numbers, we give them the
@@ -340,13 +340,13 @@ fun getBlackboard(ch: Char): MTCodepointChar {
             return MTCodepointChar(0x2124)  // Integers
     }
     when {
-        is_UPPER_EN(ch) -> {
+        isUpperEn(ch) -> {
             return MTCodepointChar(kMTUnicodeMathCapitalBlackboardStart + (ch - 'A'))
         }
-        is_LOWER_EN(ch) -> {
+        isLowerEn(ch) -> {
             return MTCodepointChar(kMTUnicodeMathLowerBlackboardStart + (ch - 'a'))
         }
-        is_NUMBER(ch) -> {
+        isNumber(ch) -> {
             return MTCodepointChar(kMTUnicodeNumberBlackboardStart + (ch - '0'))
         }
     }

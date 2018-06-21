@@ -39,7 +39,7 @@ class MTMathView @JvmOverloads constructor(
      * Holds the error status from the last parse of the LaTeX string.
      * The errorcode of this can be checked to determine if the string was well formatted.
      */
-    public val lastError = MTParseError()
+    val lastError = MTParseError()
 
     /**
      * Not normally used. Only if you are building a mathlist in code.
@@ -58,7 +58,7 @@ class MTMathView @JvmOverloads constructor(
      *
      * Sample mathview.latex = "x = \frac{-b \pm \sqrt{b^2-4ac}}{2a}"
      */
-    public var latex: String = ""
+    var latex: String = ""
         set(value) {
             field = value
 
@@ -123,7 +123,7 @@ class MTMathView @JvmOverloads constructor(
     /**
      * Font used to draw the equation. See MTFontManager
      */
-    public var font: MTFont? = MTFontManager.defaultFont()
+    var font: MTFont? = MTFontManager.defaultFont()
         set(value) {
             field = value
             displayList = null
@@ -134,7 +134,7 @@ class MTMathView @JvmOverloads constructor(
     /**
      * This is in device pixels. Default value is see KDefaultFontSize
      */
-    public var fontSize = KDefaultFontSize // This is in device pixels.
+    var fontSize = KDefaultFontSize // This is in device pixels.
         set(value) {
             field = value
             val of = this.font
@@ -147,7 +147,7 @@ class MTMathView @JvmOverloads constructor(
     /**
      * Should display or text mode be used.
      */
-    public var labelMode = KMTMathViewModeDisplay
+    var labelMode = KMTMathViewModeDisplay
         set(value) {
             field = value
             displayList = null
@@ -158,7 +158,7 @@ class MTMathView @JvmOverloads constructor(
     /**
      * Color of the equation if not overridden with local color changes by TeX commands
      */
-    public var textColor = Color.BLACK
+    var textColor = Color.BLACK
         set(value) {
             field = value
             val dl = displayList
@@ -171,7 +171,7 @@ class MTMathView @JvmOverloads constructor(
     /**
      * Alignment within the view
      */
-    public var textAlignment = KMTTextAlignmentLeft
+    var textAlignment = KMTTextAlignmentLeft
         set(value) {
             field = value
             requestLayout()
@@ -180,9 +180,9 @@ class MTMathView @JvmOverloads constructor(
 
     private var currentStyle = MTLineStyle.KMTLineStyleDisplay
         get() {
-            when (labelMode) {
-                KMTMathViewModeDisplay -> return MTLineStyle.KMTLineStyleDisplay
-                KMTMathViewModeText -> return MTLineStyle.KMTLineStyleText
+            return when (labelMode) {
+                KMTMathViewModeDisplay -> MTLineStyle.KMTLineStyleDisplay
+                KMTMathViewModeText -> MTLineStyle.KMTLineStyleText
             }
         }
 
@@ -195,7 +195,7 @@ class MTMathView @JvmOverloads constructor(
      * When parsing errors are drawn this will control the size of the resulting error text and therefore view measured size.
      * In device pixels
      */
-    public val errorFontSize = 20.0f
+    val errorFontSize = 20.0f
 
     private fun drawError(canvas: Canvas): Boolean {
         if (!displayError()) {
@@ -255,16 +255,17 @@ class MTMathView @JvmOverloads constructor(
 
             val availableHeight = height - paddingBottom - paddingTop
             // center things vertically
-            var height = dl.ascent + dl.descent
-            if (height < fontSize / 2) {
+            var eqheight = dl.ascent + dl.descent
+            if (eqheight < fontSize / 2) {
                 // Set the height to the half the size of the font
-                height = fontSize / 2
+                eqheight = fontSize / 2
             }
-            val textY = (availableHeight - height) / 2 + dl.descent + paddingBottom
+            // This will put center of vertical bounds to vertical center
+            val textY = (availableHeight - eqheight) / 2 + dl.descent + paddingBottom
             dl.position.x = textX.toFloat()
             dl.position.y = textY
             canvas.save()
-            canvas.translate(0.0f, height)
+            canvas.translate(0.0f, height.toFloat())
             canvas.scale(1.0f, -1.0f)
             dl.draw(canvas)
             canvas.restore()

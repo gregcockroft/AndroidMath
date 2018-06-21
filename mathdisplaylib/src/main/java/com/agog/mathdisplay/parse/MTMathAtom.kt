@@ -160,7 +160,7 @@ open class MTMathAtom(var type: MTMathAtomType, var nucleus: String) {
     var fontStyle: MTFontStyle = MTFontStyle.KMTFontStyleDefault
 
     /// If this atom was formed by fusion of multiple atoms, then this stores the list of atoms that were fused to create this one.
-/// This is used in the finalizing and preprocessing steps.
+    /// This is used in the finalizing and preprocessing steps.
     var fusedAtoms = mutableListOf<MTMathAtom>()
 
     /// The index range in the MTMathList this MTMathAtom tracks. This is used by the finalizing and preprocessing steps
@@ -395,13 +395,14 @@ open class MTMathAtom(var type: MTMathAtomType, var nucleus: String) {
         if (this.superScript != null) {
             atom.superScript = this.superScript?.copyDeep()
         }
-        // XXX what about fusedAtoms??
+        // fusedAtoms are only used in preprocessing which comes after finalized which uses copyDeep()
+        // No need to copy fusedAtoms but assert here to find any coding error
+        assert(atom.fusedAtoms.isEmpty())
         atom.fontStyle = this.fontStyle
         atom.indexRange = this.indexRange.copy()
         return atom
     }
 
-    // Note this is a deep copy.
     open fun copyDeep(): MTMathAtom {
         val atom = MTMathAtom(this.type, this.nucleus)
         copyDeepContent(atom)

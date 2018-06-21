@@ -13,17 +13,19 @@ class MTFontManager {
         private var assets: AssetManager? = null
         private val nameToFontMap: HashMap<String, MTFont> = HashMap<String, MTFont>()
 
-        public fun fontWithName(name: String, size: Float): MTFont? {
-            //val hashname = name + size.toString()
-            val hashname = name
-            var f = nameToFontMap[hashname]
+        /*
+            @param name  filename in that assets directory of the opentype font minus the otf extension
+            @param size  device pixels
+         */
+        fun fontWithName(name: String, size: Float): MTFont? {
+            var f = nameToFontMap[name]
             if (f == null) {
                 val a = assets
                 if (a == null) {
                     throw MathDisplayException("MTFontManager assets is null")
                 } else {
                     f = MTFont(a, name, size)
-                    nameToFontMap[hashname] = f
+                    nameToFontMap[name] = f
                 }
                 return f
             }

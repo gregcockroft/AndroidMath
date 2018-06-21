@@ -45,7 +45,7 @@ class TypesetterInstrumentedTest {
             mathList.addAtom(atom)
             val display = MTTypesetter.createLineForMathList(mathList, font!!, MTLineStyle.KMTLineStyleDisplay)
             assertNotNull("createLineForMathList", display)
-            assertEquals(display.type, MTLinePosition.kMTLinePositionRegular)
+            assertEquals(display.type, MTLinePosition.KMTLinePositionRegular)
             assertTrue(display.position.equals(CGPoint()))
             assertTrue(display.range.equals(NSRange(0, 1)))
             assertFalse(display.hasScript)
@@ -190,7 +190,7 @@ class TypesetterInstrumentedTest {
 
         val display = MTTypesetter.createLineForMathList(mathList, font!!, MTLineStyle.KMTLineStyleDisplay)
         assertNotNull("createLineForMathList", display)
-        assertEquals(display.type, MTLinePosition.kMTLinePositionRegular)
+        assertEquals(display.type, MTLinePosition.KMTLinePositionRegular)
         assertTrue(display.position.equals(CGPoint()))
         assertTrue(display.range.equals(NSRange(0, 1)))
         assertFalse(display.hasScript)
@@ -210,7 +210,7 @@ class TypesetterInstrumentedTest {
         val sub1: MTDisplay = subdisplays[1]
         assertTrue(sub1 is MTMathListDisplay)
         val display2 = sub1 as MTMathListDisplay
-        assertEquals(display2.type, MTLinePosition.kMTLinePositionSuperscript)
+        assertEquals(display2.type, MTLinePosition.KMTLinePositionSuperscript)
         assertEqualsCGPoint(display2.position, CGPoint(11.44f, 7.26f), 0.05f)
         assertTrue(display2.range.equals(NSRange(0, 1)))
         assertFalse(display2.hasScript)
@@ -248,7 +248,7 @@ class TypesetterInstrumentedTest {
 
         var display = MTTypesetter.createLineForMathList(mathList, font!!, MTLineStyle.KMTLineStyleDisplay)
         assertNotNull("createLineForMathList", display)
-        assertEquals(display.type, MTLinePosition.kMTLinePositionRegular)
+        assertEquals(display.type, MTLinePosition.KMTLinePositionRegular)
         assertTrue(display.position.equals(CGPoint()))
         assertTrue(display.range.equals(NSRange(0, 1)))
         assertFalse(display.hasScript)
@@ -268,7 +268,7 @@ class TypesetterInstrumentedTest {
         val sub1: MTDisplay = subdisplays[1]
         assertTrue(sub1 is MTMathListDisplay)
         val display2 = sub1 as MTMathListDisplay
-        assertEquals(display2.type, MTLinePosition.kMTLinePositionSubscript)
+        assertEquals(display2.type, MTLinePosition.KMTLinePositionSubscript)
         assertEqualsCGPoint(display2.position, CGPoint(11.44f, -4.94f), 0.05f)
         assertTrue(display2.range.equals(NSRange(0, 1)))
         assertFalse(display2.hasScript)
@@ -309,7 +309,7 @@ class TypesetterInstrumentedTest {
 
         val display = MTTypesetter.createLineForMathList(mathList, font!!, MTLineStyle.KMTLineStyleDisplay)
         assertNotNull("createLineForMathList", display)
-        assertEquals(display.type, MTLinePosition.kMTLinePositionRegular)
+        assertEquals(display.type, MTLinePosition.KMTLinePositionRegular)
         assertTrue(display.position.equals(CGPoint()))
         assertTrue(display.range.equals(NSRange(0, 1)))
         assertFalse(display.hasScript)
@@ -329,7 +329,7 @@ class TypesetterInstrumentedTest {
         val sub1: MTDisplay = subdisplays[1]
         assertTrue(sub1 is MTMathListDisplay)
         val display2 = sub1 as MTMathListDisplay
-        assertEquals(display2.type, MTLinePosition.kMTLinePositionSuperscript)
+        assertEquals(display2.type, MTLinePosition.KMTLinePositionSuperscript)
         assertEqualsCGPoint(display2.position, CGPoint(11.44f, 7.26f), 0.05f)
         assertTrue(display2.range.equals(NSRange(0, 1)))
         assertFalse(display2.hasScript)
@@ -348,7 +348,7 @@ class TypesetterInstrumentedTest {
         val sub2: MTDisplay = subdisplays[2]
         assertTrue(sub2 is MTMathListDisplay)
         val display3 = sub2 as MTMathListDisplay
-        assertEquals(display3.type, MTLinePosition.kMTLinePositionSubscript)
+        assertEquals(display3.type, MTLinePosition.KMTLinePositionSubscript)
         assertEqualsCGPoint(display3.position, CGPoint(11.44f, -5.278f), 0.05f)
         assertTrue(display3.range.equals(NSRange(0, 1)))
         assertFalse(display3.hasScript)
@@ -385,7 +385,7 @@ class TypesetterInstrumentedTest {
 
         var display = MTTypesetter.createLineForMathList(mathList, font!!, MTLineStyle.KMTLineStyleDisplay)
         assertNotNull("createLineForMathList", display)
-        assertEquals(display.type, MTLinePosition.kMTLinePositionRegular)
+        assertEquals(display.type, MTLinePosition.KMTLinePositionRegular)
         assertTrue(display.position.equals(CGPoint()))
         assertTrue(display.range.equals(NSRange(0, 1)))
         assertFalse(display.hasScript)
@@ -404,7 +404,7 @@ class TypesetterInstrumentedTest {
         assertNull("testRadical", radical.degree)
 
         val display2 = radical.radicand
-        assertEquals(display2.type, MTLinePosition.kMTLinePositionRegular)
+        assertEquals(display2.type, MTLinePosition.KMTLinePositionRegular)
         assertEqualsCGPoint(display2.position, CGPoint(16.66f, 0f), 0.05f)
         assertTrue(display2.range.equals(NSRange(0, 1)))
         assertFalse(display2.hasScript)
@@ -450,7 +450,7 @@ class TypesetterInstrumentedTest {
 
         var display = MTTypesetter.createLineForMathList(mathList, font!!, MTLineStyle.KMTLineStyleDisplay)
         assertNotNull("createLineForMathList", display)
-        assertEquals(display.type, MTLinePosition.kMTLinePositionRegular)
+        assertEquals(display.type, MTLinePosition.KMTLinePositionRegular)
         assertTrue(display.position.equals(CGPoint()))
         assertTrue(display.range.equals(NSRange(0, 1)))
         assertFalse(display.hasScript)
@@ -469,7 +469,7 @@ class TypesetterInstrumentedTest {
 
 
         val display2 = radical.radicand
-        assertEquals(display2.type, MTLinePosition.kMTLinePositionRegular)
+        assertEquals(display2.type, MTLinePosition.KMTLinePositionRegular)
         assertEqualsCGPoint(display2.position, CGPoint(16.66f, 0f), 0.05f)
         assertTrue(display2.range.equals(NSRange(0, 1)))
         assertFalse(display2.hasScript)
@@ -490,7 +490,7 @@ class TypesetterInstrumentedTest {
 
         assertNotNull("testRadicalWithDegree", radical.degree)
         val display3 = radical.degree
-        assertEquals(display3!!.type, MTLinePosition.kMTLinePositionRegular)
+        assertEquals(display3!!.type, MTLinePosition.KMTLinePositionRegular)
         assertEqualsCGPoint(display3.position, CGPoint(6.12f, 10.716f), 0.05f)
         assertTrue(display3.range.equals(NSRange(0, 1)))
         assertFalse(display3.hasScript)
@@ -536,7 +536,7 @@ class TypesetterInstrumentedTest {
 
         var display = MTTypesetter.createLineForMathList(mathList, font!!, MTLineStyle.KMTLineStyleDisplay)
         assertNotNull("createLineForMathList", display)
-        assertEquals(display.type, MTLinePosition.kMTLinePositionRegular)
+        assertEquals(display.type, MTLinePosition.KMTLinePositionRegular)
         assertTrue(display.position.equals(CGPoint()))
         assertTrue(display.range.equals(NSRange(0, 1)))
         assertFalse(display.hasScript)
@@ -555,7 +555,7 @@ class TypesetterInstrumentedTest {
         assertNotNull("testFraction", fraction.denominator)
 
         val display2 = fraction.numerator
-        assertEquals(display2.type, MTLinePosition.kMTLinePositionRegular)
+        assertEquals(display2.type, MTLinePosition.KMTLinePositionRegular)
         assertEqualsCGPoint(display2.position, CGPoint(0f, 13.54f), 0.05f)
         assertTrue(display2.range.equals(NSRange(0, 1)))
         assertFalse(display2.hasScript)
@@ -574,7 +574,7 @@ class TypesetterInstrumentedTest {
         assertFalse(line2.hasScript)
 
         val display3 = fraction.denominator
-        assertEquals(display3.type, MTLinePosition.kMTLinePositionRegular)
+        assertEquals(display3.type, MTLinePosition.KMTLinePositionRegular)
         assertEqualsCGPoint(display3.position, CGPoint(0f, -13.72f), 0.05f)
         assertTrue(display3.range.equals(NSRange(0, 1)))
         assertFalse(display3.hasScript)
@@ -620,7 +620,7 @@ class TypesetterInstrumentedTest {
 
         var display = MTTypesetter.createLineForMathList(mathList, font!!, MTLineStyle.KMTLineStyleDisplay)
         assertNotNull("createLineForMathList", display)
-        assertEquals(display.type, MTLinePosition.kMTLinePositionRegular)
+        assertEquals(display.type, MTLinePosition.KMTLinePositionRegular)
         assertTrue(display.position.equals(CGPoint()))
         assertTrue(display.range.equals(NSRange(0, 1)))
         assertFalse(display.hasScript)
@@ -639,7 +639,7 @@ class TypesetterInstrumentedTest {
         assertNotNull("testFraction", fraction.denominator)
 
         val display2 = fraction.numerator
-        assertEquals(display2.type, MTLinePosition.kMTLinePositionRegular)
+        assertEquals(display2.type, MTLinePosition.KMTLinePositionRegular)
         assertEqualsCGPoint(display2.position, CGPoint(0f, 13.54f), 0.05f)
         assertTrue(display2.range.equals(NSRange(0, 1)))
         assertFalse(display2.hasScript)
@@ -658,7 +658,7 @@ class TypesetterInstrumentedTest {
         assertFalse(line2.hasScript)
 
         val display3 = fraction.denominator
-        assertEquals(display3.type, MTLinePosition.kMTLinePositionRegular)
+        assertEquals(display3.type, MTLinePosition.KMTLinePositionRegular)
         assertEqualsCGPoint(display3.position, CGPoint(0f, -13.72f), 0.05f)
         assertTrue(display3.range.equals(NSRange(0, 1)))
         assertFalse(display3.hasScript)
@@ -706,7 +706,7 @@ class TypesetterInstrumentedTest {
 
         var display = MTTypesetter.createLineForMathList(mathList, font!!, MTLineStyle.KMTLineStyleDisplay)
         assertNotNull("createLineForMathList", display)
-        assertEquals(display.type, MTLinePosition.kMTLinePositionRegular)
+        assertEquals(display.type, MTLinePosition.KMTLinePositionRegular)
         assertTrue(display.position.equals(CGPoint()))
         assertTrue(display.range.equals(NSRange(0, 1)))
         assertFalse(display.hasScript)
@@ -718,7 +718,7 @@ class TypesetterInstrumentedTest {
         val sub0: MTDisplay = subdisplays[0]
         assertTrue(sub0 is MTMathListDisplay)
         val display0 = sub0 as MTMathListDisplay
-        assertEquals(display0.type, MTLinePosition.kMTLinePositionRegular)
+        assertEquals(display0.type, MTLinePosition.KMTLinePositionRegular)
         assertTrue(display0.position.equals(CGPoint()))
         assertTrue(display0.range.equals(NSRange(0, 1)))
         assertFalse(display0.hasScript)
@@ -744,7 +744,7 @@ class TypesetterInstrumentedTest {
         assertNotNull("testBinomial", fraction.denominator)
 
         val display2 = fraction.numerator
-        assertEquals(display2.type, MTLinePosition.kMTLinePositionRegular)
+        assertEquals(display2.type, MTLinePosition.KMTLinePositionRegular)
         assertEqualsCGPoint(display2.position, CGPoint(14.72f, 13.54f), 0.05f)
         assertTrue(display2.range.equals(NSRange(0, 1)))
         assertFalse(display2.hasScript)
@@ -763,7 +763,7 @@ class TypesetterInstrumentedTest {
         assertFalse(line2.hasScript)
 
         val display3 = fraction.denominator
-        assertEquals(display3.type, MTLinePosition.kMTLinePositionRegular)
+        assertEquals(display3.type, MTLinePosition.KMTLinePositionRegular)
         assertEqualsCGPoint(display3.position, CGPoint(14.72f, -13.72f), 0.05f)
         assertTrue(display3.range.equals(NSRange(0, 1)))
         assertFalse(display3.hasScript)
@@ -808,7 +808,7 @@ class TypesetterInstrumentedTest {
 
         var display = MTTypesetter.createLineForMathList(mathList, font!!, MTLineStyle.KMTLineStyleDisplay)
         assertNotNull("testLargeOpNoLimitsText", display)
-        assertEquals(display.type, MTLinePosition.kMTLinePositionRegular)
+        assertEquals(display.type, MTLinePosition.KMTLinePositionRegular)
         assertTrue(display.position.equals(CGPoint()))
         assertTrue(display.range.equals(NSRange(0, 2)))
         assertFalse(display.hasScript)
@@ -856,7 +856,7 @@ class TypesetterInstrumentedTest {
 
         var display = MTTypesetter.createLineForMathList(mathList, font!!, MTLineStyle.KMTLineStyleDisplay)
         assertNotNull("testLargeOpNoLimitsText", display)
-        assertEquals(display.type, MTLinePosition.kMTLinePositionRegular)
+        assertEquals(display.type, MTLinePosition.KMTLinePositionRegular)
         assertTrue(display.position.equals(CGPoint()))
         assertTrue(display.range.equals(NSRange(0, 2)))
         assertFalse(display.hasScript)
@@ -910,7 +910,7 @@ class TypesetterInstrumentedTest {
 
         var display = MTTypesetter.createLineForMathList(mathList, font!!, MTLineStyle.KMTLineStyleDisplay)
         assertNotNull("testLargeOpNoLimitsSymbolWithScripts", display)
-        assertEquals(display.type, MTLinePosition.kMTLinePositionRegular)
+        assertEquals(display.type, MTLinePosition.KMTLinePositionRegular)
         assertTrue(display.position.equals(CGPoint()))
         assertTrue(display.range.equals(NSRange(0, 2)))
         assertFalse(display.hasScript)
@@ -923,7 +923,7 @@ class TypesetterInstrumentedTest {
         val sub0: MTDisplay = subdisplays[0]
         assertTrue(sub0 is MTMathListDisplay)
         val display0 = sub0 as MTMathListDisplay
-        assertEquals(display0.type, MTLinePosition.kMTLinePositionSuperscript)
+        assertEquals(display0.type, MTLinePosition.KMTLinePositionSuperscript)
         assertEqualsCGPoint(display0.position, CGPoint(19.98f, 23.73f), 0.05f)
         assertTrue(display0.range.equals(NSRange(0, 1)))
         assertFalse(display0.hasScript)
@@ -944,7 +944,7 @@ class TypesetterInstrumentedTest {
         val sub1: MTDisplay = subdisplays[1]
         assertTrue(sub1 is MTMathListDisplay)
         val display1 = sub1 as MTMathListDisplay
-        assertEquals(display1.type, MTLinePosition.kMTLinePositionSubscript)
+        assertEquals(display1.type, MTLinePosition.KMTLinePositionSubscript)
         assertEqualsCGPoint(display1.position, CGPoint(8.16f, -20.03f), 0.05f)
         assertTrue(display1.range.equals(NSRange(0, 1)))
         assertFalse(display1.hasScript)
@@ -1000,7 +1000,7 @@ class TypesetterInstrumentedTest {
 
         var display = MTTypesetter.createLineForMathList(mathList, font!!, MTLineStyle.KMTLineStyleDisplay)
         assertNotNull("hestLargeOpWithLimitsTextWithScripts", display)
-        assertEquals(display.type, MTLinePosition.kMTLinePositionRegular)
+        assertEquals(display.type, MTLinePosition.KMTLinePositionRegular)
         assertTrue(display.position.equals(CGPoint()))
         assertTrue(display.range.equals(NSRange(0, 2)))
         assertFalse(display.hasScript)
@@ -1020,7 +1020,7 @@ class TypesetterInstrumentedTest {
         assertNull("testLargeOpWithLimitsTextWithScripts", largeOp.upperLimit)
 
         val display2: MTMathListDisplay = largeOp.lowerLimit!!
-        assertEquals(display2.type, MTLinePosition.kMTLinePositionRegular)
+        assertEquals(display2.type, MTLinePosition.KMTLinePositionRegular)
         assertEqualsCGPoint(display2.position, CGPoint(6.89f, -12.02f), 0.05f)
         assertTrue(display2.range.equals(NSRange(0, 1)))
         assertFalse(display2.hasScript)
@@ -1073,7 +1073,7 @@ class TypesetterInstrumentedTest {
 
         var display = MTTypesetter.createLineForMathList(mathList, font!!, MTLineStyle.KMTLineStyleDisplay)
         assertNotNull("testLargeOpWithLimitsSymbolWithScripts", display)
-        assertEquals(display.type, MTLinePosition.kMTLinePositionRegular)
+        assertEquals(display.type, MTLinePosition.KMTLinePositionRegular)
         assertTrue(display.position.equals(CGPoint()))
         assertTrue(display.range.equals(NSRange(0, 2)))
         assertFalse(display.hasScript)
@@ -1093,7 +1093,7 @@ class TypesetterInstrumentedTest {
         assertNotNull("testLargeOpWithLimitsSymbolWithScripts", largeOp.upperLimit)
 
         val display2: MTMathListDisplay = largeOp.lowerLimit!!
-        assertEquals(display2.type, MTLinePosition.kMTLinePositionRegular)
+        assertEquals(display2.type, MTLinePosition.KMTLinePositionRegular)
         assertEqualsCGPoint(display2.position, CGPoint(10.94f, -21.674f), 0.05f)
         assertTrue(display2.range.equals(NSRange(0, 1)))
         assertFalse(display2.hasScript)
@@ -1112,7 +1112,7 @@ class TypesetterInstrumentedTest {
         assertFalse(line1.hasScript)
 
         val displayU: MTMathListDisplay = largeOp.upperLimit!!
-        assertEquals(displayU.type, MTLinePosition.kMTLinePositionRegular)
+        assertEquals(displayU.type, MTLinePosition.KMTLinePositionRegular)
         assertEqualsCGPoint(displayU.position, CGPoint(7.44f, 23.178f), 0.05f)
         assertTrue(displayU.range.equals(NSRange(0, 1)))
         assertFalse(displayU.hasScript)
@@ -1162,7 +1162,7 @@ class TypesetterInstrumentedTest {
 
         var display = MTTypesetter.createLineForMathList(mathList, font!!, MTLineStyle.KMTLineStyleDisplay)
         assertNotNull("testInner", display)
-        assertEquals(display.type, MTLinePosition.kMTLinePositionRegular)
+        assertEquals(display.type, MTLinePosition.KMTLinePositionRegular)
         assertTrue(display.position.equals(CGPoint()))
         assertTrue(display.range.equals(NSRange(0, 1)))
         assertFalse(display.hasScript)
@@ -1175,7 +1175,7 @@ class TypesetterInstrumentedTest {
         val sub0: MTDisplay = subdisplays[0]
         assertTrue(sub0 is MTMathListDisplay)
         val display2 = sub0 as MTMathListDisplay
-        assertEquals(display2.type, MTLinePosition.kMTLinePositionRegular)
+        assertEquals(display2.type, MTLinePosition.KMTLinePositionRegular)
         assertEqualsCGPoint(display2.position, CGPoint(), 0.05f)
         assertTrue(display2.range.equals(NSRange(0, 1)))
         assertFalse(display2.hasScript)
@@ -1195,7 +1195,7 @@ class TypesetterInstrumentedTest {
         val sub3 = sd!![1]
         assertTrue(sub3 is MTMathListDisplay)
         val display3 = sub3 as MTMathListDisplay
-        assertEquals(display3.type, MTLinePosition.kMTLinePositionRegular)
+        assertEquals(display3.type, MTLinePosition.KMTLinePositionRegular)
         assertEqualsCGPoint(display3.position, CGPoint(7.78f, 0f), 0.05f)
         assertTrue(display3.range.equals(NSRange(0, 1)))
         assertFalse(display3.hasScript)
@@ -1245,7 +1245,7 @@ class TypesetterInstrumentedTest {
 
         val display = MTTypesetter.createLineForMathList(mathList, font!!, MTLineStyle.KMTLineStyleDisplay)
         assertNotNull("testInner", display)
-        assertEquals(display.type, MTLinePosition.kMTLinePositionRegular)
+        assertEquals(display.type, MTLinePosition.KMTLinePositionRegular)
         assertTrue(display.position.equals(CGPoint()))
         assertTrue(display.range.equals(NSRange(0, 1)))
         assertFalse(display.hasScript)
@@ -1264,7 +1264,7 @@ class TypesetterInstrumentedTest {
         assertNotNull("testOverline", overline.inner)
 
         val display2 = overline.inner
-        assertEquals(display2.type, MTLinePosition.kMTLinePositionRegular)
+        assertEquals(display2.type, MTLinePosition.KMTLinePositionRegular)
         assertTrue(display2.position.equals(CGPoint()))
         assertTrue(display2.range.equals(NSRange(0, 1)))
         assertFalse(display2.hasScript)
@@ -1302,7 +1302,7 @@ class TypesetterInstrumentedTest {
 
         val display = MTTypesetter.createLineForMathList(mathList, font!!, MTLineStyle.KMTLineStyleDisplay)
         assertNotNull("testUnderline", display)
-        assertEquals(display.type, MTLinePosition.kMTLinePositionRegular)
+        assertEquals(display.type, MTLinePosition.KMTLinePositionRegular)
         assertTrue(display.position.equals(CGPoint()))
         assertTrue(display.range.equals(NSRange(0, 1)))
         assertFalse(display.hasScript)
@@ -1321,7 +1321,7 @@ class TypesetterInstrumentedTest {
         assertNotNull("testUnderline", underline.inner)
 
         val display2 = underline.inner
-        assertEquals(display2.type, MTLinePosition.kMTLinePositionRegular)
+        assertEquals(display2.type, MTLinePosition.KMTLinePositionRegular)
         assertTrue(display2.position.equals(CGPoint()))
         assertTrue(display2.range.equals(NSRange(0, 1)))
         assertFalse(display2.hasScript)
@@ -1357,7 +1357,7 @@ class TypesetterInstrumentedTest {
 
         val display = MTTypesetter.createLineForMathList(mathList, font!!, MTLineStyle.KMTLineStyleDisplay)
         assertNotNull("testSpacing", display)
-        assertEquals(display.type, MTLinePosition.kMTLinePositionRegular)
+        assertEquals(display.type, MTLinePosition.KMTLinePositionRegular)
         assertTrue(display.position.equals(CGPoint()))
         assertTrue(display.range.equals(NSRange(0, 3)))
         assertFalse(display.hasScript)
@@ -1446,7 +1446,7 @@ class TypesetterInstrumentedTest {
 
         val display = MTTypesetter.createLineForMathList(mathList, font!!, MTLineStyle.KMTLineStyleDisplay)
         assertNotNull("testMathTable", display)
-        assertEquals(display.type, MTLinePosition.kMTLinePositionRegular)
+        assertEquals(display.type, MTLinePosition.KMTLinePositionRegular)
         assertTrue(display.position.equals(CGPoint()))
         assertTrue(display.range.equals(NSRange(0, 1)))
         assertFalse(display.hasScript)
@@ -1458,7 +1458,7 @@ class TypesetterInstrumentedTest {
         val sub0: MTDisplay = subdisplays[0]
         assertTrue(sub0 is MTMathListDisplay)
         val display2 = sub0 as MTMathListDisplay
-        assertEquals(display2.type, MTLinePosition.kMTLinePositionRegular)
+        assertEquals(display2.type, MTLinePosition.KMTLinePositionRegular)
         assertTrue(display2.position.equals(CGPoint()))
         assertTrue(display2.range.equals(NSRange(0, 1)))
         assertFalse(display2.hasScript)
@@ -1476,7 +1476,7 @@ class TypesetterInstrumentedTest {
             assertTrue(sub0i is MTMathListDisplay)
 
             val row = sub0i as MTMathListDisplay
-            assertEquals(row.type, MTLinePosition.kMTLinePositionRegular);
+            assertEquals(row.type, MTLinePosition.KMTLinePositionRegular);
             assertEqualsCGPoint(row.position, CGPoint(0f, rowPos[i]), 0.05f)
             assertTrue(row.range.equals(NSRange(0, 3)))
             assertFalse(row.hasScript);
@@ -1489,7 +1489,7 @@ class TypesetterInstrumentedTest {
                 val sub0ij = rsd[j]
                 assertTrue(sub0ij is MTMathListDisplay)
                 val col = sub0ij as MTMathListDisplay
-                assertEquals(col.type, MTLinePosition.kMTLinePositionRegular);
+                assertEquals(col.type, MTLinePosition.KMTLinePositionRegular);
                 assertEqualsCGPoint(col.position, CGPoint(cellPos[i][j], 0f), 0.05f)
                 assertFalse(col.hasScript);
                 assertEquals(col.index, NSNotFound);
@@ -1516,7 +1516,7 @@ class TypesetterInstrumentedTest {
 
             val display = MTTypesetter.createLineForMathList(list, font!!, MTLineStyle.KMTLineStyleDisplay)
             assertNotNull("Symbol $symName", display)
-            assertEquals(display.type, MTLinePosition.kMTLinePositionRegular)
+            assertEquals(display.type, MTLinePosition.KMTLinePositionRegular)
             assertTrue(display.position.equals(CGPoint()))
             assertTrue(display.range.equals(NSRange(0, 1)))
             assertFalse(display.hasScript)
@@ -1584,7 +1584,7 @@ class TypesetterInstrumentedTest {
 
             val display = MTTypesetter.createLineForMathList(list, font!!, MTLineStyle.KMTLineStyleDisplay)
             assertNotNull("Symbol ${atom.nucleus}", display)
-            assertEquals(display.type, MTLinePosition.kMTLinePositionRegular)
+            assertEquals(display.type, MTLinePosition.KMTLinePositionRegular)
             assertTrue(display.position.equals(CGPoint()))
             assertTrue(display.range.equals(NSRange(0, 1)))
             assertFalse(display.hasScript)
@@ -1691,7 +1691,7 @@ class TypesetterInstrumentedTest {
 
         val display = MTTypesetter.createLineForMathList(list, font!!, MTLineStyle.KMTLineStyleDisplay)
         assertNotNull("testStyleMiddle", display)
-        assertEquals(display.type, MTLinePosition.kMTLinePositionRegular)
+        assertEquals(display.type, MTLinePosition.KMTLinePositionRegular)
         assertTrue(display.position.equals(CGPoint()))
         assertTrue(display.range.equals(NSRange(0, 5)))
         assertFalse(display.hasScript)
@@ -1738,7 +1738,7 @@ class TypesetterInstrumentedTest {
 
         val display = MTTypesetter.createLineForMathList(mathList, font!!, MTLineStyle.KMTLineStyleDisplay)
         assertNotNull("testAccent", display)
-        assertEquals(display.type, MTLinePosition.kMTLinePositionRegular)
+        assertEquals(display.type, MTLinePosition.KMTLinePositionRegular)
         assertTrue(display.position.equals(CGPoint()))
         assertTrue(display.range.equals(NSRange(0, 1)))
         assertFalse(display.hasScript)
@@ -1758,7 +1758,7 @@ class TypesetterInstrumentedTest {
         assertNotNull(accentDisp.accent)
 
         val display2 = accentDisp.accentee
-        assertEquals(display2.type, MTLinePosition.kMTLinePositionRegular)
+        assertEquals(display2.type, MTLinePosition.KMTLinePositionRegular)
         assertEqualsCGPoint(display2.position, CGPoint(), 0.05f)
         assertTrue(display2.range.equals(NSRange(0, 1)))
         assertFalse(display.hasScript)
@@ -1798,7 +1798,7 @@ class TypesetterInstrumentedTest {
 
         val display = MTTypesetter.createLineForMathList(mathList, font!!, MTLineStyle.KMTLineStyleDisplay)
         assertNotNull("testWideAccent", display)
-        assertEquals(display.type, MTLinePosition.kMTLinePositionRegular)
+        assertEquals(display.type, MTLinePosition.KMTLinePositionRegular)
         assertTrue(display.position.equals(CGPoint()))
         assertTrue(display.range.equals(NSRange(0, 1)))
         assertFalse(display.hasScript)
@@ -1818,7 +1818,7 @@ class TypesetterInstrumentedTest {
         assertNotNull(accentDisp.accent)
 
         val display2 = accentDisp.accentee
-        assertEquals(display2.type, MTLinePosition.kMTLinePositionRegular)
+        assertEquals(display2.type, MTLinePosition.KMTLinePositionRegular)
         assertEqualsCGPoint(display2.position, CGPoint(), 0.05f)
         assertTrue(display2.range.equals(NSRange(0, 4)))
         assertFalse(display.hasScript)

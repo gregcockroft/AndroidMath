@@ -9,25 +9,25 @@ import com.agog.mathdisplay.render.MTInterElementSpaceType.*
  */
 
 enum class MTInterElementSpaceType {
-    kMTSpaceInvalid,
-    kMTSpaceNone,
-    kMTSpaceThin,
-    kMTSpaceNSThin,    // Thin but not in script mode
-    kMTSpaceNSMedium,
-    kMTSpaceNSThick
+    KMTSpaceInvalid,
+    KMTSpaceNone,
+    KMTSpaceThin,
+    KMTSpaceNSThin,    // Thin but not in script mode
+    KMTSpaceNSMedium,
+    KMTSpaceNSThick
 }
 
 val interElementSpaceArray: Array<Array<MTInterElementSpaceType>> = arrayOf(
         //   ordinary             operator             binary               relation            open                 close               punct               // fraction
-        arrayOf(kMTSpaceNone, kMTSpaceThin, kMTSpaceNSMedium, kMTSpaceNSThick, kMTSpaceNone, kMTSpaceNone, kMTSpaceNone, kMTSpaceNSThin),    // ordinary
-        arrayOf(kMTSpaceThin, kMTSpaceThin, kMTSpaceInvalid, kMTSpaceNSThick, kMTSpaceNone, kMTSpaceNone, kMTSpaceNone, kMTSpaceNSThin),    // operator
-        arrayOf(kMTSpaceNSMedium, kMTSpaceNSMedium, kMTSpaceInvalid, kMTSpaceInvalid, kMTSpaceNSMedium, kMTSpaceInvalid, kMTSpaceInvalid, kMTSpaceNSMedium),  // binary
-        arrayOf(kMTSpaceNSThick, kMTSpaceNSThick, kMTSpaceInvalid, kMTSpaceNone, kMTSpaceNSThick, kMTSpaceNone, kMTSpaceNone, kMTSpaceNSThick),   // relation
-        arrayOf(kMTSpaceNone, kMTSpaceNone, kMTSpaceInvalid, kMTSpaceNone, kMTSpaceNone, kMTSpaceNone, kMTSpaceNone, kMTSpaceNone),      // open
-        arrayOf(kMTSpaceNone, kMTSpaceThin, kMTSpaceNSMedium, kMTSpaceNSThick, kMTSpaceNone, kMTSpaceNone, kMTSpaceNone, kMTSpaceNSThin),    // close
-        arrayOf(kMTSpaceNSThin, kMTSpaceNSThin, kMTSpaceInvalid, kMTSpaceNSThin, kMTSpaceNSThin, kMTSpaceNSThin, kMTSpaceNSThin, kMTSpaceNSThin),    // punct
-        arrayOf(kMTSpaceNSThin, kMTSpaceThin, kMTSpaceNSMedium, kMTSpaceNSThick, kMTSpaceNSThin, kMTSpaceNone, kMTSpaceNSThin, kMTSpaceNSThin),    // fraction
-        arrayOf(kMTSpaceNSMedium, kMTSpaceNSThin, kMTSpaceNSMedium, kMTSpaceNSThick, kMTSpaceNone, kMTSpaceNone, kMTSpaceNone, kMTSpaceNSThin)  // radical
+        arrayOf(KMTSpaceNone, KMTSpaceThin, KMTSpaceNSMedium, KMTSpaceNSThick, KMTSpaceNone, KMTSpaceNone, KMTSpaceNone, KMTSpaceNSThin),    // ordinary
+        arrayOf(KMTSpaceThin, KMTSpaceThin, KMTSpaceInvalid, KMTSpaceNSThick, KMTSpaceNone, KMTSpaceNone, KMTSpaceNone, KMTSpaceNSThin),    // operator
+        arrayOf(KMTSpaceNSMedium, KMTSpaceNSMedium, KMTSpaceInvalid, KMTSpaceInvalid, KMTSpaceNSMedium, KMTSpaceInvalid, KMTSpaceInvalid, KMTSpaceNSMedium),  // binary
+        arrayOf(KMTSpaceNSThick, KMTSpaceNSThick, KMTSpaceInvalid, KMTSpaceNone, KMTSpaceNSThick, KMTSpaceNone, KMTSpaceNone, KMTSpaceNSThick),   // relation
+        arrayOf(KMTSpaceNone, KMTSpaceNone, KMTSpaceInvalid, KMTSpaceNone, KMTSpaceNone, KMTSpaceNone, KMTSpaceNone, KMTSpaceNone),      // open
+        arrayOf(KMTSpaceNone, KMTSpaceThin, KMTSpaceNSMedium, KMTSpaceNSThick, KMTSpaceNone, KMTSpaceNone, KMTSpaceNone, KMTSpaceNSThin),    // close
+        arrayOf(KMTSpaceNSThin, KMTSpaceNSThin, KMTSpaceInvalid, KMTSpaceNSThin, KMTSpaceNSThin, KMTSpaceNSThin, KMTSpaceNSThin, KMTSpaceNSThin),    // punct
+        arrayOf(KMTSpaceNSThin, KMTSpaceThin, KMTSpaceNSMedium, KMTSpaceNSThick, KMTSpaceNSThin, KMTSpaceNone, KMTSpaceNSThin, KMTSpaceNSThin),    // fraction
+        arrayOf(KMTSpaceNSMedium, KMTSpaceNSThin, KMTSpaceNSMedium, KMTSpaceNSThick, KMTSpaceNone, KMTSpaceNone, KMTSpaceNone, KMTSpaceNSThin)  // radical
 )
 
 

@@ -627,7 +627,7 @@ class MTMathListBuilder(str: String) {
             rows[currentRow].add(currentCol, list)
             currentCol++
             if (newenv.numRows > currentRow) {
-                currentRow = newenv.numRows.toInt() - 0  // GREG XXX check crash on quadratic q
+                currentRow = newenv.numRows.toInt() - 0
                 rows.add(currentRow, mutableListOf())
                 currentCol = 0
             }
@@ -736,7 +736,7 @@ class MTMathListBuilder(str: String) {
                             command = "brace"
                         } else if (frac.leftDelimiter == "[" && frac.rightDelimiter == "]") {
                             command = "brack"
-                        } else { // XXX make sure this gets a test case
+                        } else { // atopwithdelims is not handled in builder at this time so this case should not be executed unless built programmatically
                             val leftd: String? = frac.leftDelimiter
                             val rightd: String? = frac.rightDelimiter
                             command = "atopwithdelims$leftd$rightd"
@@ -849,7 +849,8 @@ class MTMathListBuilder(str: String) {
                     if (command != null) {
                         str.append("\\$command ")
                     } else {
-                        val s = "\\mkern%.1fmu".format(space.space) // XXX test case
+                        //mkern parsing not yet implemented so this code does not have a test case
+                        val s = "\\mkern%.1fmu".format(space.space)
                         str.append(s)
                     }
                 } else if (atom.type == MTMathAtomType.KMTMathAtomStyle) {

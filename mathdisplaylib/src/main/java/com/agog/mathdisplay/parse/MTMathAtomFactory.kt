@@ -35,6 +35,7 @@ open class MTMathAtomFactory {
         return newList
     }
 
+    @Suppress("unused")
     private fun placeholderFraction(): MTFraction {
         val frac = MTFraction()
         frac.numerator = placeholderList()
@@ -42,6 +43,7 @@ open class MTMathAtomFactory {
         return frac
     }
 
+    @Suppress("unused")
     private fun placeholderRadical(): MTRadical {
         val rad = MTRadical()
         rad.degree = placeholderList()
@@ -49,14 +51,14 @@ open class MTMathAtomFactory {
         return rad
     }
 
+    @Suppress("unused")
     private fun placeholderSquareRoot(): MTRadical {
         val rad = MTRadical()
         rad.radicand = placeholderList()
         return rad
     }
 
-    // XXX remove
-    fun operatorWithName(name: String, limits: Boolean): MTLargeOperator {
+    internal fun operatorWithName(name: String, limits: Boolean): MTLargeOperator {
         return MTLargeOperator(name, limits)
     }
 
@@ -181,13 +183,7 @@ open class MTMathAtomFactory {
 
     fun tableWithEnvironment(env: String?, cells: MutableList<MutableList<MTMathList>>, error: MTParseError): MTMathAtom? {
         val table = MTMathTable(env)
-        // Why can't I just set table.cells?? XXX
-        for (i in 0 until cells.size) {
-            val rowArray = cells[i]
-            for (j in 0 until rowArray.size) {
-                table.setCell(rowArray[j], i, j)
-            }
-        }
+        table.cells = cells
         val matrixEnvs: HashMap<String, Array<String>> =
                 hashMapOf("matrix" to arrayOf(""),
                         "pmatrix" to arrayOf("(", ")"),

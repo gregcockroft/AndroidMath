@@ -14,6 +14,8 @@ import org.junit.Before;
 import org.junit.Assert.*
 import android.graphics.Bitmap
 import android.graphics.Canvas
+import android.graphics.Color
+import android.graphics.Paint
 import android.os.Environment
 import java.io.FileOutputStream
 import java.io.IOException
@@ -32,12 +34,6 @@ const val BITMAPHEIGHT = 480
  */
 @RunWith(AndroidJUnit4::class)
 public class DrawInstrumentedTest {
-
-    /**
-    val mockContext = mock(Context::class.java)
-    val mockAssetManager = mock(AssetManager::class.java)
-    val mockTypeface = mock(Typeface::class.java)
-     */
 
     private var context: Context? = null
     private var font: MTFont? = null
@@ -66,7 +62,13 @@ public class DrawInstrumentedTest {
         canvas!!.translate(0.0f, BITMAPHEIGHT.toFloat())
         canvas!!.scale(1.0f, -1.0f)
 
-        canvas!!.translate(100.0f, 100.0f) // for now
+        canvas!!.translate(100.0f, 100.0f) // We shift this to catch any coordinate system errors
+        // Show coordinate system
+        val strokePaint = Paint()
+        strokePaint.setColor(Color.GREEN)
+        canvas!!.drawLine(0.0f, 0.0f, 0.0f, 100.0f, strokePaint)
+        canvas!!.drawLine(0.0f, 0.0f, 100.0f, 0f, strokePaint)
+
 
     }
 
@@ -154,7 +156,7 @@ public class DrawInstrumentedTest {
             mathList.addAtom(atom)
             var display = MTTypesetter.createLineForMathList(mathList, font!!, MTLineStyle.KMTLineStyleDisplay)
             assertNotNull(display)
-            assertEquals(display.type, MTLinePosition.kMTLinePositionRegular);
+            assertEquals(display.type, MTLinePosition.KMTLinePositionRegular);
             assertTrue(display.position.equals(CGPoint()))
             assertTrue(display.range.equals(NSRange(0, 1)))
             assertFalse(display.hasScript);
@@ -217,7 +219,7 @@ public class DrawInstrumentedTest {
 
         var display = MTTypesetter.createLineForMathList(mathList, font!!, MTLineStyle.KMTLineStyleDisplay)
         assertNotNull("createLineForMathList", display)
-        assertEquals(display.type, MTLinePosition.kMTLinePositionRegular);
+        assertEquals(display.type, MTLinePosition.KMTLinePositionRegular);
         assertTrue(display.position.equals(CGPoint()))
         assertTrue(display.range.equals(NSRange(0, 1)))
         assertFalse(display.hasScript);
@@ -242,7 +244,7 @@ public class DrawInstrumentedTest {
 
         var display = MTTypesetter.createLineForMathList(mathList, font!!, MTLineStyle.KMTLineStyleDisplay)
         assertNotNull("createLineForMathList", display)
-        assertEquals(display.type, MTLinePosition.kMTLinePositionRegular);
+        assertEquals(display.type, MTLinePosition.KMTLinePositionRegular);
         assertTrue(display.position.equals(CGPoint()))
         assertTrue(display.range.equals(NSRange(0, 1)))
         assertFalse(display.hasScript);
@@ -272,7 +274,7 @@ public class DrawInstrumentedTest {
 
         var display = MTTypesetter.createLineForMathList(mathList, font!!, MTLineStyle.KMTLineStyleDisplay)
         assertNotNull("createLineForMathList", display)
-        assertEquals(display.type, MTLinePosition.kMTLinePositionRegular);
+        assertEquals(display.type, MTLinePosition.KMTLinePositionRegular);
         assertTrue(display.position.equals(CGPoint()))
         assertTrue(display.range.equals(NSRange(0, 1)))
         assertFalse(display.hasScript);
@@ -299,7 +301,7 @@ public class DrawInstrumentedTest {
 
         var display = MTTypesetter.createLineForMathList(mathList, font!!, MTLineStyle.KMTLineStyleDisplay)
         assertNotNull(display)
-        assertEquals(display.type, MTLinePosition.kMTLinePositionRegular);
+        assertEquals(display.type, MTLinePosition.KMTLinePositionRegular);
         assertTrue(display.position.equals(CGPoint()))
         assertTrue(display.range.equals(NSRange(0, 1)))
         assertFalse(display.hasScript);

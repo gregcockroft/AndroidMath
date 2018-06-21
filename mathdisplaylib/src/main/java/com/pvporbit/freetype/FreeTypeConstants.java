@@ -29,7 +29,7 @@ public class FreeTypeConstants {
         FT_KERNING_UNSCALED
     }
 
-    /* FT_LOAD_XXX (Load Char flags) */
+    /* FT_LOAD_* (Load Char flags) */
     public static final int FT_LOAD_DEFAULT = 0x0;
     public static final int FT_LOAD_NO_SCALE = (1 << 0);
     public static final int FT_LOAD_NO_HINTING = (1 << 1);
@@ -48,7 +48,7 @@ public class FreeTypeConstants {
     public static final int FT_LOAD_COLOR = (1 << 20);
     public static final int FT_LOAD_COMPUTE_METRICS = (1 << 21);
 
-    /* FT_FSTYPE_XXX (FSType flags)*/
+    /* FT_FSTYPE_* (FSType flags)*/
     public static final int FT_FSTYPE_INSTALLABLE_EMBEDDING = 0x0000;
     public static final int FT_FSTYPE_RESTRICTED_LICENSE_EMBEDDING = 0x0002;
     public static final int FT_FSTYPE_PREVIEW_AND_PRINT_EMBEDDING = 0x0004;

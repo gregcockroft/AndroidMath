@@ -22,15 +22,14 @@ const val kJotMultiplier = 0.3f // A jot is 3pt for a 10pt font.
 
 
 class MTTypesetter(val font: MTFont, linestyle: MTLineStyle, var cramped: Boolean = false, var spaced: Boolean = false) {
-    var displayAtoms: MutableList<MTDisplay> = mutableListOf<MTDisplay>()
+    var displayAtoms: MutableList<MTDisplay> = mutableListOf()
     val currentPosition: CGPoint = CGPoint(0f, 0f)
     var currentLine: String = ""
-    var currentAtoms: MutableList<MTMathAtom> = mutableListOf<MTMathAtom>()    // List of atoms that make the line
+    var currentAtoms: MutableList<MTMathAtom> = mutableListOf()    // List of atoms that make the line
     var currentLineIndexRange: NSRange = NSRange()
     var styleFont: MTFont = font
 
     var style: MTLineStyle = KMTLineStyleDisplay
-        get() = field
         set(value) {
             field = value
             this.styleFont = this.font.copyFontWithSize(getStyleSize(value, font))
@@ -92,6 +91,7 @@ class MTTypesetter(val font: MTFont, linestyle: MTLineStyle, var cramped: Boolea
                     }
                 }
 
+                // greg leftover todo from iOS code
                 // TODO: add italic correction here or in second pass?
                 prevNode = atom
                 preprocessed.add(atom)
@@ -103,12 +103,12 @@ class MTTypesetter(val font: MTFont, linestyle: MTLineStyle, var cramped: Boolea
     // returns the size of the font in this style
     private fun getStyleSize(style: MTLineStyle, font: MTFont): Float {
         val original = font.fontSize
-        when (style) {
-            KMTLineStyleDisplay, KMTLineStyleText -> return original
+        return when (style) {
+            KMTLineStyleDisplay, KMTLineStyleText -> original
 
-            KMTLineStyleScript -> return original * font.mathTable.scriptScaleDown
+            KMTLineStyleScript -> original * font.mathTable.scriptScaleDown
 
-            KMTLineStyleScriptScript -> return original * font.mathTable.scriptScriptScaleDown
+            KMTLineStyleScriptScript -> original * font.mathTable.scriptScriptScaleDown
         }
     }
 
@@ -165,7 +165,7 @@ class MTTypesetter(val font: MTFont, linestyle: MTLineStyle, var cramped: Boolea
 
                 KMTMathAtomColor -> {
                     // stash the existing layout
-                    if (currentLine.length > 0) {
+                    if (currentLine.isNotEmpty()) {
                         this.addDisplayLine()
                     }
                     val colorAtom = atom as MTMathColor
@@ -180,7 +180,7 @@ class MTTypesetter(val font: MTFont, linestyle: MTLineStyle, var cramped: Boolea
 
                 KMTMathAtomRadical -> {
                     // stash the existing layout
-                    if (currentLine.length > 0) {
+                    if (currentLine.isNotEmpty()) {
                         this.addDisplayLine()
                     }
                     val rad = atom as MTRadical
@@ -205,7 +205,7 @@ class MTTypesetter(val font: MTFont, linestyle: MTLineStyle, var cramped: Boolea
 
                 KMTMathAtomFraction -> {
                     // stash the existing layout
-                    if (currentLine.length > 0) {
+                    if (currentLine.isNotEmpty()) {
                         this.addDisplayLine()
                     }
                     val frac = atom as MTFraction
@@ -221,7 +221,7 @@ class MTTypesetter(val font: MTFont, linestyle: MTLineStyle, var cramped: Boolea
 
                 KMTMathAtomLargeOperator -> {
                     // stash the existing layout
-                    if (currentLine.length > 0) {
+                    if (currentLine.isNotEmpty()) {
                         this.addDisplayLine()
                     }
                     this.addInterElementSpace(prevNode, atom.type)
@@ -232,7 +232,7 @@ class MTTypesetter(val font: MTFont, linestyle: MTLineStyle, var cramped: Boolea
 
                 KMTMathAtomInner -> {
                     // stash the existing layout
-                    if (currentLine.length > 0) {
+                    if (currentLine.isNotEmpty()) {
                         this.addDisplayLine()
                     }
                     this.addInterElementSpace(prevNode, atom.type)
@@ -258,7 +258,7 @@ class MTTypesetter(val font: MTFont, linestyle: MTLineStyle, var cramped: Boolea
 
                 KMTMathAtomUnderline -> {
                     // stash the existing layout
-                    if (currentLine.length > 0) {
+                    if (currentLine.isNotEmpty()) {
                         this.addDisplayLine()
                     }
                     // Underline is considered as Ord in rule 16.
@@ -279,7 +279,7 @@ class MTTypesetter(val font: MTFont, linestyle: MTLineStyle, var cramped: Boolea
 
                 KMTMathAtomOverline -> {
                     // stash the existing layout
-                    if (currentLine.length > 0) {
+                    if (currentLine.isNotEmpty()) {
                         this.addDisplayLine()
                     }
                     // Overline is considered as Ord in rule 16.
@@ -300,7 +300,7 @@ class MTTypesetter(val font: MTFont, linestyle: MTLineStyle, var cramped: Boolea
 
                 KMTMathAtomAccent -> {
                     // stash the existing layout
-                    if (currentLine.length > 0) {
+                    if (currentLine.isNotEmpty()) {
                         this.addDisplayLine()
                     }
                     // Accent is considered as Ord in rule 16.
@@ -322,7 +322,7 @@ class MTTypesetter(val font: MTFont, linestyle: MTLineStyle, var cramped: Boolea
 
                 KMTMathAtomTable -> {
                     // stash the existing layout
-                    if (currentLine.length > 0) {
+                    if (currentLine.isNotEmpty()) {
                         this.addDisplayLine()
                     }
                     // We will consider tables as inner
@@ -339,14 +339,14 @@ class MTTypesetter(val font: MTFont, linestyle: MTLineStyle, var cramped: Boolea
                 KMTMathAtomOrdinary, KMTMathAtomBinaryOperator, KMTMathAtomRelation, KMTMathAtomOpen, KMTMathAtomClose,
                 KMTMathAtomPlaceholder, KMTMathAtomPunctuation -> {
                     // stash the existing layout
-                    if (currentLine.length > 0) {
+                    if (currentLine.isNotEmpty()) {
                         this.addDisplayLine()
                     }
                     // the rendering for all the rest is pretty similar
                     // All we need is render the character and set the interelement space.
                     if (prevNode != null) {
                         val interElementSpace = this.getInterElementSpace(prevNode.type, atom.type)
-                        if (currentLine.length > 0) {
+                        if (currentLine.isNotEmpty()) {
                             if (interElementSpace > 0) {
                                 //throw MathDisplayException("Kerning not handled")
                                 // add a kerning of that space to the previous character
@@ -387,7 +387,7 @@ class MTTypesetter(val font: MTFont, linestyle: MTLineStyle, var cramped: Boolea
                         // We don't check _currentLine.length here since we want to allow empty lines with super/sub scripts.
                         val line = this.addDisplayLine()
                         var delta = 0.0f
-                        if (atom.nucleus.length > 0) {
+                        if (atom.nucleus.isNotEmpty()) {
                             // Use the italic correction of the last character.
                             val glyph = styleFont.findGlyphForCharacterAtIndex(0, atom.nucleus)
                             delta = styleFont.mathTable.getItalicCorrection(glyph.gid)
@@ -439,13 +439,13 @@ class MTTypesetter(val font: MTFont, linestyle: MTLineStyle, var cramped: Boolea
 
     // Returned in units of mu = 1/18 em.
     private fun getSpacingInMu(type: MTInterElementSpaceType): Int {
-        when (type) {
-            kMTSpaceInvalid -> return -1
-            kMTSpaceNone -> return 0
-            kMTSpaceThin -> return 3
-            kMTSpaceNSThin -> return if (style < KMTLineStyleScript) 3 else 0
-            kMTSpaceNSMedium -> return if (style < KMTLineStyleScript) 4 else 0
-            kMTSpaceNSThick -> return if (style < KMTLineStyleScript) 5 else 0
+        return when (type) {
+            KMTSpaceInvalid -> -1
+            KMTSpaceNone -> 0
+            KMTSpaceThin -> 3
+            KMTSpaceNSThin -> if (style < KMTLineStyleScript) 3 else 0
+            KMTSpaceNSMedium -> if (style < KMTLineStyleScript) 4 else 0
+            KMTSpaceNSThick -> if (style < KMTLineStyleScript) 5 else 0
         }
     }
 
@@ -455,7 +455,7 @@ class MTTypesetter(val font: MTFont, linestyle: MTLineStyle, var cramped: Boolea
         val rightIndex = getInterElementSpaceArrayIndexForType(right, false)
         val spaceArray = interElementSpaceArray[leftIndex]
         val spaceType = spaceArray[rightIndex]
-        if (spaceType == kMTSpaceInvalid) throw MathDisplayException("Invalid space between $left and $right")
+        if (spaceType == KMTSpaceInvalid) throw MathDisplayException("Invalid space between $left and $right")
 
         val spaceMultipler = this.getSpacingInMu(spaceType)
         if (spaceMultipler > 0) {
@@ -488,10 +488,10 @@ class MTTypesetter(val font: MTFont, linestyle: MTLineStyle, var cramped: Boolea
     }
 
     private fun superScriptShiftUp(): Float {
-        if (cramped) {
-            return styleFont.mathTable.superscriptShiftUpCramped
+        return if (cramped) {
+            styleFont.mathTable.superscriptShiftUpCramped
         } else {
-            return styleFont.mathTable.superscriptShiftUp
+            styleFont.mathTable.superscriptShiftUp
         }
     }
 
@@ -516,7 +516,7 @@ class MTTypesetter(val font: MTFont, linestyle: MTLineStyle, var cramped: Boolea
 
         if (superScriptList == null && subScriptList != null) {
             val subscript = createLineForMathList(subScriptList, this.font, this.scriptStyle(), this.subScriptCramped())
-            subscript.type = MTLinePosition.kMTLinePositionSubscript
+            subscript.type = MTLinePosition.KMTLinePositionSubscript
             subscript.index = index
 
             subscriptShiftDown = maxOf(subscriptShiftDown, styleFont.mathTable.subscriptShiftDown)
@@ -530,7 +530,7 @@ class MTTypesetter(val font: MTFont, linestyle: MTLineStyle, var cramped: Boolea
         }
 
         val superScript = createLineForMathList(superScriptList!!, this.font, this.scriptStyle(), superScriptCramped())
-        superScript.type = MTLinePosition.kMTLinePositionSuperscript
+        superScript.type = MTLinePosition.KMTLinePositionSuperscript
         superScript.index = index
         superScriptShiftUp = maxOf(superScriptShiftUp, this.superScriptShiftUp())
         superScriptShiftUp = maxOf(superScriptShiftUp, superScript.descent + styleFont.mathTable.superscriptBottomMin)
@@ -543,7 +543,7 @@ class MTTypesetter(val font: MTFont, linestyle: MTLineStyle, var cramped: Boolea
             return
         }
         val subScript = createLineForMathList(subScriptList, this.font, this.scriptStyle(), subScriptCramped())
-        subScript.type = MTLinePosition.kMTLinePositionSubscript
+        subScript.type = MTLinePosition.KMTLinePositionSubscript
         subScript.index = index
         subscriptShiftDown = maxOf(subscriptShiftDown, styleFont.mathTable.subscriptShiftDown)
 
@@ -635,10 +635,10 @@ class MTTypesetter(val font: MTFont, linestyle: MTLineStyle, var cramped: Boolea
 
 
     private fun fractionStyle(): MTLineStyle {
-        when (this.style) {
-            KMTLineStyleDisplay -> return KMTLineStyleText
-            KMTLineStyleText -> return KMTLineStyleScript
-            KMTLineStyleScript, KMTLineStyleScriptScript -> return KMTLineStyleScriptScript
+        return when (this.style) {
+            KMTLineStyleDisplay -> KMTLineStyleText
+            KMTLineStyleText -> KMTLineStyleScript
+            KMTLineStyleScript, KMTLineStyleScriptScript -> KMTLineStyleScriptScript
         }
     }
 
@@ -704,13 +704,13 @@ class MTTypesetter(val font: MTFont, linestyle: MTLineStyle, var cramped: Boolea
     private fun addDelimitersToFractionDisplay(display: MTFractionDisplay, frac: MTFraction): MTDisplay {
         assert(frac.leftDelimiter != null || frac.rightDelimiter != null)
 
-        val innerElements = MutableList<MTDisplay>(0, { MTDisplay() })
+        val innerElements = MutableList(0, { MTDisplay() })
         val glyphHeight = this.fractionDelimiterHeight()
         val position = CGPoint()
 
         val ld = frac.leftDelimiter
         if (ld != null) {
-            if (ld.length > 0) {
+            if (ld.isNotEmpty()) {
                 val leftGlyph = this.findGlyphForBoundary(ld, glyphHeight)
                 leftGlyph.position = position.copy()
                 position.x += leftGlyph.width
@@ -723,7 +723,7 @@ class MTTypesetter(val font: MTFont, linestyle: MTLineStyle, var cramped: Boolea
         innerElements.add(display)
 
         val rd = frac.rightDelimiter
-        if (rd != null && rd.length > 0) {
+        if (rd != null && rd.isNotEmpty()) {
             val rightGlyph = this.findGlyphForBoundary(rd, glyphHeight)
             rightGlyph.position = position.copy()
             position.x += rightGlyph.width
@@ -843,8 +843,8 @@ class MTTypesetter(val font: MTFont, linestyle: MTLineStyle, var cramped: Boolea
             return null
         }
 
-        val glyphs: MutableList<Int> = MutableList<Int>(0, { 0 })
-        val offsets: MutableList<Float> = MutableList<Float>(0, { 0.0f })
+        val glyphs: MutableList<Int> = MutableList(0, { 0 })
+        val offsets: MutableList<Float> = MutableList(0, { 0.0f })
 
         val height = constructGlyphWithParts(parts, glyphHeight, glyphs, offsets)
         val advances = arrayOf(0.0f)
@@ -884,7 +884,7 @@ class MTTypesetter(val font: MTFont, linestyle: MTLineStyle, var cramped: Boolea
                         val maxOffsetDelta = prev.fullAdvance - minDistance
                         // we can increase the offsets by at most max - min.
                         maxDelta = minOf(maxDelta, maxOffsetDelta - minOffsetDelta)
-                        minOffset = minOffset + minOffsetDelta
+                        minOffset += minOffsetDelta
                     }
                     offsets.add(minOffset)
                     prev = part
@@ -1243,11 +1243,11 @@ class MTTypesetter(val font: MTFont, linestyle: MTLineStyle, var cramped: Boolea
         val numColumns = table.numColumns()
         if (numColumns == 0 || table.numRows() == 0) {
             // Empty table
-            val emptylist = List<MTDisplay>(0, { MTDisplay() })
+            val emptylist = List(0, { MTDisplay() })
             return MTMathListDisplay(emptylist, table.indexRange)
         }
 
-        val columnWidths = Array<Float>(numColumns, { 0.0f })
+        val columnWidths = Array(numColumns, { 0.0f })
         val displays: Array<Array<MTDisplay>> = this.typesetCells(table, columnWidths)
 
         // Position all the columns in each row
@@ -1266,11 +1266,11 @@ class MTTypesetter(val font: MTFont, linestyle: MTLineStyle, var cramped: Boolea
 
     // Typeset every cell in the table. As a side-effect calculate the max column width of each column.
     private fun typesetCells(table: MTMathTable, columnWidths: Array<Float>): Array<Array<MTDisplay>> {
-        val displays = Array<Array<MTDisplay>>(table.numRows(), { Array<MTDisplay>(0, { MTDisplay() }) })
+        val displays = Array(table.numRows(), { Array<MTDisplay>(0, { MTDisplay() }) })
 
         for (r in 0 until table.numRows()) {
             val row = table.cells[r]
-            val colDisplays: Array<MTDisplay> = Array<MTDisplay>(row.count(), { MTDisplay() })
+            val colDisplays = Array<MTDisplay>(row.count(), { MTDisplay() })
             displays[r] = colDisplays
             for (i in 0 until row.count()) {
                 val disp: MTDisplay? = createLineForMathList(row[i], font, style, false)

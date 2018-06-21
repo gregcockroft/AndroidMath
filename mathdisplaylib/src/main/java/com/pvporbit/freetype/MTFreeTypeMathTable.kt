@@ -84,7 +84,6 @@ class MTFreeTypeMathTable(val pointer: Long, val data: ByteBuffer) {
 
     init {
         val i = data.remaining()
-        println("i is $i")
         val success = FreeType.FT_Load_Math_Table(pointer, data, data.remaining())
 
         if (success) {

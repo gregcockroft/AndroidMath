@@ -16,18 +16,17 @@ public class FreeType {
     public static native LibraryVersion FT_Library_Version(long library); // [major, minor, patch]
 
     //	public static native long           FT_Open_Face(long library, FT_Open_Args args, long faceIndex); // Nope.
-//	public static native long           FT_New_Face(long library, String filepathname, long faceIndex); // Please use 'FT_New_Memory_Face' or preferable 'library.newFace(path)'
+    //	public static native long           FT_New_Face(long library, String filepathname, long faceIndex); // Please use 'FT_New_Memory_Face' or preferable 'library.newFace(path)'
     public static native long FT_New_Memory_Face(long library, ByteBuffer data, int length, long faceIndex);
 
     // -- For getting math table
 	/*
-	  Uses FT_Load_Sfnt_Table
-			  Tag set to MATH
-			  length must be large enough to hold entire math table
+	  Uses FT_Load_Sfnt_Table with Tag fixed to MATH
+	  data is preallocated and must be large enough to hold entire math table
 
 
-			  imac-3:mathdisplaylib greg$ javah -v -cp build/intermediates/classes/debug -d src/main/cpp/ com.pvporbit.freetype.FreeType
-[No need to update file RegularFileObject[src/main/cpp/com_pvporbit_freetype_FreeType.h]]
+     Example of stub generation
+	 imac-3:mathdisplaylib greg$ javah -v -cp build/intermediates/classes/debug -d src/main/cpp/ com.pvporbit.freetype.FreeType
 
 
 	 */

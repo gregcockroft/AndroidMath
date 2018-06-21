@@ -87,7 +87,7 @@ public class BuilderUnitTest {
             val e: MTParseError = MTParseError()
 
             val list: MTMathList? = MTMathListBuilder.buildFromString(test.srcLaTex, e)
-            assertEquals(e.errorcode, MTParseErrors.ErrorNone)
+            assertEquals(MTParseErrors.ErrorNone, e.errorcode)
             val desc = "Error for string:$test.srcLaTex"
             assertNotNull(desc, list)
             if (list != null) {

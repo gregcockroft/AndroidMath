@@ -18,6 +18,7 @@ import java.io.FileOutputStream
 import java.io.IOException
 import android.support.test.rule.GrantPermissionRule
 import org.junit.Rule
+import com.agog.mathdisplay.MTMathView.MTTextAlignment
 
 
 /**
@@ -27,6 +28,14 @@ import org.junit.Rule
  */
 @RunWith(AndroidJUnit4::class)
 public class ViewInstrumentedTest {
+    val TESTVIEWWIDTH = 640
+    val TESTVIEWHEIGHT = 240
+    val TESTLATEX = "x = \\frac{-b \\pm \\sqrt{b^2-4ac}}{2a}"
+
+    //val TESTVIEWHEIGHT = 100
+    //val TESTLATEX =  "x = 5Gg"
+
+
 
     private var context: Context? = null
     private var font: MTFont? = null
@@ -89,14 +98,9 @@ public class ViewInstrumentedTest {
 
     @Test
     public fun testMTMathView() {
-        //val l =                 """\cos(\theta) = \cos(\theta)\cos(\varphi)"""
-        //val l = """\underline{xyz}+\overline{abc}"""
-        //val l = """\color{#33ffff}{\sqrt[\color{#3399ff}{e}]{\color{#3333ff}{d}}}"""
-        val l = """\hat{xyz} \; \widehat{xyz}\; \vec{2ab}"""
-
         val mathView = MTMathView(context!!)
         mathView.fontSize = 60f
-        mathView.latex = l
+        mathView.latex = TESTLATEX
 
         assertEquals(MTParseErrors.ErrorNone, mathView.lastError.errorcode)
         //Cause the view to re-layout
@@ -110,7 +114,7 @@ public class ViewInstrumentedTest {
     }
 
 
-    //@Test
+    @Test
     public fun testInlineError() {
         val l = """\notacommand"""
 
@@ -132,7 +136,7 @@ public class ViewInstrumentedTest {
     }
 
 
-    //@Test
+    @Test
     public fun testNotInlineError() {
         val l = """\notacommand"""
 
@@ -153,6 +157,53 @@ public class ViewInstrumentedTest {
         mathView.draw(canvas)
         savebitmap("testNotInlineError.png")
     }
+
+    @Test
+    public fun testLeftAlign() {
+        val mathView = MTMathView(context!!)
+        mathView.fontSize = 60f
+        mathView.latex = TESTLATEX
+
+        assertEquals(MTParseErrors.ErrorNone, mathView.lastError.errorcode)
+        //Cause the view to re-layout
+        mathView.layout(0, 0, TESTVIEWWIDTH, TESTVIEWHEIGHT)
+        getCanvas(TESTVIEWWIDTH, TESTVIEWHEIGHT)
+        mathView.draw(canvas)
+        savebitmap("testLeftAlign.png")
+    }
+
+    @Test
+    public fun testCenterAlign() {
+        val mathView = MTMathView(context!!)
+        mathView.fontSize = 60f
+        mathView.latex = TESTLATEX
+        mathView.textAlignment = MTTextAlignment.KMTTextAlignmentCenter
+
+        assertEquals(MTParseErrors.ErrorNone, mathView.lastError.errorcode)
+        //Cause the view to re-layout
+        mathView.layout(0, 0, TESTVIEWWIDTH, TESTVIEWHEIGHT)
+        getCanvas(TESTVIEWWIDTH, TESTVIEWHEIGHT)
+        mathView.draw(canvas)
+        savebitmap("testCenterAlign.png")
+    }
+
+    @Test
+    public fun testRightAlign() {
+        val mathView = MTMathView(context!!)
+        mathView.fontSize = 60f
+        mathView.latex = TESTLATEX
+        mathView.textAlignment = MTTextAlignment.KMTTextAlignmentRight
+
+        assertEquals(MTParseErrors.ErrorNone, mathView.lastError.errorcode)
+        //Cause the view to re-layout
+        mathView.layout(0, 0, TESTVIEWWIDTH, TESTVIEWHEIGHT)
+        getCanvas(TESTVIEWWIDTH, TESTVIEWHEIGHT)
+        mathView.draw(canvas)
+        savebitmap("testRightAlign.png")
+    }
+
+
+
 
 
 }

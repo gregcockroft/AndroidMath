@@ -5,6 +5,7 @@ import android.graphics.Canvas
 import android.graphics.Paint
 import com.pvporbit.freetype.FreeTypeConstants
 import android.util.Log
+import com.agog.mathdisplay.parse.MathDisplayException
 
 
 class MTDrawFreeType(val mathfont: MTFontMathTable) {
@@ -19,7 +20,7 @@ class MTDrawFreeType(val mathfont: MTFontMathTable) {
             if (plainbitmap != null) {
                 if (plainbitmap.width == 0 || plainbitmap.rows == 0) {
                     if (gid != 1) {
-                        Log.d("GREG", "Problem with missing slot " + gid)
+                        throw MathDisplayException("missing glyph slot $gid.")
                     }
                 } else {
                     val bitmap = Bitmap.createBitmap(plainbitmap.width, plainbitmap.rows, Bitmap.Config.ALPHA_8)

@@ -5,6 +5,10 @@ import android.content.res.AssetManager
 import com.agog.mathdisplay.parse.MathDisplayException
 import android.util.Log
 
+public fun PackageWarning(str: String) {
+    Log.w("com.agog.mathdisplay.render", str)
+}
+
 
 class MTFont(private val assets: AssetManager, val name: String, val fontSize: Float, isCopy: Boolean = false) {
     var mathTable: MTFontMathTable = MTFontMathTable(this, null)
@@ -39,7 +43,7 @@ class MTFont(private val assets: AssetManager, val name: String, val fontSize: F
             i += Character.charCount(codepoint)
             val gid = mathTable.getGlyphForCodepoint(codepoint)
             if (gid == 0) {
-                Log.d("GREG", "Failed missing codepoint $codepoint")
+                PackageWarning("getGidListForString codepoint $codepoint mapped to missing glyph")
             }
             ret.add(gid)
         }
