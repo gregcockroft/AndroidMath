@@ -324,7 +324,7 @@ Java_com_pvporbit_freetype_FreeType_FT_1GlyphSlot_1Get_1advance(JNIEnv *env, jcl
     FT_Vector vector = ((FT_GlyphSlot) glyph)->advance;
 
     jclass cls = env->FindClass("com/pvporbit/freetype/GlyphSlot$Advance");
-    jmethodID methodID = env->GetMethodID(cls, "<init>", "(II)V");
+    jmethodID methodID = env->GetMethodID(cls, "<init>", "(JJ)V");
     jobject a = env->NewObject(cls, methodID, (jlong) vector.x, (jlong) vector.y);
     return a;
 }

@@ -53,18 +53,18 @@ public class GlyphSlot extends Pointer {
 
     public static class Advance {
 
-        private final int x, y;
+        private final long x, y;
 
-        public Advance(int x, int y) {
+        public Advance(long x, long y) {
             this.x = x;
             this.y = y;
         }
 
-        public int getX() {
+        public long getX() {
             return x;
         }
 
-        public int getY() {
+        public long getY() {
             return y;
         }
 
