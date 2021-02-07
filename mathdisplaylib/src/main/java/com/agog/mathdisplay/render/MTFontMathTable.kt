@@ -204,6 +204,10 @@ class MTFontMathTable(val font: MTFont, var istreamotf: InputStream?) {
         return enclosing
     }
 
+    private fun fontUnitsToPt(fontUnits: Long): Float {
+        return fontUnits * fontSize / unitsPerEm
+    }
+
     private fun fontUnitsToPt(fontUnits: Int): Float {
         return fontUnits * fontSize / unitsPerEm
     }
