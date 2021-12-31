@@ -61,7 +61,7 @@ public class ViewInstrumentedTest {
     fun getCanvas(w: Int, h: Int) {
         bitmap = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888)
         assertNotNull(bitmap)
-        canvas = Canvas(bitmap)
+        canvas = Canvas(bitmap!!)
         assertNotNull(canvas)
         //canvas!!.translate(0.0f, BITMAPHEIGHT.toFloat())
         //canvas!!.scale(1.0f, -1.0f)

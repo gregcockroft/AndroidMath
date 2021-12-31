@@ -11,7 +11,7 @@ public class GlyphSlot extends Pointer {
 
     public Bitmap getBitmap() {
         long bitmap = FreeType.FT_GlyphSlot_Get_bitmap(pointer);
-        if (bitmap <= 0)
+        if (bitmap == 0)
             return null;
         return new Bitmap(bitmap);
     }
@@ -42,7 +42,7 @@ public class GlyphSlot extends Pointer {
 
     public GlyphMetrics getMetrics() {
         long metrics = FreeType.FT_GlyphSlot_Get_metrics(pointer);
-        if (metrics <= 0)
+        if (metrics == 0)
             return null;
         return new GlyphMetrics(metrics);
     }

@@ -134,14 +134,14 @@ public class Face extends Pointer {
 
     public GlyphSlot getGlyphSlot() {
         long glyph = FreeType.FT_Face_Get_glyph(pointer);
-        if (glyph <= 0)
+        if (glyph == 0)
             return null;
         return new GlyphSlot(glyph);
     }
 
     public Size getSize() {
         long size = FreeType.FT_Face_Get_size(pointer);
-        if (size <= 0)
+        if (size == 0)
             return null;
         return new Size(size);
     }

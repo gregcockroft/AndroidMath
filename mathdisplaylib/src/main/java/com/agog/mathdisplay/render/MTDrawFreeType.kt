@@ -19,7 +19,7 @@ class MTDrawFreeType(val mathfont: MTFontMathTable) {
             val plainbitmap = gslot.getBitmap()
             if (plainbitmap != null) {
                 if (plainbitmap.width == 0 || plainbitmap.rows == 0) {
-                    if (gid != 1) {
+                    if (gid != 1 && gid != 33) {
                         throw MathDisplayException("missing glyph slot $gid.")
                     }
                 } else {

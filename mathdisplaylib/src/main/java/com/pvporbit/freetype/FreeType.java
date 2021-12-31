@@ -198,7 +198,7 @@ public class FreeType {
 
     public static Library newLibrary() {
         long library = FT_Init_FreeType();
-        if (library <= 0)
+        if (library == 0)
             return null;
         return new Library(library);
     }

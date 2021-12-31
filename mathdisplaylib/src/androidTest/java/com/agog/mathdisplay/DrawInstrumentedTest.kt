@@ -57,7 +57,7 @@ public class DrawInstrumentedTest {
 
         bitmap = Bitmap.createBitmap(BITMAPWIDTH, BITMAPHEIGHT, Bitmap.Config.ARGB_8888)
         assertNotNull(bitmap)
-        canvas = Canvas(bitmap)
+        canvas = Canvas(bitmap!!)
         assertNotNull(canvas)
         canvas!!.translate(0.0f, BITMAPHEIGHT.toFloat())
         canvas!!.scale(1.0f, -1.0f)

@@ -37,7 +37,7 @@ enum class MTParseErrors {
     InvalidLimits
 }
 
-data class MTParseError(var errorcode: MTParseErrors = MTParseErrors.ErrorNone, var errordesc: String? = null) {
+data class MTParseError(var errorcode: MTParseErrors = MTParseErrors.ErrorNone, var errordesc: String = "") {
 
     fun copyFrom(src: MTParseError?) {
         if (src != null) {
@@ -48,6 +48,6 @@ data class MTParseError(var errorcode: MTParseErrors = MTParseErrors.ErrorNone, 
 
     fun clear() {
         this.errorcode = MTParseErrors.ErrorNone
-        this.errordesc = null
+        this.errordesc = ""
     }
 }

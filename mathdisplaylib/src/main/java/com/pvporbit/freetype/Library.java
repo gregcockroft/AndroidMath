@@ -53,7 +53,7 @@ public class Library extends Pointer {
      */
     public Face newFace(ByteBuffer file, int faceIndex) {
         long face = FreeType.FT_New_Memory_Face(pointer, file, file.remaining(), faceIndex);
-        if (face <= 0) {
+        if (face == 0) {
             Utils.deleteBuffer(file);
             return null;
         }
