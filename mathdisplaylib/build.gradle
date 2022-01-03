@@ -1,5 +1,6 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
+apply plugin: 'maven-publish'
 
 group='com.github.gregcockroft'
 
@@ -58,6 +59,9 @@ dependencies {
 }
 repositories {
     mavenCentral()
+    google()
+    jcenter()
+    maven { url "https://jitpack.io" }
 }
 
 // This pulls in freetype. Dependencies are in cdep.yml
@@ -74,4 +78,16 @@ preBuild.dependsOn(runcdep)
 //
 //  cd mathdisplaylib
 //  ./cdep
-
+afterEvaluate {
+    publishing {
+        publications {
+            // Creates a Maven publication called "release".
+            release(MavenPublication) {
+                from components.release
+                groupId = 'com.github.gregcockroft'
+                artifactId = 'AndroidMath'
+                version = 'v1.0.0'
+            }
+        }
+    }
+}
