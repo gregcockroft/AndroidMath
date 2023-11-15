@@ -473,6 +473,13 @@ class MTMathListBuilder(str: String) {
                 mathColor.innerList = this.buildInternal(true)
                 return mathColor
             }
+            "textcolor" -> {
+                // A textcolor command has 2 arguments
+                val mathColor = MTMathTextColor()
+                mathColor.colorString = this.readColor()
+                mathColor.innerList = this.buildInternal(true)
+                return mathColor
+            }
             else -> {
                 this.setError(MTParseErrors.InvalidCommand, "Invalid command $command")
                 return null

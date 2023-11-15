@@ -35,7 +35,7 @@ val interElementSpaceArray: Array<Array<MTInterElementSpaceType>> = arrayOf(
 fun getInterElementSpaceArrayIndexForType(type: MTMathAtomType, row: Boolean): Int {
     when (type) {
     // A placeholder is treated as ordinary
-        MTMathAtomType.KMTMathAtomColor, MTMathAtomType.KMTMathAtomOrdinary, MTMathAtomType.KMTMathAtomPlaceholder -> return 0
+        MTMathAtomType.KMTMathAtomColor, MTMathAtomType.KMTMathAtomTextColor, MTMathAtomType.KMTMathAtomOrdinary, MTMathAtomType.KMTMathAtomPlaceholder -> return 0
         MTMathAtomType.KMTMathAtomLargeOperator -> return 1
         MTMathAtomType.KMTMathAtomBinaryOperator -> return 2
         MTMathAtomType.KMTMathAtomRelation -> return 3
