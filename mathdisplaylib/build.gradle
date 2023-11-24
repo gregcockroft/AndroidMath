@@ -41,6 +41,7 @@ android {
         }
     }
     ndkVersion "23.1.7779620"
+    namespace 'com.agog.mathdisplay'
 }
 
 dependencies {
