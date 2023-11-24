@@ -1,7 +1,7 @@
 package com.agog.latexmathsample
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.LinearLayout
@@ -186,8 +186,8 @@ class MainActivity : AppCompatActivity() {
     // Utility functions to make sure menu checked state is correct
     fun menucheck(menu: MenuItem, thisone: Int) {
         val m = menu.subMenu
-        for (i in 0 until m.size()) {
-            val mi = m.getItem(i)
+        for (i in 0 until m!!.size()) {
+            val mi = m!!.getItem(i)
             if (mi.itemId == thisone) {
                 mi.setChecked(true)
             } else {
