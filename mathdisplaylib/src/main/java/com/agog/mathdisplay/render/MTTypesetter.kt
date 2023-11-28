@@ -178,6 +178,43 @@ class MTTypesetter(val font: MTFont, linestyle: MTLineStyle, var cramped: Boolea
                     }
                 }
 
+                KMTMathAtomTextColor -> {
+                    // stash the existing layout
+                    if (currentLine.isNotEmpty()) {
+                        this.addDisplayLine()
+                    }
+                    val colorAtom = atom as MTMathTextColor
+                    if (colorAtom.innerList != null) {
+                        val display = createLineForMathList(colorAtom.innerList!!, font, style)
+                        display.localTextColor = Color.parseColor(colorAtom.colorString)
+
+                        if (prevNode != null) {
+                            val interElementSpace = this.getInterElementSpace(prevNode.type, (display.subDisplays!![0] as MTCTLineDisplay).atoms[0].type)
+                            if (currentLine.isNotEmpty()) {
+                                if (interElementSpace > 0) {
+                                    //throw MathDisplayException("Kerning not handled")
+                                    // add a kerning of that space to the previous character
+                                    /*
+                                    [_currentLine addAttribute:(NSString*) kCTKernAttributeName
+                                            value:[NSNumber numberWithFloat:interElementSpace]
+                                    range:[_currentLine.string rangeOfComposedCharacterSequenceAtIndex:_currentLine.length - 1]]
+                                    */
+                                    // We are drawing a char at a time on Android. So same as single char case
+                                    currentPosition.x += interElementSpace
+                                }
+                            } else {
+                                // increase the space
+                                currentPosition.x += interElementSpace
+                            }
+                        }
+
+                        display.position = currentPosition
+                        currentPosition.x += display.width
+
+                        displayAtoms.add(display)
+                    }
+                }
+
                 KMTMathAtomRadical -> {
                     // stash the existing layout
                     if (currentLine.isNotEmpty()) {

@@ -62,6 +62,7 @@ enum class MTMathAtomType {
     /// Denotes style changes during rendering.
     KMTMathAtomStyle,
     KMTMathAtomColor,
+    KMTMathAtomTextColor,
 
     // Atoms after this point are not part of TeX and do not have the usual structure.
 
@@ -258,6 +259,9 @@ open class MTMathAtom(var type: MTMathAtomType, var nucleus: String) {
                 }
                 MTMathAtomType.KMTMathAtomColor -> {
                     return ("Color")
+                }
+                MTMathAtomType.KMTMathAtomTextColor -> {
+                    return ("TextColor")
                 }
                 MTMathAtomType.KMTMathAtomTable -> {
                     return ("Table")
@@ -862,3 +866,36 @@ class MTMathColor : MTMathAtom(MTMathAtomType.KMTMathAtomColor, "") {
 }
 
 
+// Colors are always KMTMathAtomColor type with a string for the color
+class MTMathTextColor : MTMathAtom(MTMathAtomType.KMTMathAtomTextColor, "") {
+
+
+    /// The inner math list
+    var innerList: MTMathList? = null
+    var colorString: String? = null
+
+
+    override fun toLatexString(): String {
+        var str = "\\textcolor"
+
+        str += "{$this.colorString}{$this.innerList}"
+
+        return super.toStringSubs(str)
+    }
+
+    override fun copyDeep(): MTMathTextColor {
+        val atom = MTMathTextColor()
+        super.copyDeepContent(atom)
+        atom.innerList = this.innerList?.copyDeep()
+        atom.colorString = this.colorString
+        return atom
+    }
+
+    override fun finalized(): MTMathTextColor {
+        val newColor: MTMathTextColor = this.copyDeep()
+        super.finalized(newColor)
+        newColor.innerList = newColor.innerList?.finalized()
+        return newColor
+    }
+
+}
