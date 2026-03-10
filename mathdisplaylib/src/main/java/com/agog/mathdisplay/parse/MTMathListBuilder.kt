@@ -135,6 +135,47 @@ class MTMathListBuilder(str: String) {
                     this.setError(com.agog.mathdisplay.parse.MTParseErrors.MismatchBraces, "Mismatched braces.")
                     return null
                 }
+                '\'' -> {
+                    // Prime shorthand: x' → x^{\prime}, x'' → x^{\prime\prime}, x'^2 → x^{\prime 2}
+                    var count = 1
+                    while (hasCharacters()) {
+                        val nextCh = getNextCharacter()
+                        if (nextCh == '\'') {
+                            count++
+                        } else {
+                            unlookCharacter()
+                            break
+                        }
+                    }
+                    if (prevAtom == null || !prevAtom.scriptsAllowed()) {
+                        prevAtom = MTMathAtom(MTMathAtomType.KMTMathAtomOrdinary, "")
+                        list.addAtom(prevAtom)
+                    }
+                    // Build a superscript list with prime atoms, merging with any existing superscript
+                    val primeList = prevAtom.superScript ?: MTMathList()
+                    repeat(count) {
+                        val primeAtom = MTMathAtom.atomForLatexSymbolName("prime")
+                        if (primeAtom != null) {
+                            primeList.addAtom(primeAtom)
+                        }
+                    }
+                    prevAtom.superScript = primeList
+                    // If followed by ^, the ^ handler will see prevAtom already has superScript
+                    // and create a new empty atom. To support x'^2 properly, check for ^ and
+                    // append to existing superscript.
+                    if (hasCharacters()) {
+                        val nextCh = getNextCharacter()
+                        if (nextCh == '^') {
+                            val additionalSuper = this.buildInternal(true)
+                            if (additionalSuper != null) {
+                                primeList.append(additionalSuper)
+                            }
+                        } else {
+                            unlookCharacter()
+                        }
+                    }
+                    continue@outerloop
+                }
                 '\\' -> {
                     // \ means a command
                     val command: String = readCommand()
@@ -401,7 +442,7 @@ class MTMathListBuilder(str: String) {
         }
 
         when (command) {
-            "frac" -> {
+            "frac", "dfrac" -> {
                 // A fraction command has 2 arguments
                 val frac = MTFraction()
                 frac.numerator = this.buildInternal(true)
@@ -465,6 +506,10 @@ class MTMathListBuilder(str: String) {
             "begin" -> {
                 val env = this.readEnvironment() ?: return null
                 return buildTable(env, null, false)
+            }
+            "operatorname" -> {
+                val name = this.readEnvironment() ?: return null
+                return MTLargeOperator(name, false)
             }
             "color" -> {
                 // A color command has 2 arguments

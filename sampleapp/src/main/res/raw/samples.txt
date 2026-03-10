@@ -144,3 +144,30 @@ x \mathrm x \mathbf x \mathcal X \mathfrak x \mathsf x \bm x \mathtt x \mathit \
 \text{using text}
 \text{Mary has }\$500 + \$200.
 
+# Patch verification: thin space (\,)
+x = 5\, \text{cm}
+
+# Patch verification: \dfrac
+\dfrac{a}{b} + \frac{c}{d}
+
+# Patch verification: arrow accents
+\overrightarrow{AB} \; \overleftarrow{CD} \; \overleftrightarrow{EF}
+
+# Patch verification: \lVert \rVert (double-bar norm)
+\lVert x \rVert = \left\lVert \frac{a}{b} \right\rVert
+
+# Patch verification: \lvert \rvert (single-bar abs)
+\lvert x \rvert = \left\lvert \frac{a}{b} \right\rvert
+
+# Patch verification: split environment
+\begin{split} x &= 1 \\ y &= 2 \end{split}
+
+# Patch verification: smallmatrix environment
+\begin{smallmatrix} a & b \\ c & d \end{smallmatrix}
+
+# Patch verification: \operatorname
+\operatorname{erf}(x) + \operatorname{Tr}(A)
+
+# Patch verification: prime shorthand
+x' \; x'' \; f'(x) \; f'^2(x)
+
