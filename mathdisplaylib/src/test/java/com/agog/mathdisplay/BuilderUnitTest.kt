@@ -59,8 +59,7 @@ public class BuilderUnitTest {
 
     // Verify the list of atom types in the MTMathList matches the types array
     fun checkAtomTypes(list: MTMathList, types: Array<MTMathAtomType>, desc: String) {
-        //assertNotNull(desc,list?.atoms)
-        val atoms: MutableList<MTMathAtom> = list?.atoms
+        val atoms: MutableList<MTMathAtom> = list.atoms
 
         if (atoms.count() != types.count()) {
             dumptypes(atoms, types)
