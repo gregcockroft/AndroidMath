@@ -1569,6 +1569,356 @@ public class BuilderUnitTest {
     }
 
     @Test
+    fun testDfrac() {
+        val str = "\\dfrac1c"
+        val list: MTMathList? = MTMathListBuilder.buildFromString(str)
+        val desc = "Error for string:$str"
+
+        println("In testDfrac")
+        assertNotNull(desc, list)
+        if (list != null) {
+            assertEquals(desc, list.atoms.count(), 1)
+            val frac: MTFraction = list.atoms[0] as MTFraction
+            assertEquals(desc, frac.type, KMTMathAtomFraction)
+            assertEquals(desc, frac.nucleus, "")
+            assertTrue(frac.hasRule)
+            assertNull(frac.rightDelimiter)
+            assertNull(frac.leftDelimiter)
+
+            var subList: MTMathList? = frac.numerator
+            assertNotNull(desc, subList)
+            if (subList != null) {
+                assertEquals(desc, subList.atoms.count(), 1)
+                val atom: MTMathAtom = subList.atoms[0]
+                assertEquals(desc, atom.type, KMTMathAtomNumber)
+                assertEquals(desc, atom.nucleus, "1")
+            }
+
+            subList = frac.denominator
+            assertNotNull(desc, subList)
+            if (subList != null) {
+                assertEquals(desc, subList.atoms.count(), 1)
+                val atom: MTMathAtom = subList.atoms[0]
+                assertEquals(desc, atom.type, KMTMathAtomVariable)
+                assertEquals(desc, atom.nucleus, "c")
+            }
+
+            // dfrac round-trips as \frac since they produce the same structure
+            val latex: String = MTMathListBuilder.toLatexString(list)
+            assertEquals(desc, latex, "\\frac{1}{c}")
+        }
+    }
+
+    @Test
+    fun testLVertRVert() {
+        // Standalone \lVert and \rVert
+        val str = "\\lVert x \\rVert"
+        val e: MTParseError = MTParseError()
+        val list: MTMathList? = MTMathListBuilder.buildFromString(str, e)
+        val desc = "Error for string:$str"
+
+        println("In testLVertRVert")
+        assertEquals(MTParseErrors.ErrorNone, e.errorcode)
+        assertNotNull(desc, list)
+        if (list != null) {
+            checkAtomTypes(list, arrayOf(KMTMathAtomOpen, KMTMathAtomVariable, KMTMathAtomClose), desc)
+            assertEquals(desc, list.atoms[0].nucleus, "\u2016")
+            assertEquals(desc, list.atoms[2].nucleus, "\u2016")
+        }
+
+        // Standalone \lvert and \rvert
+        val str2 = "\\lvert x \\rvert"
+        val e2: MTParseError = MTParseError()
+        val list2: MTMathList? = MTMathListBuilder.buildFromString(str2, e2)
+        val desc2 = "Error for string:$str2"
+
+        assertEquals(MTParseErrors.ErrorNone, e2.errorcode)
+        assertNotNull(desc2, list2)
+        if (list2 != null) {
+            checkAtomTypes(list2, arrayOf(KMTMathAtomOpen, KMTMathAtomVariable, KMTMathAtomClose), desc2)
+            assertEquals(desc2, list2.atoms[0].nucleus, "|")
+            assertEquals(desc2, list2.atoms[2].nucleus, "|")
+        }
+    }
+
+    @Test
+    fun testLeftLVert() {
+        // \left\lVert ... \right\rVert as auto-sizing delimiters
+        val str = "\\left\\lVert x \\right\\rVert"
+        val e: MTParseError = MTParseError()
+        val list: MTMathList? = MTMathListBuilder.buildFromString(str, e)
+        val desc = "Error for string:$str"
+
+        println("In testLeftLVert")
+        assertEquals(MTParseErrors.ErrorNone, e.errorcode)
+        assertNotNull(desc, list)
+        if (list != null) {
+            checkAtomTypes(list, arrayOf(KMTMathAtomInner), desc)
+            val inner: MTInner = list.atoms[0] as MTInner
+            assertEquals(desc, inner.type, KMTMathAtomInner)
+
+            val innerList: MTMathList? = inner.innerList
+            assertNotNull(desc, innerList)
+            if (innerList != null) {
+                checkAtomTypes(innerList, arrayOf(KMTMathAtomVariable), desc)
+            }
+
+            val lb = inner.leftBoundary
+            assertNotNull(desc, lb)
+            if (lb != null) {
+                assertEquals(desc, lb.type, KMTMathAtomBoundary)
+                assertEquals(desc, lb.nucleus, "\u2016")
+            }
+
+            val rb = inner.rightBoundary
+            assertNotNull(desc, rb)
+            if (rb != null) {
+                assertEquals(desc, rb.type, KMTMathAtomBoundary)
+                assertEquals(desc, rb.nucleus, "\u2016")
+            }
+        }
+
+        // \left\lvert ... \right\rvert
+        val str2 = "\\left\\lvert x \\right\\rvert"
+        val e2: MTParseError = MTParseError()
+        val list2: MTMathList? = MTMathListBuilder.buildFromString(str2, e2)
+        val desc2 = "Error for string:$str2"
+
+        assertEquals(MTParseErrors.ErrorNone, e2.errorcode)
+        assertNotNull(desc2, list2)
+        if (list2 != null) {
+            checkAtomTypes(list2, arrayOf(KMTMathAtomInner), desc2)
+            val inner: MTInner = list2.atoms[0] as MTInner
+            val lb = inner.leftBoundary
+            assertNotNull(desc2, lb)
+            if (lb != null) {
+                assertEquals(desc2, lb.nucleus, "|")
+            }
+            val rb = inner.rightBoundary
+            assertNotNull(desc2, rb)
+            if (rb != null) {
+                assertEquals(desc2, rb.nucleus, "|")
+            }
+        }
+    }
+
+    @Test
+    fun testArrowAccents() {
+        // \overrightarrow
+        val str = "\\overrightarrow{AB}"
+        val e: MTParseError = MTParseError()
+        val list: MTMathList? = MTMathListBuilder.buildFromString(str, e)
+        val desc = "Error for string:$str"
+
+        println("In testArrowAccents")
+        assertEquals(MTParseErrors.ErrorNone, e.errorcode)
+        assertNotNull(desc, list)
+        if (list != null) {
+            assertEquals(desc, list.atoms.count(), 1)
+            val accent: MTAccent = list.atoms[0] as MTAccent
+            assertEquals(desc, accent.type, KMTMathAtomAccent)
+            assertEquals(desc, accent.nucleus, "\u20D7")
+
+            val subList: MTMathList? = accent.innerList
+            assertNotNull(desc, subList)
+            if (subList != null) {
+                assertEquals(desc, subList.atoms.count(), 2)
+                assertEquals(desc, subList.atoms[0].type, KMTMathAtomVariable)
+                assertEquals(desc, subList.atoms[0].nucleus, "A")
+                assertEquals(desc, subList.atoms[1].type, KMTMathAtomVariable)
+                assertEquals(desc, subList.atoms[1].nucleus, "B")
+            }
+        }
+
+        // \overleftarrow
+        val str2 = "\\overleftarrow{x}"
+        val e2: MTParseError = MTParseError()
+        val list2: MTMathList? = MTMathListBuilder.buildFromString(str2, e2)
+        assertEquals(MTParseErrors.ErrorNone, e2.errorcode)
+        assertNotNull(list2)
+        if (list2 != null) {
+            val accent: MTAccent = list2.atoms[0] as MTAccent
+            assertEquals(accent.nucleus, "\u20D6")
+        }
+
+        // \overleftrightarrow
+        val str3 = "\\overleftrightarrow{x}"
+        val e3: MTParseError = MTParseError()
+        val list3: MTMathList? = MTMathListBuilder.buildFromString(str3, e3)
+        assertEquals(MTParseErrors.ErrorNone, e3.errorcode)
+        assertNotNull(list3)
+        if (list3 != null) {
+            val accent: MTAccent = list3.atoms[0] as MTAccent
+            assertEquals(accent.nucleus, "\u20E1")
+        }
+    }
+
+    @Test
+    fun testOperatorname() {
+        val str = "\\operatorname{erf}(x)"
+        val e: MTParseError = MTParseError()
+        val list: MTMathList? = MTMathListBuilder.buildFromString(str, e)
+        val desc = "Error for string:$str"
+
+        println("In testOperatorname")
+        assertEquals(MTParseErrors.ErrorNone, e.errorcode)
+        assertNotNull(desc, list)
+        if (list != null) {
+            assertEquals(desc, list.atoms.count(), 4)
+            val op = list.atoms[0] as MTLargeOperator
+            assertEquals(desc, op.type, KMTMathAtomLargeOperator)
+            assertEquals(desc, op.nucleus, "erf")
+            assertFalse(op.hasLimits)
+
+            assertEquals(desc, list.atoms[1].type, KMTMathAtomOpen)
+            assertEquals(desc, list.atoms[2].type, KMTMathAtomVariable)
+            assertEquals(desc, list.atoms[3].type, KMTMathAtomClose)
+        }
+
+        // Test with a different operator name
+        val str2 = "\\operatorname{Tr}(A)"
+        val e2: MTParseError = MTParseError()
+        val list2: MTMathList? = MTMathListBuilder.buildFromString(str2, e2)
+        assertEquals(MTParseErrors.ErrorNone, e2.errorcode)
+        assertNotNull(list2)
+        if (list2 != null) {
+            val op = list2.atoms[0] as MTLargeOperator
+            assertEquals(op.nucleus, "Tr")
+            assertFalse(op.hasLimits)
+        }
+    }
+
+    @Test
+    fun testSmallMatrix() {
+        val str = "\\begin{smallmatrix} x & y \\\\ z & w \\end{smallmatrix}"
+        val list: MTMathList? = MTMathListBuilder.buildFromString(str)
+        val desc = "Error for string:$str"
+
+        println("In testSmallMatrix")
+        assertNotNull(desc, list)
+        if (list != null) {
+            assertEquals(desc, list.atoms.count(), 1)
+            val table: MTMathTable = list.atoms[0] as MTMathTable
+            assertEquals(desc, table.type, KMTMathAtomTable)
+            assertEquals(desc, table.nucleus, "")
+            // smallmatrix is normalized to "matrix" internally
+            assertEquals(desc, table.environment, "matrix")
+            assertEquals(desc, table.interRowAdditionalSpacing, 0.0f)
+            assertEquals(desc, table.interColumnSpacing, 18.0f)
+            assertEquals(desc, table.numRows(), 2)
+            assertEquals(desc, table.numColumns(), 2)
+
+            for (i in 0 until 2) {
+                val alignment: MTColumnAlignment = table.getAlignmentForColumn(i)
+                assertEquals(desc, alignment, MTColumnAlignment.KMTColumnAlignmentCenter)
+                for (j in 0 until 2) {
+                    val cell: MTMathList = table.cells[j][i] as MTMathList
+                    assertEquals(desc, cell.atoms.count(), 2)
+                    val style: MTMathStyle = cell.atoms[0] as MTMathStyle
+                    assertEquals(desc, style.type, KMTMathAtomStyle)
+                    assertEquals(desc, style.style, MTLineStyle.KMTLineStyleText)
+
+                    val atom: MTMathAtom = cell.atoms[1]
+                    assertEquals(desc, atom.type, KMTMathAtomVariable)
+                }
+            }
+        }
+    }
+
+    @Test
+    fun testPrime() {
+        // Single prime: x'
+        var str = "x'"
+        var e: MTParseError = MTParseError()
+        var list: MTMathList? = MTMathListBuilder.buildFromString(str, e)
+        var desc = "Error for string:$str"
+
+        println("In testPrime")
+        assertEquals(MTParseErrors.ErrorNone, e.errorcode)
+        assertNotNull(desc, list)
+        if (list != null) {
+            assertEquals(desc, list.atoms.count(), 1)
+            val atom = list.atoms[0]
+            assertEquals(desc, atom.type, KMTMathAtomVariable)
+            assertEquals(desc, atom.nucleus, "x")
+
+            val superList: MTMathList? = atom.superScript
+            assertNotNull(desc, superList)
+            if (superList != null) {
+                assertEquals(desc, superList.atoms.count(), 1)
+                assertEquals(desc, superList.atoms[0].type, KMTMathAtomOrdinary)
+                assertEquals(desc, superList.atoms[0].nucleus, "\u2032") // prime symbol
+            }
+
+            val latex: String = MTMathListBuilder.toLatexString(list)
+            assertEquals(desc, latex, "x^{\\prime }")
+        }
+
+        // Double prime: x''
+        str = "x''"
+        e = MTParseError()
+        list = MTMathListBuilder.buildFromString(str, e)
+        desc = "Error for string:$str"
+
+        assertEquals(MTParseErrors.ErrorNone, e.errorcode)
+        assertNotNull(desc, list)
+        if (list != null) {
+            assertEquals(desc, list.atoms.count(), 1)
+            val superList: MTMathList? = list.atoms[0].superScript
+            assertNotNull(desc, superList)
+            if (superList != null) {
+                assertEquals(desc, superList.atoms.count(), 2)
+                assertEquals(desc, superList.atoms[0].nucleus, "\u2032")
+                assertEquals(desc, superList.atoms[1].nucleus, "\u2032")
+            }
+
+            val latex: String = MTMathListBuilder.toLatexString(list)
+            assertEquals(desc, latex, "x^{\\prime \\prime }")
+        }
+
+        // Prime with exponent: x'^2
+        str = "x'^2"
+        e = MTParseError()
+        list = MTMathListBuilder.buildFromString(str, e)
+        desc = "Error for string:$str"
+
+        assertEquals(MTParseErrors.ErrorNone, e.errorcode)
+        assertNotNull(desc, list)
+        if (list != null) {
+            assertEquals(desc, list.atoms.count(), 1)
+            val superList: MTMathList? = list.atoms[0].superScript
+            assertNotNull(desc, superList)
+            if (superList != null) {
+                assertEquals(desc, superList.atoms.count(), 2)
+                assertEquals(desc, superList.atoms[0].nucleus, "\u2032") // prime
+                assertEquals(desc, superList.atoms[1].nucleus, "2")      // exponent
+            }
+
+            val latex: String = MTMathListBuilder.toLatexString(list)
+            assertEquals(desc, latex, "x^{\\prime 2}")
+        }
+
+        // Prime at start (no previous atom): '
+        str = "'"
+        e = MTParseError()
+        list = MTMathListBuilder.buildFromString(str, e)
+        desc = "Error for string:$str"
+
+        assertEquals(MTParseErrors.ErrorNone, e.errorcode)
+        assertNotNull(desc, list)
+        if (list != null) {
+            assertEquals(desc, list.atoms.count(), 1)
+            assertEquals(desc, list.atoms[0].type, KMTMathAtomOrdinary)
+            val superList: MTMathList? = list.atoms[0].superScript
+            assertNotNull(desc, superList)
+            if (superList != null) {
+                assertEquals(desc, superList.atoms.count(), 1)
+                assertEquals(desc, superList.atoms[0].nucleus, "\u2032")
+            }
+        }
+    }
+
+    @Test
     fun testNoLimits() {
         // Sum with limits (default)
         var str = "\\sum";
