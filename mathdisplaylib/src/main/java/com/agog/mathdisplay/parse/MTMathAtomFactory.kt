@@ -190,7 +190,8 @@ open class MTMathAtomFactory {
                         "bmatrix" to arrayOf("[", "]"),
                         "Bmatrix" to arrayOf("{", "}"),
                         "vmatrix" to arrayOf("vert", "vert"),
-                        "Vmatrix" to arrayOf("Vert", "Vert"))
+                        "Vmatrix" to arrayOf("Vert", "Vert"),
+                        "smallmatrix" to arrayOf(""))
 
 
         if (matrixEnvs.containsKey(env)) {
