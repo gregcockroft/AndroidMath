@@ -401,7 +401,7 @@ class MTMathListBuilder(str: String) {
         }
 
         when (command) {
-            "frac" -> {
+            "frac", "dfrac" -> {
                 // A fraction command has 2 arguments
                 val frac = MTFraction()
                 frac.numerator = this.buildInternal(true)
@@ -465,6 +465,10 @@ class MTMathListBuilder(str: String) {
             "begin" -> {
                 val env = this.readEnvironment() ?: return null
                 return buildTable(env, null, false)
+            }
+            "operatorname" -> {
+                val name = this.readEnvironment() ?: return null
+                return MTLargeOperator(name, false)
             }
             "color" -> {
                 // A color command has 2 arguments
