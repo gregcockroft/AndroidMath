@@ -620,7 +620,10 @@ open class MTMathAtomFactory {
             "check" to "\u030C",
             "vec" to "\u20D7",
             "widehat" to "\u0302",
-            "widetilde" to "\u0303"
+            "widetilde" to "\u0303",
+            "overrightarrow" to "\u20D7",
+            "overleftarrow" to "\u20D6",
+            "overleftrightarrow" to "\u20E1"
     )
 
     // Reverse of above with preference for shortest command on overlap
