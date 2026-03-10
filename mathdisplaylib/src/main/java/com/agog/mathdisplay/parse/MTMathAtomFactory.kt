@@ -351,12 +351,16 @@ open class MTMathAtomFactory {
             "lfloor" to MTMathAtom(MTMathAtomType.KMTMathAtomOpen, "\u230A"),
             "langle" to MTMathAtom(MTMathAtomType.KMTMathAtomOpen, "\u27E8"),
             "lgroup" to MTMathAtom(MTMathAtomType.KMTMathAtomOpen, "\u27EE"),
+            "lVert" to MTMathAtom(MTMathAtomType.KMTMathAtomOpen, "\u2016"),
+            "lvert" to MTMathAtom(MTMathAtomType.KMTMathAtomOpen, "|"),
 
             // Close
             "rceil" to MTMathAtom(MTMathAtomType.KMTMathAtomClose, "\u2309"),
             "rfloor" to MTMathAtom(MTMathAtomType.KMTMathAtomClose, "\u230B"),
             "rangle" to MTMathAtom(MTMathAtomType.KMTMathAtomClose, "\u27E9"),
             "rgroup" to MTMathAtom(MTMathAtomType.KMTMathAtomClose, "\u27EF"),
+            "rVert" to MTMathAtom(MTMathAtomType.KMTMathAtomClose, "\u2016"),
+            "rvert" to MTMathAtom(MTMathAtomType.KMTMathAtomClose, "|"),
 
             // Arrows
             "leftarrow" to MTMathAtom(MTMathAtomType.KMTMathAtomRelation, "\u2190"),
@@ -673,7 +677,11 @@ open class MTMathAtomFactory {
             "lceil" to "\u2308",
             "rceil" to "\u2309",
             "lfloor" to "\u230A",
-            "rfloor" to "\u230B"
+            "rfloor" to "\u230B",
+            "lVert" to "\u2016",
+            "rVert" to "\u2016",
+            "lvert" to "|",
+            "rvert" to "|"
     )
 
     // Reverse of above with preference for shortest command on overlap
